@@ -3,7 +3,7 @@ package com.hitanshudhawan.spannablestringparser.parser
 import com.hitanshudhawan.spannablestringparser.lexer.Token
 import com.hitanshudhawan.spannablestringparser.lexer.TokenType.*
 
-class FiniteStateAutomaton {
+class FiniteAutomaton {
 
     val initialState = 1
     val leftBraceState = 2

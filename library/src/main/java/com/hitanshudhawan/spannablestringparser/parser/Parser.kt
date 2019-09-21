@@ -11,7 +11,7 @@ class Parser(private val tokens: List<Token>) {
 
         val syntaxTree = ArrayList<Node>()
 
-        val stateAutomaton = FiniteStateAutomaton()
+        val stateAutomaton = FiniteAutomaton()
         val queue: Queue<Token> = LinkedList<Token>()
 
         var text = ""
@@ -36,7 +36,7 @@ class Parser(private val tokens: List<Token>) {
                         ruleSetTokens.add(queue.remove())
                     ruleSetTokens.add(token)
 
-                    val ruleSetStateAutomaton = FiniteStateAutomaton()
+                    val ruleSetStateAutomaton = FiniteAutomaton()
                     var ruleSetText = ""
                     var ruleSetProperty = ""
                     var ruleSetValue = ""
