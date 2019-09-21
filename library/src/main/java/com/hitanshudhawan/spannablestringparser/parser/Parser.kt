@@ -5,7 +5,7 @@ import com.hitanshudhawan.spannablestringparser.lexer.TokenType.*
 import java.util.*
 import kotlin.collections.ArrayList
 
-class Parser(private val tokens: List<Token>) {
+internal class Parser(private val tokens: List<Token>) {
 
     fun parse(): List<Node> {
 

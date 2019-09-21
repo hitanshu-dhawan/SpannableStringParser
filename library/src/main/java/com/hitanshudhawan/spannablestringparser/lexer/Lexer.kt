@@ -2,7 +2,7 @@ package com.hitanshudhawan.spannablestringparser.lexer
 
 import com.hitanshudhawan.spannablestringparser.lexer.TokenType.*
 
-class Lexer(private val text: String) {
+internal class Lexer(private val text: String) {
 
     private var index = 0
 
