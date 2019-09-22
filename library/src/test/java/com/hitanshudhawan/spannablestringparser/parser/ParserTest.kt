@@ -1,6 +1,6 @@
 package com.hitanshudhawan.spannablestringparser.parser
 
-import com.hitanshudhawan.spannablestringparser.TestingUtils
+import com.hitanshudhawan.spannablestringparser.TestingUtils.testingStrings
 import com.hitanshudhawan.spannablestringparser.parse
 import com.hitanshudhawan.spannablestringparser.tokenize
 import org.junit.Assert.assertEquals
@@ -14,7 +14,7 @@ class ParserTest {
             listOf(
                 Node("Hello Hitanshu")
             ),
-            TestingUtils.testingStrings.getValue(1).tokenize().parse()
+            testingStrings.getValue(1).tokenize().parse()
         )
     }
 
