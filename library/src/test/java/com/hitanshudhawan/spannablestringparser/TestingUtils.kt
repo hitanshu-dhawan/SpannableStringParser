@@ -2,9 +2,113 @@ package com.hitanshudhawan.spannablestringparser
 
 object TestingUtils {
 
-    val testingStrings by lazy {
+    val testStrings by lazy {
         mapOf(
-            1 to "Hello Hitanshu"
+            1 to "Hello Hitanshu",
+            2 to "Hello {Hitanshu}",
+            3 to "Hello 'Hitanshu'",
+            4 to "Hello <Hitanshu>",
+            5 to "Hello :Hitanshu:",
+            6 to "Hello |Hitanshu|",
+            7 to "Hello ;Hitanshu;",
+            8 to "Hello /Hitanshu/",
+            9 to "Hello </Hitanshu/>",
+            //
+            10 to "{'Hitanshu'<a:b|c;d:e/>}",
+            11 to "{ 'Hitanshu'<a:b|c;d:e/>}",
+            12 to "{ 'Hitanshu' <a:b|c;d:e/>}",
+            13 to "{ 'Hitanshu' < a:b|c;d:e/>}",
+            14 to "{ 'Hitanshu' < a :b|c;d:e/>}",
+            15 to "{ 'Hitanshu' < a : b|c;d:e/>}",
+            16 to "{ 'Hitanshu' < a : b |c;d:e/>}",
+            17 to "{ 'Hitanshu' < a : b | c;d:e/>}",
+            18 to "{ 'Hitanshu' < a : b | c ;d:e/>}",
+            19 to "{ 'Hitanshu' < a : b | c ; d:e/>}",
+            20 to "{ 'Hitanshu' < a : b | c ; d :e/>}",
+            21 to "{ 'Hitanshu' < a : b | c ; d : e/>}",
+            22 to "{ 'Hitanshu' < a : b | c ; d : e />}",
+            23 to "{ 'Hitanshu' < a : b | c ; d : e /> }",
+            //
+            24 to "  {'Hitanshu'<a:b|c;d:e/>}{'Dhawan'<a:b|c;d:e/>}  ",
+            25 to " {{'Hitanshu'<a:b|c;d:e/>}{'Dhawan'<a:b|c;d:e/>}} ",
+            26 to "{{'Hitanshu'<a:b|c;d:e/>}}{{'Dhawan'<a:b|c;d:e/>}}",
+            27 to "   {'Hitanshu'<a:b|c;d:e/>} {'Dhawan'<a:b|c;d:e/>}   ",
+            28 to "  {{'Hitanshu'<a:b|c;d:e/>} {'Dhawan'<a:b|c;d:e/>}}  ",
+            29 to " {{'Hitanshu'<a:b|c;d:e/>}} {{'Dhawan'<a:b|c;d:e/>}} ",
+            //
+            30 to "{ 'Hitanshu Dhawan : Android Developer' <a:b|c;d:e/> }",
+            31 to "{ 'Hitanshu Dhawan | Android Developer' <a:b|c;d:e/> }",
+            32 to "{ 'Hitanshu Dhawan ; Android Developer' <a:b|c;d:e/> }",
+            //
+            33 to "Hello { 'Hitanshu Dhawan' <a:b|c;d:e/> }, How are you bro?",
+            34 to "Hello { 'Hitanshu Dhawan' <a:b|c;d:e/> }, How are you { 'bro' <a:b|c;d:e/> }?",
+            35 to "Hello { ' Hitanshu Dhawan ' <a:b|c;d:e/> }, How are you bro?",
+            36 to "Hello { ' Hitanshu Dhawan ' <a:b|c;d:e/> }, How are you { ' bro ' <a:b|c;d:e/> }?",
+            //
+            37 to "Hello { '    ' < a : b | c ; d : e /> }",
+            38 to "Hello {   ''   < a : b | c ; d : e /> }",
+            39 to "Hello   'John' < a : b | c ; d : e /> }",
+            40 to "Hello {  John' < a : b | c ; d : e /> }",
+            41 to "Hello { 'John  < a : b | c ; d : e /> }",
+            42 to "Hello { 'John'   a : b | c ; d : e /> }",
+            43 to "Hello { 'John' <   : b | c ; d : e /> }",
+            44 to "Hello { 'John' < a   b | c ; d : e /> }",
+            45 to "Hello { 'John' < a :   | c ; d : e /> }",
+            46 to "Hello { 'John' < a : b   c ; d : e /> }",
+            47 to "Hello { 'John' < a : b |   ; d : e /> }",
+            48 to "Hello { 'John' < a : b | c   d : e /> }",
+            49 to "Hello { 'John' < a : b | c ;   : e /> }",
+            50 to "Hello { 'John' < a : b | c ; d   e /> }",
+            51 to "Hello { 'John' < a : b | c ; d :   /> }",
+            52 to "Hello { 'John' < a : b | c ; d : e  > }",
+            53 to "Hello { 'John' < a : b | c ; d : e /  }",
+            54 to "Hello { 'John' < a : b | c ; d : e    }",
+            55 to "Hello { 'John' < a : b | c ; d : e />  ",
+            56 to "Hello { 'John' < a : b | c ; d : e | /> }",
+            57 to "Hello { 'John' < a : b | c ; d : e ; /> }",
+            58 to "Hello { '    ' < a : b | c ; d : e /> }, How are you bro?",
+            59 to "Hello {   ''   < a : b | c ; d : e /> }, How are you bro?",
+            60 to "Hello   'John' < a : b | c ; d : e /> }, How are you bro?",
+            61 to "Hello {  John' < a : b | c ; d : e /> }, How are you bro?",
+            62 to "Hello { 'John  < a : b | c ; d : e /> }, How are you bro?",
+            63 to "Hello { 'John'   a : b | c ; d : e /> }, How are you bro?",
+            64 to "Hello { 'John' <   : b | c ; d : e /> }, How are you bro?",
+            65 to "Hello { 'John' < a   b | c ; d : e /> }, How are you bro?",
+            66 to "Hello { 'John' < a :   | c ; d : e /> }, How are you bro?",
+            67 to "Hello { 'John' < a : b   c ; d : e /> }, How are you bro?",
+            68 to "Hello { 'John' < a : b |   ; d : e /> }, How are you bro?",
+            69 to "Hello { 'John' < a : b | c   d : e /> }, How are you bro?",
+            70 to "Hello { 'John' < a : b | c ;   : e /> }, How are you bro?",
+            71 to "Hello { 'John' < a : b | c ; d   e /> }, How are you bro?",
+            72 to "Hello { 'John' < a : b | c ; d :   /> }, How are you bro?",
+            73 to "Hello { 'John' < a : b | c ; d : e  > }, How are you bro?",
+            74 to "Hello { 'John' < a : b | c ; d : e /  }, How are you bro?",
+            75 to "Hello { 'John' < a : b | c ; d : e    }, How are you bro?",
+            76 to "Hello { 'John' < a : b | c ; d : e />  , How are you bro?",
+            77 to "Hello { 'John' < a : b | c ; d : e | /> }, How are you bro?",
+            78 to "Hello { 'John' < a : b | c ; d : e ; /> }, How are you bro?",
+            //
+            79 to "{  ':'  <a:b|c;d:e/> }",
+            80 to "{  '|'  <a:b|c;d:e/> }",
+            81 to "{  ';'  <a:b|c;d:e/> }",
+            82 to "{ ' : ' <a:b|c;d:e/> }",
+            83 to "{ ' | ' <a:b|c;d:e/> }",
+            84 to "{ ' ; ' <a:b|c;d:e/> }",
+            //
+            85 to "{{{'Hitanshu'<a:b|c;d:e/>}{'Dhawan'<a:b|c;d:e/>}}}",
+            //
+            86 to "Hello { < a : b | c ; d : e /> }, How are you bro?",
+            //
+            87 to "Hello { 'John' < a : b | c ; d : e : f /> }, How are you bro?",
+            88 to "Hello { 'John' < a   b   c   d   e   f /> }, How are you bro?",
+            89 to "Hello { 'John' < a : b : c : d : e : f /> }, How are you bro?",
+            90 to "Hello { 'John' < a | b | c | d | e | f /> }, How are you bro?",
+            91 to "Hello { 'John' < a ; b ; c ; d ; e ; f /> }, How are you bro?",
+            //
+            92 to "Hello   John < a : b | c ; d : e />  , How are you bro?",
+            93 to "Hello { John < a : b | c ; d : e /> }, How are you bro?",
+            //...
+            99 to "Hello Dhawan"
         )
     }
 

@@ -7,7 +7,7 @@ import kotlin.collections.ArrayList
 
 internal class Parser(private val tokens: List<Token>) {
 
-    fun parse(): List<Node> {
+    fun parse(): List<Node> { // TODO
 
         val syntaxTree = ArrayList<Node>()
 
@@ -44,26 +44,46 @@ internal class Parser(private val tokens: List<Token>) {
                     for (ruleSetToken in ruleSetTokens) {
                         val ruleSetState = ruleSetStateAutomaton.transit(ruleSetToken)
                         when (ruleSetState) {
-                            ruleSetStateAutomaton.leftSingleQuote -> {
+                            ruleSetStateAutomaton.leftBraceState -> { // 2
+                                //
+                            }
+                            ruleSetStateAutomaton.leftSingleQuote -> { // 3
                                 if (ruleSetToken.tokenType == WHITESPACE)
                                     ruleSetText += ruleSetToken.value ?: ""
                             }
-                            ruleSetStateAutomaton.textState -> {
+                            ruleSetStateAutomaton.textState -> { // 4
                                 ruleSetText += ruleSetToken.value ?: ""
                             }
-                            ruleSetStateAutomaton.propertyState -> {
-                                if (ruleSetProperty.isEmpty())
+                            ruleSetStateAutomaton.rightSingleQuote -> { // 5
+                                //
+                            }
+                            ruleSetStateAutomaton.startTagState -> { // 6
+                                // ruleSetProperty = ""
+                                // ruleSetValue = ""
+                            }
+                            ruleSetStateAutomaton.propertyState -> { // 7
+                                if (ruleSetToken.tokenType == TEXT)
                                     ruleSetProperty = ruleSetToken.value ?: ""
                             }
-                            ruleSetStateAutomaton.valueState -> {
-                                if (ruleSetValue.isEmpty())
+                            ruleSetStateAutomaton.colonState -> { // 8
+                                //
+                            }
+                            ruleSetStateAutomaton.valueState -> { // 9
+                                if (ruleSetToken.tokenType == TEXT) {
                                     ruleSetValue = ruleSetToken.value ?: ""
 
-                                if (ruleSetText.isNotEmpty() && ruleSetProperty.isNotEmpty() && ruleSetValue.isNotEmpty())
+                                    // if (ruleSetText.isNotEmpty() && ruleSetProperty.isNotEmpty() && ruleSetValue.isNotEmpty())
                                     ruleSetDeclarations.add(Declaration(ruleSetProperty, ruleSetValue))
 
-                                ruleSetProperty = ""
-                                ruleSetValue = ""
+                                    // ruleSetProperty = ""
+                                    // ruleSetValue = ""
+                                }
+                            }
+                            ruleSetStateAutomaton.endTagState -> { // 10
+                                //
+                            }
+                            ruleSetStateAutomaton.rightBraceState -> { // 11
+                                //
                             }
                         }
                     }
