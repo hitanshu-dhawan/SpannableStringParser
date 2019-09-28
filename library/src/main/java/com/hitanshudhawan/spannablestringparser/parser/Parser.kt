@@ -24,6 +24,13 @@ internal class Parser(private val tokens: List<Token>) {
                         text += queue.remove().text()
                     text += token.text()
                 }
+                finiteAutomaton.leftBraceState -> {
+                    if (token.tokenType != WHITESPACE) {
+                        while (queue.isNotEmpty())
+                            text += queue.remove().text()
+                    }
+                    queue.add(token)
+                }
                 finiteAutomaton.rightBraceState -> {
                     if (text.isNotEmpty())
                         syntaxTree.add(Node(text))
@@ -64,11 +71,11 @@ internal class Parser(private val tokens: List<Token>) {
                     //
                 }
                 finiteAutomaton.leftSingleQuote -> { // 3
-                    if (ruleSetToken.tokenType == WHITESPACE)
-                        ruleSetText += ruleSetToken.value ?: ""
+                    if (ruleSetToken.tokenType != SINGLE_QUOTE)
+                        ruleSetText += ruleSetToken.text()
                 }
                 finiteAutomaton.textState -> { // 4
-                    ruleSetText += ruleSetToken.value ?: ""
+                    ruleSetText += ruleSetToken.text()
                 }
                 finiteAutomaton.rightSingleQuote -> { // 5
                     //
