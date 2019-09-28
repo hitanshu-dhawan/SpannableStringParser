@@ -651,7 +651,15 @@ class ParserTest {
     fun test037() {
         assertEquals(
             listOf(
-                Node("Hello { '    ' < a : b | c ; d : e /> }")
+                Node("Hello "),
+                Node(
+                    "    ",
+                    listOf(
+                        Declaration("a", "b"),
+                        Declaration("a", "c"),
+                        Declaration("d", "e")
+                    )
+                )
             ),
             testStrings.getValue(37).tokenize().parse()
         )
@@ -661,7 +669,15 @@ class ParserTest {
     fun test038() {
         assertEquals(
             listOf(
-                Node("Hello {   ''   < a : b | c ; d : e /> }")
+                Node("Hello "),
+                Node(
+                    "",
+                    listOf(
+                        Declaration("a", "b"),
+                        Declaration("a", "c"),
+                        Declaration("d", "e")
+                    )
+                )
             ),
             testStrings.getValue(38).tokenize().parse()
         )
@@ -861,7 +877,16 @@ class ParserTest {
     fun test058() {
         assertEquals(
             listOf(
-                Node("Hello { '    ' < a : b | c ; d : e /> }, How are you bro?")
+                Node("Hello "),
+                Node(
+                    "    ",
+                    listOf(
+                        Declaration("a", "b"),
+                        Declaration("a", "c"),
+                        Declaration("d", "e")
+                    )
+                ),
+                Node(", How are you bro?")
             ),
             testStrings.getValue(58).tokenize().parse()
         )
@@ -871,7 +896,16 @@ class ParserTest {
     fun test059() {
         assertEquals(
             listOf(
-                Node("Hello {   ''   < a : b | c ; d : e /> }, How are you bro?")
+                Node("Hello "),
+                Node(
+                    "",
+                    listOf(
+                        Declaration("a", "b"),
+                        Declaration("a", "c"),
+                        Declaration("d", "e")
+                    )
+                ),
+                Node(", How are you bro?")
             ),
             testStrings.getValue(59).tokenize().parse()
         )
@@ -1088,14 +1122,7 @@ class ParserTest {
     fun test080() {
         assertEquals(
             listOf(
-                Node(
-                    "'",
-                    listOf(
-                        Declaration("a", "b"),
-                        Declaration("a", "c"),
-                        Declaration("d", "e")
-                    )
-                )
+                Node("{  '''  <a:b|c;d:e/> }")
             ),
             testStrings.getValue(80).tokenize().parse()
         )
@@ -1224,14 +1251,7 @@ class ParserTest {
     fun test088() {
         assertEquals(
             listOf(
-                Node(
-                    " ' ",
-                    listOf(
-                        Declaration("a", "b"),
-                        Declaration("a", "c"),
-                        Declaration("d", "e")
-                    )
-                )
+                Node("{  ' ' '  <a:b|c;d:e/> }")
             ),
             testStrings.getValue(88).tokenize().parse()
         )
