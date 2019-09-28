@@ -1072,7 +1072,7 @@ class ParserTest {
         assertEquals(
             listOf(
                 Node(
-                    ":",
+                    "{",
                     listOf(
                         Declaration("a", "b"),
                         Declaration("a", "c"),
@@ -1089,7 +1089,7 @@ class ParserTest {
         assertEquals(
             listOf(
                 Node(
-                    "|",
+                    "'",
                     listOf(
                         Declaration("a", "b"),
                         Declaration("a", "c"),
@@ -1106,7 +1106,7 @@ class ParserTest {
         assertEquals(
             listOf(
                 Node(
-                    ";",
+                    "<",
                     listOf(
                         Declaration("a", "b"),
                         Declaration("a", "c"),
@@ -1123,7 +1123,7 @@ class ParserTest {
         assertEquals(
             listOf(
                 Node(
-                    " : ",
+                    ":",
                     listOf(
                         Declaration("a", "b"),
                         Declaration("a", "c"),
@@ -1140,7 +1140,7 @@ class ParserTest {
         assertEquals(
             listOf(
                 Node(
-                    " | ",
+                    "|",
                     listOf(
                         Declaration("a", "b"),
                         Declaration("a", "c"),
@@ -1157,7 +1157,7 @@ class ParserTest {
         assertEquals(
             listOf(
                 Node(
-                    " ; ",
+                    ";",
                     listOf(
                         Declaration("a", "b"),
                         Declaration("a", "c"),
@@ -1171,6 +1171,246 @@ class ParserTest {
 
     @Test
     fun test085() {
+        assertEquals(
+            listOf(
+                Node(
+                    "/>",
+                    listOf(
+                        Declaration("a", "b"),
+                        Declaration("a", "c"),
+                        Declaration("d", "e")
+                    )
+                )
+            ),
+            testStrings.getValue(85).tokenize().parse()
+        )
+    }
+
+    @Test
+    fun test086() {
+        assertEquals(
+            listOf(
+                Node(
+                    "}",
+                    listOf(
+                        Declaration("a", "b"),
+                        Declaration("a", "c"),
+                        Declaration("d", "e")
+                    )
+                )
+            ),
+            testStrings.getValue(86).tokenize().parse()
+        )
+    }
+
+    @Test
+    fun test087() {
+        assertEquals(
+            listOf(
+                Node(
+                    " { ",
+                    listOf(
+                        Declaration("a", "b"),
+                        Declaration("a", "c"),
+                        Declaration("d", "e")
+                    )
+                )
+            ),
+            testStrings.getValue(87).tokenize().parse()
+        )
+    }
+
+    @Test
+    fun test088() {
+        assertEquals(
+            listOf(
+                Node(
+                    " ' ",
+                    listOf(
+                        Declaration("a", "b"),
+                        Declaration("a", "c"),
+                        Declaration("d", "e")
+                    )
+                )
+            ),
+            testStrings.getValue(88).tokenize().parse()
+        )
+    }
+
+    @Test
+    fun test089() {
+        assertEquals(
+            listOf(
+                Node(
+                    " < ",
+                    listOf(
+                        Declaration("a", "b"),
+                        Declaration("a", "c"),
+                        Declaration("d", "e")
+                    )
+                )
+            ),
+            testStrings.getValue(89).tokenize().parse()
+        )
+    }
+
+    @Test
+    fun test090() {
+        assertEquals(
+            listOf(
+                Node(
+                    " : ",
+                    listOf(
+                        Declaration("a", "b"),
+                        Declaration("a", "c"),
+                        Declaration("d", "e")
+                    )
+                )
+            ),
+            testStrings.getValue(90).tokenize().parse()
+        )
+    }
+
+    @Test
+    fun test091() {
+        assertEquals(
+            listOf(
+                Node(
+                    " | ",
+                    listOf(
+                        Declaration("a", "b"),
+                        Declaration("a", "c"),
+                        Declaration("d", "e")
+                    )
+                )
+            ),
+            testStrings.getValue(91).tokenize().parse()
+        )
+    }
+
+    @Test
+    fun test092() {
+        assertEquals(
+            listOf(
+                Node(
+                    " ; ",
+                    listOf(
+                        Declaration("a", "b"),
+                        Declaration("a", "c"),
+                        Declaration("d", "e")
+                    )
+                )
+            ),
+            testStrings.getValue(92).tokenize().parse()
+        )
+    }
+
+    @Test
+    fun test093() {
+        assertEquals(
+            listOf(
+                Node(
+                    " /> ",
+                    listOf(
+                        Declaration("a", "b"),
+                        Declaration("a", "c"),
+                        Declaration("d", "e")
+                    )
+                )
+            ),
+            testStrings.getValue(93).tokenize().parse()
+        )
+    }
+
+    @Test
+    fun test094() {
+        assertEquals(
+            listOf(
+                Node(
+                    " } ",
+                    listOf(
+                        Declaration("a", "b"),
+                        Declaration("a", "c"),
+                        Declaration("d", "e")
+                    )
+                )
+            ),
+            testStrings.getValue(94).tokenize().parse()
+        )
+    }
+
+    @Test
+    fun test095() {
+        assertEquals(
+            listOf(
+                Node("Hello { 'John' < a : b | c ; d : e : f /> }, How are you bro?")
+            ),
+            testStrings.getValue(95).tokenize().parse()
+        )
+    }
+
+    @Test
+    fun test096() {
+        assertEquals(
+            listOf(
+                Node("Hello { 'John' < a   b   c   d   e   f /> }, How are you bro?")
+            ),
+            testStrings.getValue(96).tokenize().parse()
+        )
+    }
+
+    @Test
+    fun test097() {
+        assertEquals(
+            listOf(
+                Node("Hello { 'John' < a : b : c : d : e : f /> }, How are you bro?")
+            ),
+            testStrings.getValue(97).tokenize().parse()
+        )
+    }
+
+    @Test
+    fun test098() {
+        assertEquals(
+            listOf(
+                Node("Hello { 'John' < a | b | c | d | e | f /> }, How are you bro?")
+            ),
+            testStrings.getValue(98).tokenize().parse()
+        )
+    }
+
+    @Test
+    fun test099() {
+        assertEquals(
+            listOf(
+                Node("Hello { 'John' < a ; b ; c ; d ; e ; f /> }, How are you bro?")
+            ),
+            testStrings.getValue(99).tokenize().parse()
+        )
+    }
+
+    @Test
+    fun test100() {
+        assertEquals(
+            listOf(
+                Node("Hello   John < a : b | c ; d : e />  , How are you bro?")
+            ),
+            testStrings.getValue(100).tokenize().parse()
+        )
+    }
+
+    @Test
+    fun test101() {
+        assertEquals(
+            listOf(
+                Node("Hello { John < a : b | c ; d : e /> }, How are you bro?")
+            ),
+            testStrings.getValue(101).tokenize().parse()
+        )
+    }
+
+    @Test
+    fun test102() {
         assertEquals(
             listOf(
                 Node("{{"),
@@ -1192,99 +1432,45 @@ class ParserTest {
                 ),
                 Node("}}")
             ),
-            testStrings.getValue(85).tokenize().parse()
+            testStrings.getValue(102).tokenize().parse()
         )
     }
 
     @Test
-    fun test086() {
+    fun test103() {
+        assertEquals(
+            listOf(
+                Node("{{{"),
+                Node(
+                    "Hitanshu",
+                    listOf(
+                        Declaration("a", "b"),
+                        Declaration("a", "c"),
+                        Declaration("d", "e")
+                    )
+                ),
+                Node(
+                    "Dhawan",
+                    listOf(
+                        Declaration("a", "b"),
+                        Declaration("a", "c"),
+                        Declaration("d", "e")
+                    )
+                ),
+                Node("}}}")
+            ),
+            testStrings.getValue(103).tokenize().parse()
+        )
+    }
+
+    @Test
+    fun test104() {
         assertEquals(
             listOf(
                 Node("Hello { < a : b | c ; d : e /> }, How are you bro?")
             ),
-            testStrings.getValue(86).tokenize().parse()
+            testStrings.getValue(104).tokenize().parse()
         )
     }
 
-    @Test
-    fun test087() {
-        assertEquals(
-            listOf(
-                Node("Hello { 'John' < a : b | c ; d : e : f /> }, How are you bro?")
-            ),
-            testStrings.getValue(87).tokenize().parse()
-        )
-    }
-
-    @Test
-    fun test088() {
-        assertEquals(
-            listOf(
-                Node("Hello { 'John' < a   b   c   d   e   f /> }, How are you bro?")
-            ),
-            testStrings.getValue(88).tokenize().parse()
-        )
-    }
-
-    @Test
-    fun test089() {
-        assertEquals(
-            listOf(
-                Node("Hello { 'John' < a : b : c : d : e : f /> }, How are you bro?")
-            ),
-            testStrings.getValue(89).tokenize().parse()
-        )
-    }
-
-    @Test
-    fun test090() {
-        assertEquals(
-            listOf(
-                Node("Hello { 'John' < a | b | c | d | e | f /> }, How are you bro?")
-            ),
-            testStrings.getValue(90).tokenize().parse()
-        )
-    }
-
-    @Test
-    fun test091() {
-        assertEquals(
-            listOf(
-                Node("Hello { 'John' < a ; b ; c ; d ; e ; f /> }, How are you bro?")
-            ),
-            testStrings.getValue(91).tokenize().parse()
-        )
-    }
-
-    @Test
-    fun test092() {
-        assertEquals(
-            listOf(
-                Node("Hello   John < a : b | c ; d : e />  , How are you bro?")
-            ),
-            testStrings.getValue(92).tokenize().parse()
-        )
-    }
-
-    @Test
-    fun test093() {
-        assertEquals(
-            listOf(
-                Node("Hello { John < a : b | c ; d : e /> }, How are you bro?")
-            ),
-            testStrings.getValue(93).tokenize().parse()
-        )
-    }
-
-    //...
-
-    @Test
-    fun test099() {
-        assertEquals(
-            listOf(
-                Node("Hello Dhawan")
-            ),
-            testStrings.getValue(99).tokenize().parse()
-        )
-    }
 }
