@@ -5,7 +5,9 @@ import android.graphics.Typeface
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.SpannableStringBuilder
+import android.text.style.AbsoluteSizeSpan
 import android.text.style.ForegroundColorSpan
+import android.text.style.RelativeSizeSpan
 import android.text.style.StyleSpan
 import com.hitanshudhawan.spannablestringparser.parser.Node
 
@@ -62,7 +64,18 @@ internal class Spanner(private val syntaxTree: List<Node>) {
                 }
 
                 "font-size" -> {
-                    //
+                    val value = declaration.value
+                    when {
+                        value.endsWith("dp") -> {
+                            text.setSpan(AbsoluteSizeSpan(value.substring(0, value.length - 2).toInt(), true))
+                        }
+                        value.endsWith("em") -> {
+                            text.setSpan(RelativeSizeSpan(value.substring(0, value.length - 2).toFloat()))
+                        }
+                        value.endsWith("px") -> {
+                            text.setSpan(AbsoluteSizeSpan(value.substring(0, value.length - 2).toInt(), false))
+                        }
+                    }
                 }
 
                 "font-style" -> {
