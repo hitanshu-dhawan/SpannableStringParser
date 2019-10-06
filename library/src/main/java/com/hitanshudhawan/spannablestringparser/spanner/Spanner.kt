@@ -1,7 +1,10 @@
 package com.hitanshudhawan.spannablestringparser.spanner
 
+import android.graphics.Color
+import android.text.Spannable
 import android.text.SpannableString
 import android.text.SpannableStringBuilder
+import android.text.style.ForegroundColorSpan
 import com.hitanshudhawan.spannablestringparser.parser.Node
 
 internal class Spanner(private val syntaxTree: List<Node>) {
@@ -24,13 +27,59 @@ internal class Spanner(private val syntaxTree: List<Node>) {
 
             when (declaration.property) {
 
-                // ...
+                "color" -> {
+                    text.setSpan(ForegroundColorSpan(Color.parseColor(declaration.value)))
+                }
+
+                "letter-spacing" -> {
+                    //
+                }
+
+                "line-height" -> {
+                    //
+                }
+
+                "text-decoration" -> {
+                    //
+                }
+
+                "text-transform" -> {
+                    //
+                }
+
+                "vertical-align" -> {
+                    //
+                }
+
+                "word-spacing" -> {
+                    //
+                }
+
+                "font-family" -> {
+                    //
+                }
+
+                "font-size" -> {
+                    //
+                }
+
+                "font-style" -> {
+                    //
+                }
+
+                "font-weight" -> {
+                    //
+                }
 
             }
 
         }
 
         return text
+    }
+
+    private fun SpannableString.setSpan(what: Any) {
+        setSpan(what, 0, length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
     }
 
 }
