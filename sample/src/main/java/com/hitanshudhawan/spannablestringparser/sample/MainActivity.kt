@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val s = "Hello { `Hitanshu` < color : #0000ff /> }!"
+        val s = "Hello { `Hitanshu` < color : #0000ff ; font-style : italic ; font-weight : bold /> }!"
         textView.text = s.spannify()
     }
 

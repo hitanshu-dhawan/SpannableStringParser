@@ -1,10 +1,12 @@
 package com.hitanshudhawan.spannablestringparser.spanner
 
 import android.graphics.Color
+import android.graphics.Typeface
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
+import android.text.style.StyleSpan
 import com.hitanshudhawan.spannablestringparser.parser.Node
 
 internal class Spanner(private val syntaxTree: List<Node>) {
@@ -64,11 +66,13 @@ internal class Spanner(private val syntaxTree: List<Node>) {
                 }
 
                 "font-style" -> {
-                    //
+                    if (declaration.value == "italic")
+                        text.setSpan(StyleSpan(Typeface.ITALIC))
                 }
 
                 "font-weight" -> {
-                    //
+                    if (declaration.value == "bold")
+                        text.setSpan(StyleSpan(Typeface.BOLD))
                 }
 
             }
