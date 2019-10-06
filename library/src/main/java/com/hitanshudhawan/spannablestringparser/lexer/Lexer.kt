@@ -11,7 +11,7 @@ internal class Lexer(private val text: String) {
         when (ch) {
             "{" -> return Token(LEFT_BRACE)
             "}" -> return Token(RIGHT_BRACE)
-            "'" -> return Token(SINGLE_QUOTE)
+            "`" -> return Token(BACKTICK)
             "<" -> return Token(START_TAG)
             "/>" -> return Token(END_TAG)
             ":" -> return Token(COLON)
@@ -66,7 +66,7 @@ internal class Lexer(private val text: String) {
 
     private fun String.isTextChar(): Boolean {
         when (this) {
-            "{", "}", "'", "<", "/>", ":", "|", ";", " ", "\t", "\r", "\n" -> return false
+            "{", "}", "`", "<", "/>", ":", "|", ";", " ", "\t", "\r", "\n" -> return false
         }
         return true
     }

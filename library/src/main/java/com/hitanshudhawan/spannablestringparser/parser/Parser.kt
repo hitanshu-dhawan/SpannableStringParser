@@ -67,7 +67,7 @@ internal class Parser(private val tokens: List<Token>) {
             val ruleSetState = finiteAutomaton.transit(ruleSetToken)
             when (ruleSetState) {
                 finiteAutomaton.leftSingleQuote -> {
-                    if (ruleSetToken.tokenType != SINGLE_QUOTE)
+                    if (ruleSetToken.tokenType != BACKTICK)
                         ruleSetText += ruleSetToken.text()
                 }
                 finiteAutomaton.propertyState -> {
@@ -90,7 +90,7 @@ internal class Parser(private val tokens: List<Token>) {
             WHITESPACE -> this.value ?: ""
             LEFT_BRACE -> "{"
             RIGHT_BRACE -> "}"
-            SINGLE_QUOTE -> "'"
+            BACKTICK -> "`"
             START_TAG -> "<"
             END_TAG -> "/>"
             COLON -> ":"

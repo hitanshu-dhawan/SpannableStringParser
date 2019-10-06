@@ -32,7 +32,7 @@ class ParserTest {
     fun test003() {
         assertEquals(
             listOf(
-                Node("Hello 'Hitanshu'")
+                Node("Hello `Hitanshu`")
             ),
             testStrings.getValue(3).tokenize().parse()
         )
@@ -687,7 +687,7 @@ class ParserTest {
     fun test039() {
         assertEquals(
             listOf(
-                Node("Hello   'John' < a : b | c ; d : e /> }")
+                Node("Hello   `Hitanshu` < a : b | c ; d : e /> }")
             ),
             testStrings.getValue(39).tokenize().parse()
         )
@@ -697,7 +697,7 @@ class ParserTest {
     fun test040() {
         assertEquals(
             listOf(
-                Node("Hello {  John' < a : b | c ; d : e /> }")
+                Node("Hello {  Hitanshu` < a : b | c ; d : e /> }")
             ),
             testStrings.getValue(40).tokenize().parse()
         )
@@ -707,7 +707,7 @@ class ParserTest {
     fun test041() {
         assertEquals(
             listOf(
-                Node("Hello { 'John  < a : b | c ; d : e /> }")
+                Node("Hello { `Hitanshu  < a : b | c ; d : e /> }")
             ),
             testStrings.getValue(41).tokenize().parse()
         )
@@ -717,7 +717,7 @@ class ParserTest {
     fun test042() {
         assertEquals(
             listOf(
-                Node("Hello { 'John'   a : b | c ; d : e /> }")
+                Node("Hello { `Hitanshu`   a : b | c ; d : e /> }")
             ),
             testStrings.getValue(42).tokenize().parse()
         )
@@ -727,7 +727,7 @@ class ParserTest {
     fun test043() {
         assertEquals(
             listOf(
-                Node("Hello { 'John' <   : b | c ; d : e /> }")
+                Node("Hello { `Hitanshu` <   : b | c ; d : e /> }")
             ),
             testStrings.getValue(43).tokenize().parse()
         )
@@ -737,7 +737,7 @@ class ParserTest {
     fun test044() {
         assertEquals(
             listOf(
-                Node("Hello { 'John' < a   b | c ; d : e /> }")
+                Node("Hello { `Hitanshu` < a   b | c ; d : e /> }")
             ),
             testStrings.getValue(44).tokenize().parse()
         )
@@ -747,7 +747,7 @@ class ParserTest {
     fun test045() {
         assertEquals(
             listOf(
-                Node("Hello { 'John' < a :   | c ; d : e /> }")
+                Node("Hello { `Hitanshu` < a :   | c ; d : e /> }")
             ),
             testStrings.getValue(45).tokenize().parse()
         )
@@ -757,7 +757,7 @@ class ParserTest {
     fun test046() {
         assertEquals(
             listOf(
-                Node("Hello { 'John' < a : b   c ; d : e /> }")
+                Node("Hello { `Hitanshu` < a : b   c ; d : e /> }")
             ),
             testStrings.getValue(46).tokenize().parse()
         )
@@ -767,7 +767,7 @@ class ParserTest {
     fun test047() {
         assertEquals(
             listOf(
-                Node("Hello { 'John' < a : b |   ; d : e /> }")
+                Node("Hello { `Hitanshu` < a : b |   ; d : e /> }")
             ),
             testStrings.getValue(47).tokenize().parse()
         )
@@ -777,7 +777,7 @@ class ParserTest {
     fun test048() {
         assertEquals(
             listOf(
-                Node("Hello { 'John' < a : b | c   d : e /> }")
+                Node("Hello { `Hitanshu` < a : b | c   d : e /> }")
             ),
             testStrings.getValue(48).tokenize().parse()
         )
@@ -787,7 +787,7 @@ class ParserTest {
     fun test049() {
         assertEquals(
             listOf(
-                Node("Hello { 'John' < a : b | c ;   : e /> }")
+                Node("Hello { `Hitanshu` < a : b | c ;   : e /> }")
             ),
             testStrings.getValue(49).tokenize().parse()
         )
@@ -797,7 +797,7 @@ class ParserTest {
     fun test050() {
         assertEquals(
             listOf(
-                Node("Hello { 'John' < a : b | c ; d   e /> }")
+                Node("Hello { `Hitanshu` < a : b | c ; d   e /> }")
             ),
             testStrings.getValue(50).tokenize().parse()
         )
@@ -807,7 +807,7 @@ class ParserTest {
     fun test051() {
         assertEquals(
             listOf(
-                Node("Hello { 'John' < a : b | c ; d :   /> }")
+                Node("Hello { `Hitanshu` < a : b | c ; d :   /> }")
             ),
             testStrings.getValue(51).tokenize().parse()
         )
@@ -817,7 +817,7 @@ class ParserTest {
     fun test052() {
         assertEquals(
             listOf(
-                Node("Hello { 'John' < a : b | c ; d : e  > }")
+                Node("Hello { `Hitanshu` < a : b | c ; d : e  > }")
             ),
             testStrings.getValue(52).tokenize().parse()
         )
@@ -827,7 +827,7 @@ class ParserTest {
     fun test053() {
         assertEquals(
             listOf(
-                Node("Hello { 'John' < a : b | c ; d : e /  }")
+                Node("Hello { `Hitanshu` < a : b | c ; d : e /  }")
             ),
             testStrings.getValue(53).tokenize().parse()
         )
@@ -837,7 +837,7 @@ class ParserTest {
     fun test054() {
         assertEquals(
             listOf(
-                Node("Hello { 'John' < a : b | c ; d : e    }")
+                Node("Hello { `Hitanshu` < a : b | c ; d : e    }")
             ),
             testStrings.getValue(54).tokenize().parse()
         )
@@ -847,7 +847,7 @@ class ParserTest {
     fun test055() {
         assertEquals(
             listOf(
-                Node("Hello { 'John' < a : b | c ; d : e />  ")
+                Node("Hello { `Hitanshu` < a : b | c ; d : e />  ")
             ),
             testStrings.getValue(55).tokenize().parse()
         )
@@ -857,7 +857,7 @@ class ParserTest {
     fun test056() {
         assertEquals(
             listOf(
-                Node("Hello { 'John' < a : b | c ; d : e | /> }")
+                Node("Hello { `Hitanshu` < a : b | c ; d : e | /> }")
             ),
             testStrings.getValue(56).tokenize().parse()
         )
@@ -867,7 +867,7 @@ class ParserTest {
     fun test057() {
         assertEquals(
             listOf(
-                Node("Hello { 'John' < a : b | c ; d : e ; /> }")
+                Node("Hello { `Hitanshu` < a : b | c ; d : e ; /> }")
             ),
             testStrings.getValue(57).tokenize().parse()
         )
@@ -915,7 +915,7 @@ class ParserTest {
     fun test060() {
         assertEquals(
             listOf(
-                Node("Hello   'John' < a : b | c ; d : e /> }, How are you bro?")
+                Node("Hello   `Hitanshu` < a : b | c ; d : e /> }, How are you bro?")
             ),
             testStrings.getValue(60).tokenize().parse()
         )
@@ -925,7 +925,7 @@ class ParserTest {
     fun test061() {
         assertEquals(
             listOf(
-                Node("Hello {  John' < a : b | c ; d : e /> }, How are you bro?")
+                Node("Hello {  Hitanshu` < a : b | c ; d : e /> }, How are you bro?")
             ),
             testStrings.getValue(61).tokenize().parse()
         )
@@ -935,7 +935,7 @@ class ParserTest {
     fun test062() {
         assertEquals(
             listOf(
-                Node("Hello { 'John  < a : b | c ; d : e /> }, How are you bro?")
+                Node("Hello { `Hitanshu  < a : b | c ; d : e /> }, How are you bro?")
             ),
             testStrings.getValue(62).tokenize().parse()
         )
@@ -945,7 +945,7 @@ class ParserTest {
     fun test063() {
         assertEquals(
             listOf(
-                Node("Hello { 'John'   a : b | c ; d : e /> }, How are you bro?")
+                Node("Hello { `Hitanshu`   a : b | c ; d : e /> }, How are you bro?")
             ),
             testStrings.getValue(63).tokenize().parse()
         )
@@ -955,7 +955,7 @@ class ParserTest {
     fun test064() {
         assertEquals(
             listOf(
-                Node("Hello { 'John' <   : b | c ; d : e /> }, How are you bro?")
+                Node("Hello { `Hitanshu` <   : b | c ; d : e /> }, How are you bro?")
             ),
             testStrings.getValue(64).tokenize().parse()
         )
@@ -965,7 +965,7 @@ class ParserTest {
     fun test065() {
         assertEquals(
             listOf(
-                Node("Hello { 'John' < a   b | c ; d : e /> }, How are you bro?")
+                Node("Hello { `Hitanshu` < a   b | c ; d : e /> }, How are you bro?")
             ),
             testStrings.getValue(65).tokenize().parse()
         )
@@ -975,7 +975,7 @@ class ParserTest {
     fun test066() {
         assertEquals(
             listOf(
-                Node("Hello { 'John' < a :   | c ; d : e /> }, How are you bro?")
+                Node("Hello { `Hitanshu` < a :   | c ; d : e /> }, How are you bro?")
             ),
             testStrings.getValue(66).tokenize().parse()
         )
@@ -985,7 +985,7 @@ class ParserTest {
     fun test067() {
         assertEquals(
             listOf(
-                Node("Hello { 'John' < a : b   c ; d : e /> }, How are you bro?")
+                Node("Hello { `Hitanshu` < a : b   c ; d : e /> }, How are you bro?")
             ),
             testStrings.getValue(67).tokenize().parse()
         )
@@ -995,7 +995,7 @@ class ParserTest {
     fun test068() {
         assertEquals(
             listOf(
-                Node("Hello { 'John' < a : b |   ; d : e /> }, How are you bro?")
+                Node("Hello { `Hitanshu` < a : b |   ; d : e /> }, How are you bro?")
             ),
             testStrings.getValue(68).tokenize().parse()
         )
@@ -1005,7 +1005,7 @@ class ParserTest {
     fun test069() {
         assertEquals(
             listOf(
-                Node("Hello { 'John' < a : b | c   d : e /> }, How are you bro?")
+                Node("Hello { `Hitanshu` < a : b | c   d : e /> }, How are you bro?")
             ),
             testStrings.getValue(69).tokenize().parse()
         )
@@ -1015,7 +1015,7 @@ class ParserTest {
     fun test070() {
         assertEquals(
             listOf(
-                Node("Hello { 'John' < a : b | c ;   : e /> }, How are you bro?")
+                Node("Hello { `Hitanshu` < a : b | c ;   : e /> }, How are you bro?")
             ),
             testStrings.getValue(70).tokenize().parse()
         )
@@ -1025,7 +1025,7 @@ class ParserTest {
     fun test071() {
         assertEquals(
             listOf(
-                Node("Hello { 'John' < a : b | c ; d   e /> }, How are you bro?")
+                Node("Hello { `Hitanshu` < a : b | c ; d   e /> }, How are you bro?")
             ),
             testStrings.getValue(71).tokenize().parse()
         )
@@ -1035,7 +1035,7 @@ class ParserTest {
     fun test072() {
         assertEquals(
             listOf(
-                Node("Hello { 'John' < a : b | c ; d :   /> }, How are you bro?")
+                Node("Hello { `Hitanshu` < a : b | c ; d :   /> }, How are you bro?")
             ),
             testStrings.getValue(72).tokenize().parse()
         )
@@ -1045,7 +1045,7 @@ class ParserTest {
     fun test073() {
         assertEquals(
             listOf(
-                Node("Hello { 'John' < a : b | c ; d : e  > }, How are you bro?")
+                Node("Hello { `Hitanshu` < a : b | c ; d : e  > }, How are you bro?")
             ),
             testStrings.getValue(73).tokenize().parse()
         )
@@ -1055,7 +1055,7 @@ class ParserTest {
     fun test074() {
         assertEquals(
             listOf(
-                Node("Hello { 'John' < a : b | c ; d : e /  }, How are you bro?")
+                Node("Hello { `Hitanshu` < a : b | c ; d : e /  }, How are you bro?")
             ),
             testStrings.getValue(74).tokenize().parse()
         )
@@ -1065,7 +1065,7 @@ class ParserTest {
     fun test075() {
         assertEquals(
             listOf(
-                Node("Hello { 'John' < a : b | c ; d : e    }, How are you bro?")
+                Node("Hello { `Hitanshu` < a : b | c ; d : e    }, How are you bro?")
             ),
             testStrings.getValue(75).tokenize().parse()
         )
@@ -1075,7 +1075,7 @@ class ParserTest {
     fun test076() {
         assertEquals(
             listOf(
-                Node("Hello { 'John' < a : b | c ; d : e />  , How are you bro?")
+                Node("Hello { `Hitanshu` < a : b | c ; d : e />  , How are you bro?")
             ),
             testStrings.getValue(76).tokenize().parse()
         )
@@ -1085,7 +1085,7 @@ class ParserTest {
     fun test077() {
         assertEquals(
             listOf(
-                Node("Hello { 'John' < a : b | c ; d : e | /> }, How are you bro?")
+                Node("Hello { `Hitanshu` < a : b | c ; d : e | /> }, How are you bro?")
             ),
             testStrings.getValue(77).tokenize().parse()
         )
@@ -1095,7 +1095,7 @@ class ParserTest {
     fun test078() {
         assertEquals(
             listOf(
-                Node("Hello { 'John' < a : b | c ; d : e ; /> }, How are you bro?")
+                Node("Hello { `Hitanshu` < a : b | c ; d : e ; /> }, How are you bro?")
             ),
             testStrings.getValue(78).tokenize().parse()
         )
@@ -1122,7 +1122,7 @@ class ParserTest {
     fun test080() {
         assertEquals(
             listOf(
-                Node("{  '''  <a:b|c;d:e/> }")
+                Node("{  ```  <a:b|c;d:e/> }")
             ),
             testStrings.getValue(80).tokenize().parse()
         )
@@ -1251,7 +1251,7 @@ class ParserTest {
     fun test088() {
         assertEquals(
             listOf(
-                Node("{  ' ' '  <a:b|c;d:e/> }")
+                Node("{  ` ` `  <a:b|c;d:e/> }")
             ),
             testStrings.getValue(88).tokenize().parse()
         )
@@ -1363,7 +1363,7 @@ class ParserTest {
     fun test095() {
         assertEquals(
             listOf(
-                Node("Hello { 'John' < a : b | c ; d : e : f /> }, How are you bro?")
+                Node("Hello { `Hitanshu` < a : b | c ; d : e : f /> }, How are you bro?")
             ),
             testStrings.getValue(95).tokenize().parse()
         )
@@ -1373,7 +1373,7 @@ class ParserTest {
     fun test096() {
         assertEquals(
             listOf(
-                Node("Hello { 'John' < a   b   c   d   e   f /> }, How are you bro?")
+                Node("Hello { `Hitanshu` < a   b   c   d   e   f /> }, How are you bro?")
             ),
             testStrings.getValue(96).tokenize().parse()
         )
@@ -1383,7 +1383,7 @@ class ParserTest {
     fun test097() {
         assertEquals(
             listOf(
-                Node("Hello { 'John' < a : b : c : d : e : f /> }, How are you bro?")
+                Node("Hello { `Hitanshu` < a : b : c : d : e : f /> }, How are you bro?")
             ),
             testStrings.getValue(97).tokenize().parse()
         )
@@ -1393,7 +1393,7 @@ class ParserTest {
     fun test098() {
         assertEquals(
             listOf(
-                Node("Hello { 'John' < a | b | c | d | e | f /> }, How are you bro?")
+                Node("Hello { `Hitanshu` < a | b | c | d | e | f /> }, How are you bro?")
             ),
             testStrings.getValue(98).tokenize().parse()
         )
@@ -1403,7 +1403,7 @@ class ParserTest {
     fun test099() {
         assertEquals(
             listOf(
-                Node("Hello { 'John' < a ; b ; c ; d ; e ; f /> }, How are you bro?")
+                Node("Hello { `Hitanshu` < a ; b ; c ; d ; e ; f /> }, How are you bro?")
             ),
             testStrings.getValue(99).tokenize().parse()
         )
@@ -1413,7 +1413,7 @@ class ParserTest {
     fun test100() {
         assertEquals(
             listOf(
-                Node("Hello   John < a : b | c ; d : e />  , How are you bro?")
+                Node("Hello   Hitanshu < a : b | c ; d : e />  , How are you bro?")
             ),
             testStrings.getValue(100).tokenize().parse()
         )
@@ -1423,7 +1423,7 @@ class ParserTest {
     fun test101() {
         assertEquals(
             listOf(
-                Node("Hello { John < a : b | c ; d : e /> }, How are you bro?")
+                Node("Hello { Hitanshu < a : b | c ; d : e /> }, How are you bro?")
             ),
             testStrings.getValue(101).tokenize().parse()
         )
@@ -1490,6 +1490,96 @@ class ParserTest {
                 Node("Hello { < a : b | c ; d : e /> }, How are you bro?")
             ),
             testStrings.getValue(104).tokenize().parse()
+        )
+    }
+
+    @Test
+    fun test105() {
+        assertEquals(
+            listOf(
+                Node(
+                    "'",
+                    listOf(
+                        Declaration("a", "b"),
+                        Declaration("a", "c"),
+                        Declaration("d", "e")
+                    )
+                )
+            ),
+            testStrings.getValue(105).tokenize().parse()
+        )
+    }
+
+    @Test
+    fun test106() {
+        assertEquals(
+            listOf(
+                Node(
+                    " ' ",
+                    listOf(
+                        Declaration("a", "b"),
+                        Declaration("a", "c"),
+                        Declaration("d", "e")
+                    )
+                )
+            ),
+            testStrings.getValue(106).tokenize().parse()
+        )
+    }
+
+    @Test
+    fun test107() {
+        assertEquals(
+            listOf(
+                Node("Hello "),
+                Node(
+                    "Hitanshu's Friend",
+                    listOf(
+                        Declaration("a", "b"),
+                        Declaration("a", "c"),
+                        Declaration("d", "e")
+                    )
+                ),
+                Node(", How are you "),
+                Node(
+                    "bro",
+                    listOf(
+                        Declaration("a", "b"),
+                        Declaration("a", "c"),
+                        Declaration("d", "e")
+                    )
+                ),
+                Node("?")
+            ),
+            testStrings.getValue(107).tokenize().parse()
+        )
+    }
+
+    @Test
+    fun test108() {
+        assertEquals(
+            listOf(
+                Node("Hello "),
+                Node(
+                    " Hitanshu's Friend ",
+                    listOf(
+                        Declaration("a", "b"),
+                        Declaration("a", "c"),
+                        Declaration("d", "e")
+                    )
+                ),
+                Node(", How are you "),
+                Node(
+                    " bro ",
+                    listOf(
+                        Declaration("a", "b"),
+                        Declaration("a", "c"),
+                        Declaration("d", "e")
+                    )
+                ),
+                Node("?")
+            ),
+            testStrings.getValue(108).tokenize().parse()
         )
     }
 

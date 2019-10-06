@@ -19,7 +19,7 @@ internal class FiniteAutomaton {
     private val automatonMap by lazy {
         mapOf(
             1 to mapOf(WHITESPACE to 1, LEFT_BRACE to 2),
-            2 to mapOf(WHITESPACE to 2, SINGLE_QUOTE to 3),
+            2 to mapOf(WHITESPACE to 2, BACKTICK to 3),
             3 to mapOf(
                 TEXT to 3,
                 WHITESPACE to 3,
@@ -30,7 +30,7 @@ internal class FiniteAutomaton {
                 COLON to 3,
                 PIPE to 3,
                 SEMICOLON to 3,
-                SINGLE_QUOTE to 4
+                BACKTICK to 4
             ),
             4 to mapOf(WHITESPACE to 4, START_TAG to 5),
             5 to mapOf(WHITESPACE to 5, TEXT to 6),
