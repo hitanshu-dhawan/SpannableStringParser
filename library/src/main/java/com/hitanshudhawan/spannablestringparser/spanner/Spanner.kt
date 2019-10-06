@@ -16,11 +16,11 @@ internal class Spanner(private val syntaxTree: List<Node>) {
     fun spannify(): CharSequence {
         val text = SpannableStringBuilder()
         for (node in syntaxTree)
-            text.append(spannify(node))
+            text.append(spannifyNode(node))
         return text
     }
 
-    private fun spannify(node: Node): CharSequence {
+    private fun spannifyNode(node: Node): CharSequence {
 
         if (node.text.trim().isEmpty() || node.declarations == null)
             return node.text
