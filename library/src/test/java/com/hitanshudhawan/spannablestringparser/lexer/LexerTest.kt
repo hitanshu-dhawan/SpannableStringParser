@@ -1156,4 +1156,5 @@ class LexerTest {
             testStrings.getValue(36).tokenize()
         )
     }
+
 }
