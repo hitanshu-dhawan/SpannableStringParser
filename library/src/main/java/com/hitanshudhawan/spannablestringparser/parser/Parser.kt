@@ -21,13 +21,13 @@ internal class Parser(private val tokens: List<Token>) {
             when (state) {
                 finiteAutomaton.initialState -> {
                     while (queue.isNotEmpty())
-                        text.append(queue.remove().text())
-                    text.append(token.text())
+                        text.append(queue.remove().run { tokenType.text ?: value ?: "" })
+                    text.append(token.run { tokenType.text ?: value ?: "" })
                 }
                 finiteAutomaton.leftBraceState -> {
                     if (token.tokenType == LEFT_BRACE)
                         while (queue.isNotEmpty())
-                            text.append(queue.remove().text())
+                            text.append(queue.remove().run { tokenType.text ?: value ?: "" })
                     queue.add(token)
                 }
                 finiteAutomaton.rightBraceState -> {
@@ -49,7 +49,7 @@ internal class Parser(private val tokens: List<Token>) {
         }
 
         while (queue.isNotEmpty())
-            text.append(queue.remove().text())
+            text.append(queue.remove().run { tokenType.text ?: value ?: "" })
         if (text.isNotEmpty())
             syntaxTree.add(Node(text.toString()))
 
@@ -69,21 +69,21 @@ internal class Parser(private val tokens: List<Token>) {
             when (ruleSetState) {
                 finiteAutomaton.startTextState -> {
                     if (ruleSetToken.tokenType != BACKTICK)
-                        ruleSetText += ruleSetToken.text()
+                        ruleSetText += ruleSetToken.run { tokenType.text ?: value ?: "" }
                 }
                 finiteAutomaton.propertyState -> {
                     if (ruleSetToken.tokenType == TEXT)
-                        ruleSetProperty = ruleSetToken.text()
+                        ruleSetProperty = ruleSetToken.run { tokenType.text ?: value ?: "" }
                 }
                 finiteAutomaton.startValueState -> {
                     if (ruleSetToken.tokenType != BACKTICK)
-                        ruleSetValue += ruleSetToken.text()
+                        ruleSetValue += ruleSetToken.run { tokenType.text ?: value ?: "" }
                 }
                 finiteAutomaton.endValueState -> {
                     if (ruleSetToken.tokenType == BACKTICK)
                         ruleSetDeclarations.add(Declaration(property = ruleSetProperty, value = ruleSetValue))
                     if (ruleSetToken.tokenType == TEXT)
-                        ruleSetDeclarations.add(Declaration(property = ruleSetProperty, value = ruleSetToken.text()))
+                        ruleSetDeclarations.add(Declaration(property = ruleSetProperty, value = ruleSetToken.run { tokenType.text ?: value ?: "" }))
 
                     ruleSetValue = ""
                 }
@@ -91,21 +91,6 @@ internal class Parser(private val tokens: List<Token>) {
         }
 
         return Node(text = ruleSetText, declarations = ruleSetDeclarations)
-    }
-
-    private fun Token.text(): String {
-        return when (this.tokenType) {
-            TEXT -> this.value ?: ""
-            WHITESPACE -> this.value ?: ""
-            LEFT_BRACE -> "{"
-            RIGHT_BRACE -> "}"
-            BACKTICK -> "`"
-            START_TAG -> "<"
-            END_TAG -> "/>"
-            COLON -> ":"
-            PIPE -> "|"
-            SEMICOLON -> ";"
-        }
     }
 
 }
