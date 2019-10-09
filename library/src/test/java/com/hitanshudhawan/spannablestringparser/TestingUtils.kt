@@ -122,7 +122,16 @@ object TestingUtils {
             105 to "{   `'`  <a:b|c;d:e/> }",
             106 to "{  ` ' `  <a:b|c;d:e/> }",
             107 to "Hello { `Hitanshu's Friend` <a:b|c;d:e/> }, How are you { `bro` <a:b|c;d:e/> }?",
-            108 to "Hello { ` Hitanshu's Friend ` <a:b|c;d:e/> }, How are you { ` bro ` <a:b|c;d:e/> }?"
+            108 to "Hello { ` Hitanshu's Friend ` <a:b|c;d:e/> }, How are you { ` bro ` <a:b|c;d:e/> }?",
+            //
+            109 to "{ `Google` < a : b | c ; d :  https://www.google.com   /> }",
+            110 to "{ `Google` < a : b | c ; d :  https://www.google.com/  /> }",
+            111 to "{ `Google` < a : b | c ; d : `https://www.google.com`  /> }",
+            112 to "{ `Google` < a : b | c ; d : `https://www.google.com/` /> }",
+            113 to "{ `Google` < a : b | c ; d :  www|www   /> }",
+            114 to "{ `Google` < a : b | c ; d : `www|www`  /> }",
+            115 to "{ `Google` < a : b | c ; d :  www;www   /> }",
+            116 to "{ `Google` < a : b | c ; d : `www;www`  /> }"
         )
     }
 

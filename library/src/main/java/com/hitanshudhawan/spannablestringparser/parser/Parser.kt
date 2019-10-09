@@ -66,7 +66,7 @@ internal class Parser(private val tokens: List<Token>) {
         for (ruleSetToken in ruleSetTokens) {
             val ruleSetState = finiteAutomaton.transit(ruleSetToken)
             when (ruleSetState) {
-                finiteAutomaton.leftSingleQuote -> {
+                finiteAutomaton.startTextState -> {
                     if (ruleSetToken.tokenType != BACKTICK)
                         ruleSetText += ruleSetToken.text()
                 }
@@ -74,7 +74,7 @@ internal class Parser(private val tokens: List<Token>) {
                     if (ruleSetToken.tokenType == TEXT)
                         ruleSetProperty = ruleSetToken.text()
                 }
-                finiteAutomaton.valueState -> {
+                finiteAutomaton.endValueState -> {
                     if (ruleSetToken.tokenType == TEXT)
                         ruleSetDeclarations.add(Declaration(property = ruleSetProperty, value = ruleSetToken.text()))
                 }

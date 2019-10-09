@@ -1583,4 +1583,120 @@ class ParserTest {
         )
     }
 
+    @Test
+    fun test109() {
+        assertEquals(
+            listOf(
+                Node("{ `Google` < a : b | c ; d :  https://www.google.com   /> }")
+            ),
+            testStrings.getValue(109).tokenize().parse()
+        )
+    }
+
+    @Test
+    fun test110() {
+        assertEquals(
+            listOf(
+                Node("{ `Google` < a : b | c ; d :  https://www.google.com/  /> }")
+            ),
+            testStrings.getValue(110).tokenize().parse()
+        )
+    }
+
+    @Test
+    fun test111() {
+        assertEquals(
+            listOf(
+                Node(
+                    "Google",
+                    listOf(
+                        Declaration("a", "b"),
+                        Declaration("a", "c"),
+                        Declaration("d", "https://www.google.com")
+                    )
+                )
+            ),
+            testStrings.getValue(111).tokenize().parse()
+        )
+    }
+
+    @Test
+    fun test112() {
+        assertEquals(
+            listOf(
+                Node(
+                    "Google",
+                    listOf(
+                        Declaration("a", "b"),
+                        Declaration("a", "c"),
+                        Declaration("d", "https://www.google.com/")
+                    )
+                )
+            ),
+            testStrings.getValue(112).tokenize().parse()
+        )
+    }
+
+    @Test
+    fun test113() {
+        assertEquals(
+            listOf(
+                Node(
+                    "Google",
+                    listOf(
+                        Declaration("a", "b"),
+                        Declaration("a", "c"),
+                        Declaration("d", "www"),
+                        Declaration("d", "www")
+                    )
+                )
+            ),
+            testStrings.getValue(113).tokenize().parse()
+        )
+    }
+
+    @Test
+    fun test114() {
+        assertEquals(
+            listOf(
+                Node(
+                    "Google",
+                    listOf(
+                        Declaration("a", "b"),
+                        Declaration("a", "c"),
+                        Declaration("d", "www|www")
+                    )
+                )
+            ),
+            testStrings.getValue(114).tokenize().parse()
+        )
+    }
+
+    @Test
+    fun test115() {
+        assertEquals(
+            listOf(
+                Node("{ `Google` < a : b | c ; d :  www;www   /> }")
+            ),
+            testStrings.getValue(115).tokenize().parse()
+        )
+    }
+
+    @Test
+    fun test116() {
+        assertEquals(
+            listOf(
+                Node(
+                    "Google",
+                    listOf(
+                        Declaration("a", "b"),
+                        Declaration("a", "c"),
+                        Declaration("d", "www;www")
+                    )
+                )
+            ),
+            testStrings.getValue(116).tokenize().parse()
+        )
+    }
+
 }
