@@ -1699,4 +1699,43 @@ class ParserTest {
         )
     }
 
+    @Test
+    fun test117() {
+        assertEquals(
+            listOf(
+                Node(
+                    "Google",
+                    listOf(
+                        Declaration("a", "b"),
+                        Declaration("a", "c"),
+                        Declaration("d", "https://www.one.com"),
+                        Declaration("d", "https://www.two.com"),
+                        Declaration("e", "https://www.three.com")
+                    )
+                )
+            ),
+            testStrings.getValue(117).tokenize().parse()
+        )
+    }
+
+    @Test
+    fun test118() {
+        assertEquals(
+            listOf(
+                Node("{`Hitanshu``Dhawan`<a:b|c;d:e/>}")
+            ),
+            testStrings.getValue(118).tokenize().parse()
+        )
+    }
+
+    @Test
+    fun test119() {
+        assertEquals(
+            listOf(
+                Node("{ `Hitanshu` `Dhawan` < a : b | c ; d : e /> }")
+            ),
+            testStrings.getValue(119).tokenize().parse()
+        )
+    }
+
 }

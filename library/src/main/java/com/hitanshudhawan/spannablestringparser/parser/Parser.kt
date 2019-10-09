@@ -62,6 +62,7 @@ internal class Parser(private val tokens: List<Token>) {
 
         var ruleSetText = ""
         var ruleSetProperty = ""
+        var ruleSetValue = ""
         val ruleSetDeclarations = ArrayList<Declaration>()
         for (ruleSetToken in ruleSetTokens) {
             val ruleSetState = finiteAutomaton.transit(ruleSetToken)
@@ -74,9 +75,17 @@ internal class Parser(private val tokens: List<Token>) {
                     if (ruleSetToken.tokenType == TEXT)
                         ruleSetProperty = ruleSetToken.text()
                 }
+                finiteAutomaton.startValueState -> {
+                    if (ruleSetToken.tokenType != BACKTICK)
+                        ruleSetValue += ruleSetToken.text()
+                }
                 finiteAutomaton.endValueState -> {
+                    if (ruleSetToken.tokenType == BACKTICK)
+                        ruleSetDeclarations.add(Declaration(property = ruleSetProperty, value = ruleSetValue))
                     if (ruleSetToken.tokenType == TEXT)
                         ruleSetDeclarations.add(Declaration(property = ruleSetProperty, value = ruleSetToken.text()))
+
+                    ruleSetValue = ""
                 }
             }
         }

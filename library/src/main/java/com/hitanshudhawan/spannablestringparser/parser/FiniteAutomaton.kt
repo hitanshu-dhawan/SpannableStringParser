@@ -36,7 +36,7 @@ internal class FiniteAutomaton {
             4 to mapOf(WHITESPACE to 4, START_TAG to 5),
             5 to mapOf(WHITESPACE to 5, TEXT to 6),
             6 to mapOf(WHITESPACE to 6, COLON to 7),
-            7 to mapOf(WHITESPACE to 7, TEXT to 9),
+            7 to mapOf(WHITESPACE to 7, BACKTICK to 8, TEXT to 9),
             8 to mapOf(
                 TEXT to 8,
                 WHITESPACE to 8,
