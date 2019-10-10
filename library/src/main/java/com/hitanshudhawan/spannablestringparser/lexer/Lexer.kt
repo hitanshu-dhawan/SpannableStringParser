@@ -25,34 +25,19 @@ internal class Lexer(private val text: String) {
                 return Token(WHITESPACE, value)
             }
             else -> {
-                for (tokenType in TokenType.values())
-                    if (ch == tokenType.text) return Token(tokenType)
+                return Token(TokenType.values().first { ch == it.text })
             }
         }
-        return null
     }
 
-    // todo
     private fun nextChar(): String? {
-        if (index < text.length) {
-            val ch = text[index++]
-            if (ch == '/' && index < text.length && text[index] == '>') {
-                index++
-                return "/>"
-            }
-            return ch.toString()
-        }
-        return null
+        return peekChar()?.also { index += it.length }
     }
 
-    // todo
     private fun peekChar(): String? {
         if (index < text.length) {
-            val ch = text[index]
-            if (ch == '/' && index + 1 < text.length && text[index + 1] == '>') {
-                return "/>"
-            }
-            return ch.toString()
+            TokenType.values().firstOrNull { it.text != null && text.substring(index).startsWith(it.text) }?.let { return it.text }
+            return text[index].toString()
         }
         return null
     }
