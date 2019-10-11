@@ -8,7 +8,7 @@ import android.text.SpannableStringBuilder
 import android.text.style.*
 import com.hitanshudhawan.spannablestringparser.parser.Node
 
-internal class Spanner(private val syntaxTree: List<Node>) {
+internal class Spanner(private val syntaxTree: List<Node>, private val customSpanner: (property: String, value: String) -> Any?) {
 
     fun spannify(): CharSequence {
         val text = SpannableStringBuilder()
@@ -86,6 +86,10 @@ internal class Spanner(private val syntaxTree: List<Node>) {
                 "font-weight" -> {
                     if (declaration.value == "bold")
                         text.setSpan(StyleSpan(Typeface.BOLD))
+                }
+
+                else -> {
+                    customSpanner.invoke(declaration.property, declaration.value)?.let { text.setSpan(it) }
                 }
 
             }

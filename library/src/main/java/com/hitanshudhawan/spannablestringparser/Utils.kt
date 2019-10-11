@@ -18,6 +18,6 @@ internal fun List<Token>.parse(): List<Node> {
     return Parser(this).parse()
 }
 
-internal fun List<Node>.spannify(): CharSequence {
-    return Spanner(this).spannify()
+internal fun List<Node>.spannify(customSpanner: (String, String) -> Any?): CharSequence {
+    return Spanner(this, customSpanner).spannify()
 }
