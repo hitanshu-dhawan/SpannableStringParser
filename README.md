@@ -27,14 +27,19 @@ dependencies {
 ## Supported ...
 #### `color`
 The `color` property specifies the color of text.
+<br><br>
 #### `text-decoration-line`
 The `text-decoration-line` property sets the kind of text decoration to use (like underline, line-through).
+<br><br>
 #### `font-size`
 The `font-size` property sets the size of a font.
+<br><br>
 #### `font-style`
 The `font-style` property specifies the font style for a text.
+<br><br>
 #### `font-weight`
 The `font-weight` property sets how thick or thin characters in text should be displayed.
+<br><br>
 #### More coming sooooooon .... send PR
 
 ## Licence
