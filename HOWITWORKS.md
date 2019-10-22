@@ -1,1 +1,0 @@
-![SpannableStringParser](images/logo.png)
