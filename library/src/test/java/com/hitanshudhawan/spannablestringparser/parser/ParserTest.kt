@@ -1738,4 +1738,34 @@ class ParserTest {
         )
     }
 
+    @Test
+    fun test120() {
+        assertEquals(
+            listOf(
+                Node(
+                    "Hitanshu",
+                    listOf(
+                        Declaration("property", "v a l u e")
+                    )
+                )
+            ),
+            testStrings.getValue(120).tokenize().parse()
+        )
+    }
+
+    @Test
+    fun test121() {
+        assertEquals(
+            listOf(
+                Node(
+                    "Hitanshu",
+                    listOf(
+                        Declaration("property", " v a l u e ")
+                    )
+                )
+            ),
+            testStrings.getValue(121).tokenize().parse()
+        )
+    }
+
 }
