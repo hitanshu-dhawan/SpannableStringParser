@@ -41,7 +41,7 @@ Examples: `text-decoration-line : underline` , `text-decoration-line : line-thro
 #### `font-size`
 > The `font-size` property sets the size of a font.
 
-Examples: `font-size : 12dp` , `font-size : 12em` , `font-size : 12px`
+Examples: `font-size : 12dp` , `font-size : 1.5em` , `font-size : 24px`
 <br><br>
 
 #### `font-style`
