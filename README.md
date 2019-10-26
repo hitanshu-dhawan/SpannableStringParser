@@ -23,6 +23,18 @@ dependencies {
 
 ## Usage
 // todo
+- text having a declaration
+```
+{ `text` < property : value /> }
+```
+- text having a declaration with multiple values
+```
+{ `text` < property : value | value /> }
+```
+- text having multiple declarations
+```
+{ `text` < property : value ; property : value /> }
+```
 
 ## Supported Properties
 #### `color`
@@ -53,7 +65,7 @@ Examples: `font-weight : bold`
 #### `more-properties-coming-soon`
 You can add your custom properties using the `spanner` method.
 <br>
-But! If you want your property to be added in SpannableStringParser, feel free to open issues/pull requests.
+But! If you want any property to be added in SpannableStringParser, feel free to open issues/pull requests.
 <br><br>
 
 ## Licence
