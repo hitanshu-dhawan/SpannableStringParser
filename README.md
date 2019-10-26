@@ -25,11 +25,13 @@ dependencies {
 // todo
 
 ## Supported ...
+
 #### `color`
-The `color` property specifies the color of text.
+> The `color` property specifies the color of text.
+
+Examples: `color : #FF00FF` , `color : #00FF00FF`
 <br><br>
-<b>Examples:</b> `color : #FF00FF` , `color : #00FF00FF`
-<br><br>
+
 #### `text-decoration-line`
 The `text-decoration-line` property sets the kind of text decoration to use (like underline, line-through).
 <br><br>
