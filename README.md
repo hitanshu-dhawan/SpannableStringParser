@@ -39,19 +39,19 @@ Examples: `text-decoration-line : underline` , `text-decoration-line : line-thro
 <br><br>
 
 #### `font-size`
-The `font-size` property sets the size of a font.
+> The `font-size` property sets the size of a font.
 
 Examples: `font-size : 12dp` , `font-size : 12em` , `font-size : 12px`
 <br><br>
 
 #### `font-style`
-The `font-style` property specifies the font style for a text.
+> The `font-style` property specifies the font style for a text.
 
 Examples: `font-style : italic`
 <br><br>
 
 #### `font-weight`
-The `font-weight` property sets how thick or thin characters in text should be displayed.
+> The `font-weight` property sets how thick or thin characters in text should be displayed.
 
 Examples: `font-weight : bold`
 <br><br>
