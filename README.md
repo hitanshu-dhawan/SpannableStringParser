@@ -2,8 +2,7 @@
 
 SpannableStringParser is a ...
 
-## Have a Look
-// todo
+## Have a Look(*)
 
 ## Download
 Add JitPack repository to your root `build.gradle` file
@@ -21,8 +20,7 @@ dependencies {
 }
 ```
 
-## Usage
-// todo
+## Usage(*)
 - text having a declaration
 ```
 { `text` < property : value /> }
