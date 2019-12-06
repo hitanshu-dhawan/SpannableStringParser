@@ -1,5 +1,8 @@
 ![SpannableStringParser](images/logo.png)
 
+[![CircleCI](https://circleci.com/gh/hitanshu-dhawan/SpannableStringParser.svg?style=svg)](https://circleci.com/gh/hitanshu-dhawan/SpannableStringParser)
+[![codecov](https://codecov.io/gh/hitanshu-dhawan/SpannableStringParser/branch/master/graph/badge.svg)](https://codecov.io/gh/hitanshu-dhawan/SpannableStringParser)
+
 SpannableStringParser is a ...
 
 ## Have a Look(*)
