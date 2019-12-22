@@ -1,6 +1,7 @@
 package com.hitanshudhawan.spannablestringparser.spanner
 
 import android.graphics.Color
+import android.graphics.Typeface
 import android.text.SpannableStringBuilder
 import android.text.style.*
 import com.hitanshudhawan.spannablestringparser.spannify
@@ -143,6 +144,30 @@ class SpannerTest {
             assertTrue(spans1.size == 1)
             assertEquals(16, (spans1[0] as AbsoluteSizeSpan).size)
             assertFalse((spans1[0] as AbsoluteSizeSpan).dip)
+        }
+    }
+
+    @Test
+    fun testFontStyle001() {
+        val string = "{ `Hitanshu` < font-style : italic /> }"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.size == 1)
+            assertEquals(Typeface.ITALIC, (spans1[0] as StyleSpan).style)
+        }
+    }
+
+    @Test
+    fun testFontWeight001() {
+        val string = "{ `Hitanshu` < font-weight : bold /> }"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.size == 1)
+            assertEquals(Typeface.BOLD, (spans1[0] as StyleSpan).style)
         }
     }
 
