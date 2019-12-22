@@ -6,10 +6,12 @@ import android.text.style.ForegroundColorSpan
 import android.text.style.StrikethroughSpan
 import android.text.style.UnderlineSpan
 import com.hitanshudhawan.spannablestringparser.spannify
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertTrue
+import org.junit.Assert
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.robolectric.RobolectricTestRunner
 
+@RunWith(RobolectricTestRunner::class)
 class SpannerTest {
 
     @Test
@@ -19,8 +21,8 @@ class SpannerTest {
             val spannable = this as SpannableStringBuilder
 
             val spans1 = spannable.getSpans()
-            assertTrue(spans1.size == 1)
-            assertEquals(Color.parseColor("#0000FF"), (spans1[0] as ForegroundColorSpan).foregroundColor)
+            Assert.assertTrue(spans1.size == 1)
+            Assert.assertEquals(Color.parseColor("#0000FF"), (spans1[0] as ForegroundColorSpan).foregroundColor)
         }
     }
 
@@ -31,8 +33,8 @@ class SpannerTest {
             val spannable = this as SpannableStringBuilder
 
             val spans1 = spannable.getSpans()
-            assertTrue(spans1.size == 1)
-            assertEquals(Color.parseColor("#AA0000FF"), (spans1[0] as ForegroundColorSpan).foregroundColor)
+            Assert.assertTrue(spans1.size == 1)
+            Assert.assertEquals(Color.parseColor("#AA0000FF"), (spans1[0] as ForegroundColorSpan).foregroundColor)
         }
     }
 
@@ -43,12 +45,12 @@ class SpannerTest {
             val spannable = this as SpannableStringBuilder
 
             val spans1 = spannable.getSpans(queryStart = 0, queryEnd = 6)
-            assertTrue(spans1.isEmpty())
+            Assert.assertTrue(spans1.isEmpty())
             val spans2 = spannable.getSpans(queryStart = 6, queryEnd = 14)
-            assertTrue(spans2.size == 1)
-            assertEquals(Color.parseColor("#0000FF"), (spans2[0] as ForegroundColorSpan).foregroundColor)
+            Assert.assertTrue(spans2.size == 1)
+            Assert.assertEquals(Color.parseColor("#0000FF"), (spans2[0] as ForegroundColorSpan).foregroundColor)
             val spans3 = spannable.getSpans(queryStart = 14, queryEnd = length)
-            assertTrue(spans3.isEmpty())
+            Assert.assertTrue(spans3.isEmpty())
         }
     }
 
@@ -59,8 +61,8 @@ class SpannerTest {
             val spannable = this as SpannableStringBuilder
 
             val spans1 = spannable.getSpans()
-            assertTrue(spans1.size == 1)
-            assertTrue(spans1[0] is UnderlineSpan)
+            Assert.assertTrue(spans1.size == 1)
+            Assert.assertTrue(spans1[0] is UnderlineSpan)
         }
     }
 
@@ -71,8 +73,8 @@ class SpannerTest {
             val spannable = this as SpannableStringBuilder
 
             val spans1 = spannable.getSpans()
-            assertTrue(spans1.size == 1)
-            assertTrue(spans1[0] is StrikethroughSpan)
+            Assert.assertTrue(spans1.size == 1)
+            Assert.assertTrue(spans1[0] is StrikethroughSpan)
         }
     }
 
@@ -83,12 +85,12 @@ class SpannerTest {
             val spannable = this as SpannableStringBuilder
 
             val spans1 = spannable.getSpans(queryStart = 0, queryEnd = 6)
-            assertTrue(spans1.isEmpty())
+            Assert.assertTrue(spans1.isEmpty())
             val spans2 = spannable.getSpans(queryStart = 6, queryEnd = 14)
-            assertTrue(spans2.size == 1)
-            assertTrue(spans2[0] is UnderlineSpan)
+            Assert.assertTrue(spans2.size == 1)
+            Assert.assertTrue(spans2[0] is UnderlineSpan)
             val spans3 = spannable.getSpans(queryStart = 14, queryEnd = length)
-            assertTrue(spans3.isEmpty())
+            Assert.assertTrue(spans3.isEmpty())
         }
     }
 
@@ -99,12 +101,12 @@ class SpannerTest {
             val spannable = this as SpannableStringBuilder
 
             val spans1 = spannable.getSpans(queryStart = 0, queryEnd = 6)
-            assertTrue(spans1.isEmpty())
+            Assert.assertTrue(spans1.isEmpty())
             val spans2 = spannable.getSpans(queryStart = 6, queryEnd = 14)
-            assertTrue(spans2.size == 1)
-            assertTrue(spans2[0] is StrikethroughSpan)
+            Assert.assertTrue(spans2.size == 1)
+            Assert.assertTrue(spans2[0] is StrikethroughSpan)
             val spans3 = spannable.getSpans(queryStart = 14, queryEnd = length)
-            assertTrue(spans3.isEmpty())
+            Assert.assertTrue(spans3.isEmpty())
         }
     }
 
