@@ -12,9 +12,8 @@ internal class Lexer(private val text: String) {
         when {
             ch.isTextChar() -> {
                 var value = ch
-                while (peekChar()?.isTextChar() == true) {
+                while (peekChar()?.isTextChar() == true)
                     value += nextChar()
-                }
                 return Token(TEXT, value)
             }
             ch.isWhitespaceChar() -> {
