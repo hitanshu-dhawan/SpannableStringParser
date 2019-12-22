@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.graphics.Typeface
 import android.text.SpannableStringBuilder
 import android.text.style.*
+import com.hitanshudhawan.spannablestringparser.spanner
 import com.hitanshudhawan.spannablestringparser.spannify
 import org.junit.Assert.*
 import org.junit.Test
@@ -168,6 +169,27 @@ class SpannerTest {
             val spans1 = spannable.getSpans()
             assertTrue(spans1.size == 1)
             assertEquals(Typeface.BOLD, (spans1[0] as StyleSpan).style)
+        }
+    }
+
+    @Test
+    fun testCustomSpanner001() {
+        val string = "C{`8`<sub-script:true/>}H{`10`<sub-script:true/>}N{`4`<sub-script:true/>}O{`2`<sub-script:true/>}"
+        spanner { property, value ->
+            when (property) {
+                "sub-script" -> if (value == "true") return@spanner SubscriptSpan()
+            }
+            return@spanner null
+        }
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.size == 4)
+            assertTrue(spans1[0] is SubscriptSpan)
+            assertTrue(spans1[1] is SubscriptSpan)
+            assertTrue(spans1[2] is SubscriptSpan)
+            assertTrue(spans1[3] is SubscriptSpan)
         }
     }
 
