@@ -12,5 +12,3 @@ fun spanner(spanner: (property: String, value: String) -> Any?) {
 }
 
 fun String.spannify() = tokenize().parse().spannify(customSpanner)
-
-fun TextView.spannify(text: String) = setText(text.spannify())
