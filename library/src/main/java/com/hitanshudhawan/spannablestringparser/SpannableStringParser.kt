@@ -1,8 +1,5 @@
 package com.hitanshudhawan.spannablestringparser
 
-import android.widget.TextView
-
-
 // SpannableStringParser
 
 private var customSpanner: (String, String) -> Any? = { _, _ -> }
