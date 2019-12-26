@@ -111,6 +111,17 @@ class SpannerTest {
     }
 
     @Test
+    fun testTextDecorationLine005() {
+        val string = "{ `Hitanshu` < text-decoration-line : random-value /> }"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.isEmpty())
+        }
+    }
+
+    @Test
     fun testFontSize001() {
         val string = "{ `Hitanshu` < font-size : 16dp /> }"
         with(string.spannify()) {
@@ -149,6 +160,17 @@ class SpannerTest {
     }
 
     @Test
+    fun testFontSize004() {
+        val string = "{ `Hitanshu` < font-size : random-value /> }"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.isEmpty())
+        }
+    }
+
+    @Test
     fun testFontStyle001() {
         val string = "{ `Hitanshu` < font-style : italic /> }"
         with(string.spannify()) {
@@ -161,6 +183,17 @@ class SpannerTest {
     }
 
     @Test
+    fun testFontStyle002() {
+        val string = "{ `Hitanshu` < font-style : random-value /> }"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.isEmpty())
+        }
+    }
+
+    @Test
     fun testFontWeight001() {
         val string = "{ `Hitanshu` < font-weight : bold /> }"
         with(string.spannify()) {
@@ -169,6 +202,17 @@ class SpannerTest {
             val spans1 = spannable.getSpans()
             assertTrue(spans1.size == 1)
             assertEquals(Typeface.BOLD, (spans1[0] as StyleSpan).style)
+        }
+    }
+
+    @Test
+    fun testFontWeight002() {
+        val string = "{ `Hitanshu` < font-weight : random-value /> }"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.isEmpty())
         }
     }
 
@@ -190,6 +234,19 @@ class SpannerTest {
             assertTrue(spans1[1] is SubscriptSpan)
             assertTrue(spans1[2] is SubscriptSpan)
             assertTrue(spans1[3] is SubscriptSpan)
+        }
+    }
+
+    //
+
+    @Test
+    fun test001() {
+        val string = "{ ` ` < color : #0000FF /> }"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.isEmpty())
         }
     }
 
