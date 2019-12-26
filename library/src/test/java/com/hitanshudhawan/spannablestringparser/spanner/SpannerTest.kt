@@ -237,6 +237,23 @@ class SpannerTest {
         }
     }
 
+    @Test
+    fun testCustomSpanner002() {
+        val string = "a{`2`<super-script:true;font-size:0.5em/>} + b{`2`<super-script:true;font-size:0.5em/>} = c{`2`<super-script:true;font-size:0.5em/>}"
+        spanner { property, value ->
+            when (property) {
+                "sub-script" -> if (value == "true") return@spanner SubscriptSpan()
+            }
+            return@spanner null
+        }
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.size == 3)
+        }
+    }
+
     //
 
     @Test
