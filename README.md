@@ -40,7 +40,7 @@ Here are some examples...
 "Hello { `SpannableStringParser` < color:#0000FF ; text-decoration-line:underline /> }"
 ```
 ![](images/have_a_look_2.png)
-___
+---
 ```kotlin
 "Hello { `SpannableStringParser` < color:#0000FF ; text-decoration-line:underline|line-through /> }"
 ```
