@@ -35,12 +35,12 @@ This string can also come from a back-end server and if we wish to change the st
 "Hello { `SpannableStringParser` < color:#0000FF /> }"
 ```
 ![](images/have_a_look_1.png)
-<br><br>
+___
 ```kotlin
 "Hello { `SpannableStringParser` < color:#0000FF ; text-decoration-line:underline /> }"
 ```
 ![](images/have_a_look_2.png)
-<br><br>
+___
 ```kotlin
 "Hello { `SpannableStringParser` < color:#0000FF ; text-decoration-line:underline|line-through /> }"
 ```
