@@ -29,8 +29,9 @@ val string = "Text with a { `foreground color` < color : #FF0000 /> } span".span
 
 This string can also come from a back-end server and if we wish to change the style of the text in future, the string can be easily changed from back-end and no front-end change will be required.
 
-## Have a Look(*)
-
+## Have a Look
+Here are some examples...
+___
 ```kotlin
 "Hello { `SpannableStringParser` < color:#0000FF /> }"
 ```
@@ -45,9 +46,9 @@ ___
 "Hello { `SpannableStringParser` < color:#0000FF ; text-decoration-line:underline|line-through /> }"
 ```
 ![](images/have_a_look_3.png)
+___
 
 ## Download
-
 Add JitPack repository to your root `build.gradle` file
 ```
 allprojects {
@@ -112,7 +113,6 @@ But! If you want any property to be added in SpannableStringParser, feel free to
 <br><br>
 
 ## Licence
-
 ```
 Copyright (c) 2019 Hitanshu Dhawan
 
