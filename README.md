@@ -34,7 +34,7 @@ This string can also come from a back-end server and if we wish to change the st
 ```kotlin
 "Hello { `SpannableStringParser` < color:#0000FF /> }"
 ```
-![](images/have_a_look_1.png)
+<img src="/images/have_a_look_2.png" width=500></img>
 <br><br>
 ```kotlin
 "Hello { `SpannableStringParser` < color:#0000FF ; text-decoration-line:underline /> }"
