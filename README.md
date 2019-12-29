@@ -31,6 +31,19 @@ This string can also come from a back-end server and if we wish to change the st
 
 ## Have a Look(*)
 
+```kotlin
+"Hello { `SpannableStringParser` < color:#0000FF /> }"
+```
+```kotlin
+"Hello { `SpannableStringParser` < color:#0000FF ; text-decoration-line:underline /> }"
+```
+```kotlin
+"Hello { `SpannableStringParser` < color:#0000FF ; text-decoration-line:underline|line-through /> }"
+```
+```kotlin
+"Hello { `SpannableStringParser` < color:#0000FF ; text-decoration-line:underline|line-through ; font-size:1.5em /> }"
+```
+
 ## Download
 Add JitPack repository to your root `build.gradle` file
 ```
