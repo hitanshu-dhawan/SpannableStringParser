@@ -31,7 +31,6 @@ This string can also come from a back-end server and if we wish to change the st
 
 ## Have a Look
 Here are some examples...
-___
 ```kotlin
 "Hello { `SpannableStringParser` < color:#0000FF /> }"
 ```
@@ -46,7 +45,6 @@ ___
 "Hello { `SpannableStringParser` < color:#0000FF ; text-decoration-line:underline|line-through /> }"
 ```
 ![](images/have_a_look_3.png)
-___
 
 ## Download
 Add JitPack repository to your root `build.gradle` file
