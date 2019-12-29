@@ -34,17 +34,20 @@ This string can also come from a back-end server and if we wish to change the st
 ```kotlin
 "Hello { `SpannableStringParser` < color:#0000FF /> }"
 ```
+![](images/have_a_look_1.png)
+<br><br>
 ```kotlin
 "Hello { `SpannableStringParser` < color:#0000FF ; text-decoration-line:underline /> }"
 ```
+![](images/have_a_look_2.png)
+<br><br>
 ```kotlin
 "Hello { `SpannableStringParser` < color:#0000FF ; text-decoration-line:underline|line-through /> }"
 ```
-```kotlin
-"Hello { `SpannableStringParser` < color:#0000FF ; text-decoration-line:underline|line-through ; font-size:1.5em /> }"
-```
+![](images/have_a_look_3.png)
 
 ## Download
+
 Add JitPack repository to your root `build.gradle` file
 ```
 allprojects {
@@ -61,6 +64,7 @@ dependencies {
 ```
 
 ## Usage(*)
+
 - text having a declaration
 ```
 { `text` < property : value /> }
@@ -75,6 +79,7 @@ dependencies {
 ```
 
 ## Supported Properties
+
 #### `color`
 > The `color` property specifies the color of text.
 
@@ -107,6 +112,7 @@ But! If you want any property to be added in SpannableStringParser, feel free to
 <br><br>
 
 ## Licence
+
 ```
 Copyright (c) 2019 Hitanshu Dhawan
 
