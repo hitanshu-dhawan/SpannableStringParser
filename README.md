@@ -4,7 +4,30 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/6ed7afcc6a144e4e814b4b91157ab472)](https://www.codacy.com/manual/hitanshu-dhawan/SpannableStringParser?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=hitanshu-dhawan/SpannableStringParser&amp;utm_campaign=Badge_Grade)
 [![codecov](https://codecov.io/gh/hitanshu-dhawan/SpannableStringParser/branch/master/graph/badge.svg)](https://codecov.io/gh/hitanshu-dhawan/SpannableStringParser)
 
-SpannableStringParser is a ...
+In Android, to style our text we use Spans.
+<br>
+Spans are markup objects that can be applied to parts of the text.
+
+It requires us to deal with the indexes of the text that we want to style.
+
+```kotlin
+val string = SpannableString("Text with a foreground color span")
+string.setSpan(ForegroundColorSpan(Color.RED), 12, 28, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+```
+
+But what if the text is dynamic and the styling of the text is also dynamic.
+<br>
+Now, dealing with indexes and styling becomes really difficult for us.
+
+This is where <b>SpannableStringParser</b> helps us.
+<br>
+You can specify which text to style and how to style them inside the string itself, and use the `spannify()` extension function to style it.
+
+```kotlin
+val string = "Text with a { `foreground color` < color : #FF0000 /> } span".spannify()
+```
+
+This string can also come from a back-end server and if we wish to change the style of the text in future, the string can be easily changed from back-end and no front-end change will be required.
 
 ## Have a Look(*)
 
