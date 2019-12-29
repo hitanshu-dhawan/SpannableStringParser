@@ -31,16 +31,19 @@ This string can also come from a back-end server and if we wish to change the st
 
 ## Have a Look
 Here are some examples...
+#### 1. Text having a property
 ```kotlin
 "Hello { `SpannableStringParser` < color:#0000FF /> }"
 ```
 ![](images/have_a_look_1.png)
 ---
+#### 2. Text having multiple properties
 ```kotlin
 "Hello { `SpannableStringParser` < color:#0000FF ; text-decoration-line:underline /> }"
 ```
 ![](images/have_a_look_2.png)
 ---
+#### 3. Text having multiple properties with multiple values
 ```kotlin
 "Hello { `SpannableStringParser` < color:#0000FF ; text-decoration-line:underline|line-through /> }"
 ```
