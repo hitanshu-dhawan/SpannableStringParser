@@ -1,5 +1,6 @@
 ![SpannableStringParser](images/logo.png)
 
+[![](https://jitpack.io/v/hitanshu-dhawan/SpannableStringParser.svg)](https://jitpack.io/#hitanshu-dhawan/SpannableStringParser)
 [![CircleCI](https://circleci.com/gh/hitanshu-dhawan/SpannableStringParser.svg?style=svg)](https://circleci.com/gh/hitanshu-dhawan/SpannableStringParser)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/6ed7afcc6a144e4e814b4b91157ab472)](https://www.codacy.com/manual/hitanshu-dhawan/SpannableStringParser?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=hitanshu-dhawan/SpannableStringParser&amp;utm_campaign=Badge_Grade)
 [![codecov](https://codecov.io/gh/hitanshu-dhawan/SpannableStringParser/branch/master/graph/badge.svg)](https://codecov.io/gh/hitanshu-dhawan/SpannableStringParser)
@@ -31,7 +32,7 @@ This string can also come from a back-end server and if we wish to change the st
 
 <b>SpannableStringParser</b> internally uses `Spannable`, which is more performant than `Html`.
 
-# Have a Look
+## Have a Look
 
 #### 1. Text having a property
 ```kotlin
@@ -51,23 +52,7 @@ This string can also come from a back-end server and if we wish to change the st
 ```
 ![](images/have_a_look_3.png)
 
-# Download
-Add JitPack repository to your root `build.gradle` file
-```
-allprojects {
-    repositories {
-        maven { url 'https://jitpack.io' }
-    }
-}
-```
-Add the dependency to your app `build.gradle` file
-```
-dependencies {
-    implementation 'com.github.hitanshu-dhawan:SpannableStringParser:1.0.0'
-}
-```
-
-# Usage
+## Usage
 
 - Syntax for "text" having a property
 ```kotlin
@@ -99,7 +84,7 @@ spanner { property, value ->
 }
 ```
 
-# Supported Properties
+## Supported Properties
 
 #### `color`
 > The `color` property specifies the color of text.
@@ -132,7 +117,23 @@ You can add your custom properties using the `spanner` method.
 But! If you want any property to be added in SpannableStringParser, feel free to open issues/pull requests.
 <br><br>
 
-# Licence
+## Download
+Add JitPack repository to your root `build.gradle` file
+```
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+Add the dependency to your app `build.gradle` file
+```
+dependencies {
+    implementation 'com.github.hitanshu-dhawan:SpannableStringParser:1.0.0'
+}
+```
+
+## Licence
 ```
 Copyright (c) 2019 Hitanshu Dhawan
 
