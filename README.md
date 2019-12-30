@@ -29,7 +29,7 @@ val string = "Text with a { `foreground color` < color:#FF0000 /> } span".spanni
 
 This string can also come from a back-end server and if we wish to change the style of the text in future, the string can be easily changed from back-end and no front-end change will be required.
 
-## Have a Look
+# Have a Look
 Here are some examples...
 #### 1. Text having a property
 ```kotlin
@@ -49,7 +49,7 @@ Here are some examples...
 ```
 ![](images/have_a_look_3.png)
 
-## Download
+# Download
 Add JitPack repository to your root `build.gradle` file
 ```
 allprojects {
@@ -65,7 +65,7 @@ dependencies {
 }
 ```
 
-## Usage
+# Usage
 
 - Syntax for "text" having a property
 ```kotlin
@@ -82,7 +82,7 @@ text_view.text = "{ `text` < property:value ; property:value /> }".spannify()
 text_view.text = "{ `text` < property:value ; property:value|value /> }".spannify()
 ```
 
-## Supported Properties
+# Supported Properties
 
 #### `color`
 > The `color` property specifies the color of text.
@@ -115,7 +115,7 @@ You can add your custom properties using the `spanner` method.
 But! If you want any property to be added in SpannableStringParser, feel free to open issues/pull requests.
 <br><br>
 
-## Licence
+# Licence
 ```
 Copyright (c) 2019 Hitanshu Dhawan
 
