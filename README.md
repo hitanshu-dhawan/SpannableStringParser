@@ -63,7 +63,7 @@ allprojects {
 Add the dependency to your app `build.gradle` file
 ```
 dependencies {
-    implementation 'com.github.hitanshu-dhawan:SpannableStringParser:1.0.x'
+    implementation 'com.github.hitanshu-dhawan:SpannableStringParser:1.0.0'
 }
 ```
 
