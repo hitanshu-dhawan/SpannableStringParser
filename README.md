@@ -84,6 +84,21 @@ text_view.text = "{ `text` < property:value ; property:value /> }".spannify()
 text_view.text = "{ `text` < property:value ; property:value|value /> }".spannify()
 ```
 
+- You can even add custom properties using the `spanner` method.
+```kotlin
+spanner { property, value ->
+    when (property) {
+        "sub-script" -> if (value == "true") {
+            return@spanner SubscriptSpan()
+        }
+        "super-script" -> if (value == "true") {
+            return@spanner SuperscriptSpan()
+        }
+    }
+    return@spanner null
+}
+```
+
 # Supported Properties
 
 #### `color`
