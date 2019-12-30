@@ -3,6 +3,10 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'jacoco-android'
 
+apply plugin: 'com.github.dcendents.android-maven'
+
+group = 'com.github.hitanshu-dhawan'
+
 android {
     compileSdkVersion 28
     defaultConfig {
