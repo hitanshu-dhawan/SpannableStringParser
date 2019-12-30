@@ -29,6 +29,8 @@ val string = "Text with a { `foreground color` < color:#FF0000 /> } span".spanni
 
 This string can also come from a back-end server and if we wish to change the style of the text in future, the string can be easily changed from back-end and no front-end change will be required.
 
+<b>SpannableStringParser</b> internally uses `Spannable`, which is more performant than `Html`.
+
 # Have a Look
 
 #### 1. Text having a property
