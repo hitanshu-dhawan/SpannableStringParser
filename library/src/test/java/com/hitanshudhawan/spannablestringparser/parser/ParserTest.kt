@@ -1,8 +1,7 @@
 package com.hitanshudhawan.spannablestringparser.parser
 
+import com.hitanshudhawan.spannablestringparser.*
 import com.hitanshudhawan.spannablestringparser.TestingUtils.testStrings
-import com.hitanshudhawan.spannablestringparser.parse
-import com.hitanshudhawan.spannablestringparser.tokenize
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

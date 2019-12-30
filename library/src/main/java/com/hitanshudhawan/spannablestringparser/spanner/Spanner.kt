@@ -1,13 +1,13 @@
 package com.hitanshudhawan.spannablestringparser.spanner
 
-import android.graphics.Color
-import android.graphics.Typeface
-import android.text.Spannable
-import android.text.SpannableString
-import android.text.SpannableStringBuilder
+import android.graphics.*
+import android.text.*
 import android.text.style.*
 import com.hitanshudhawan.spannablestringparser.parser.Node
 
+/**
+ * Spanner : Converts a syntax tree into SpannableString.
+ */
 internal class Spanner(private val syntaxTree: List<Node>, private val customSpanner: (property: String, value: String) -> Any?) {
 
     fun spannify(): CharSequence {

@@ -1,11 +1,9 @@
 package com.hitanshudhawan.spannablestringparser.spanner
 
-import android.graphics.Color
-import android.graphics.Typeface
+import android.graphics.*
 import android.text.SpannableStringBuilder
 import android.text.style.*
-import com.hitanshudhawan.spannablestringparser.spanner
-import com.hitanshudhawan.spannablestringparser.spannify
+import com.hitanshudhawan.spannablestringparser.*
 import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith

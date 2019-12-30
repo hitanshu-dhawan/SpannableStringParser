@@ -3,6 +3,9 @@ package com.hitanshudhawan.spannablestringparser.parser
 import com.hitanshudhawan.spannablestringparser.lexer.Token
 import com.hitanshudhawan.spannablestringparser.lexer.TokenType.*
 
+/**
+ * FiniteAutomaton : A finite-state machine to recognize proper syntax.
+ */
 internal class FiniteAutomaton {
 
     val initialState = 1
