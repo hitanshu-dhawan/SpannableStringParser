@@ -88,6 +88,16 @@ internal class Spanner(private val syntaxTree: List<Node>, private val customSpa
                         text.setSpan(StyleSpan(Typeface.BOLD))
                 }
 
+                "super-script" -> {
+                    if (declaration.value == "true")
+                        text.setSpan(SuperscriptSpan())
+                }
+
+                "sub-script" -> {
+                    if (declaration.value == "true")
+                        text.setSpan(SubscriptSpan())
+                }
+
                 else -> {
                     customSpanner.invoke(declaration.property, declaration.value)?.let { text.setSpan(it) }
                 }
