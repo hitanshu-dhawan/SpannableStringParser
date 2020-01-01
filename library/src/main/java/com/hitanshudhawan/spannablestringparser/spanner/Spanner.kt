@@ -33,6 +33,16 @@ internal class Spanner(private val syntaxTree: List<Node>, private val customSpa
                     text.setSpan(ForegroundColorSpan(Color.parseColor(declaration.value)))
                 }
 
+                "background-color" -> {
+                    text.setSpan(BackgroundColorSpan(Color.parseColor(declaration.value)))
+                }
+
+                "line-background-color" -> {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                        text.setSpan(LineBackgroundSpan.Standard(Color.parseColor(declaration.value)))
+                    }
+                }
+
                 "letter-spacing" -> {
                     //
                 }
@@ -40,17 +50,20 @@ internal class Spanner(private val syntaxTree: List<Node>, private val customSpa
                 "line-height" -> {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                         val value = declaration.value
-                        if (value.endsWith("px"))
+                        if (value.endsWith("px")) {
                             text.setSpan(LineHeightSpan.Standard(value.substring(0, value.length - 2).toInt()))
+                        }
                     }
                 }
 
                 "text-decoration-line" -> {
                     when (declaration.value) {
-                        "underline" ->
+                        "underline" -> {
                             text.setSpan(UnderlineSpan())
-                        "line-through" ->
+                        }
+                        "line-through" -> {
                             text.setSpan(StrikethroughSpan())
+                        }
                     }
                 }
 
@@ -73,33 +86,40 @@ internal class Spanner(private val syntaxTree: List<Node>, private val customSpa
                 "font-size" -> {
                     val value = declaration.value
                     when {
-                        value.endsWith("dp") ->
+                        value.endsWith("dp") -> {
                             text.setSpan(AbsoluteSizeSpan(value.substring(0, value.length - 2).toInt(), true))
-                        value.endsWith("em") ->
+                        }
+                        value.endsWith("em") -> {
                             text.setSpan(RelativeSizeSpan(value.substring(0, value.length - 2).toFloat()))
-                        value.endsWith("px") ->
+                        }
+                        value.endsWith("px") -> {
                             text.setSpan(AbsoluteSizeSpan(value.substring(0, value.length - 2).toInt(), false))
+                        }
                     }
                 }
 
                 "font-style" -> {
-                    if (declaration.value == "italic")
+                    if (declaration.value == "italic") {
                         text.setSpan(StyleSpan(Typeface.ITALIC))
+                    }
                 }
 
                 "font-weight" -> {
-                    if (declaration.value == "bold")
+                    if (declaration.value == "bold") {
                         text.setSpan(StyleSpan(Typeface.BOLD))
+                    }
                 }
 
                 "super-script" -> {
-                    if (declaration.value == "true")
+                    if (declaration.value == "true") {
                         text.setSpan(SuperscriptSpan())
+                    }
                 }
 
                 "sub-script" -> {
-                    if (declaration.value == "true")
+                    if (declaration.value == "true") {
                         text.setSpan(SubscriptSpan())
+                    }
                 }
 
                 else -> {
