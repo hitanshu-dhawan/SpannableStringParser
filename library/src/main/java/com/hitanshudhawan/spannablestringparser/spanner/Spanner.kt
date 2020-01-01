@@ -1,6 +1,8 @@
 package com.hitanshudhawan.spannablestringparser.spanner
 
 import android.graphics.*
+import android.os.Build.VERSION.SDK_INT
+import android.os.Build.VERSION_CODES.Q
 import android.text.*
 import android.text.style.*
 import com.hitanshudhawan.spannablestringparser.parser.Node
@@ -36,7 +38,7 @@ internal class Spanner(private val syntaxTree: List<Node>, private val customSpa
                     text.setSpan(BackgroundColorSpan(Color.parseColor(declaration.value)))
                 }
 
-                "line-background-color" -> {
+                "line-background-color" -> if (SDK_INT >= Q) {
                     text.setSpan(LineBackgroundSpan.Standard(Color.parseColor(declaration.value)))
                 }
 
@@ -114,7 +116,7 @@ internal class Spanner(private val syntaxTree: List<Node>, private val customSpa
                     }
                 }
 
-                "line-height" -> {
+                "line-height" -> if (SDK_INT >= Q) {
                     val value = declaration.value
                     when {
                         value.endsWith("px") -> {
