@@ -94,6 +94,14 @@ internal class Spanner(private val syntaxTree: List<Node>, private val customSpa
                     }
                 }
 
+                "font-family" -> {
+                    when (declaration.value) {
+                        "monospace", "serif", "sans-serif" -> {
+                            text.setSpan(TypefaceSpan(declaration.value))
+                        }
+                    }
+                }
+
                 "line-height" -> {
                     val value = declaration.value
                     when {
