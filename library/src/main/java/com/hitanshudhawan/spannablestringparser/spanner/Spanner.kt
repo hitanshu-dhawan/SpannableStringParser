@@ -57,6 +57,9 @@ internal class Spanner(private val syntaxTree: List<Node>, private val customSpa
 
                 "text-style" -> {
                     when (declaration.value) {
+                        "normal" -> {
+                            text.setSpan(StyleSpan(Typeface.NORMAL))
+                        }
                         "bold" -> {
                             text.setSpan(StyleSpan(Typeface.BOLD))
                         }
@@ -77,10 +80,26 @@ internal class Spanner(private val syntaxTree: List<Node>, private val customSpa
                     }
                 }
 
+                "text-alignment" -> {
+                    when (declaration.value) {
+                        "normal" -> {
+                            text.setSpan(AlignmentSpan.Standard(Layout.Alignment.ALIGN_NORMAL))
+                        }
+                        "opposite" -> {
+                            text.setSpan(AlignmentSpan.Standard(Layout.Alignment.ALIGN_OPPOSITE))
+                        }
+                        "center" -> {
+                            text.setSpan(AlignmentSpan.Standard(Layout.Alignment.ALIGN_CENTER))
+                        }
+                    }
+                }
+
                 "line-height" -> {
                     val value = declaration.value
-                    if (value.endsWith("px")) {
-                        text.setSpan(LineHeightSpan.Standard(value.substring(0, value.length - 2).toInt()))
+                    when {
+                        value.endsWith("px") -> {
+                            text.setSpan(LineHeightSpan.Standard(value.substring(0, value.length - 2).toInt()))
+                        }
                     }
                 }
 
