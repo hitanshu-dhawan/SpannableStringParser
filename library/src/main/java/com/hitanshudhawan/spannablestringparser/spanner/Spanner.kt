@@ -122,6 +122,10 @@ internal class Spanner(private val syntaxTree: List<Node>, private val customSpa
                     }
                 }
 
+                "href" -> {
+                    text.setSpan(URLSpan(declaration.value))
+                }
+
                 else -> {
                     customSpanner.invoke(declaration.property, declaration.value)?.let { text.setSpan(it) }
                 }
