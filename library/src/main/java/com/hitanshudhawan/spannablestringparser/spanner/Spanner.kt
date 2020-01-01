@@ -55,6 +55,29 @@ internal class Spanner(private val syntaxTree: List<Node>, private val customSpa
                     }
                 }
 
+                "text-decoration" -> {
+                    when (declaration.value) {
+                        "underline" -> {
+                            text.setSpan(UnderlineSpan())
+                        }
+                        "strike-through" -> {
+                            text.setSpan(StrikethroughSpan())
+                        }
+                    }
+                }
+
+                "subscript" -> {
+                    if (declaration.value == "true") {
+                        text.setSpan(SubscriptSpan())
+                    }
+                }
+
+                "superscript" -> {
+                    if (declaration.value == "true") {
+                        text.setSpan(SuperscriptSpan())
+                    }
+                }
+
                 "text-style" -> {
                     when (declaration.value) {
                         "normal" -> {
@@ -69,13 +92,10 @@ internal class Spanner(private val syntaxTree: List<Node>, private val customSpa
                     }
                 }
 
-                "text-decoration" -> {
+                "font-family" -> {
                     when (declaration.value) {
-                        "underline" -> {
-                            text.setSpan(UnderlineSpan())
-                        }
-                        "strike-through" -> {
-                            text.setSpan(StrikethroughSpan())
+                        "monospace", "serif", "sans-serif" -> {
+                            text.setSpan(TypefaceSpan(declaration.value))
                         }
                     }
                 }
@@ -94,32 +114,12 @@ internal class Spanner(private val syntaxTree: List<Node>, private val customSpa
                     }
                 }
 
-                "font-family" -> {
-                    when (declaration.value) {
-                        "monospace", "serif", "sans-serif" -> {
-                            text.setSpan(TypefaceSpan(declaration.value))
-                        }
-                    }
-                }
-
                 "line-height" -> {
                     val value = declaration.value
                     when {
                         value.endsWith("px") -> {
                             text.setSpan(LineHeightSpan.Standard(value.substring(0, value.length - 2).toInt()))
                         }
-                    }
-                }
-
-                "subscript" -> {
-                    if (declaration.value == "true") {
-                        text.setSpan(SubscriptSpan())
-                    }
-                }
-
-                "superscript" -> {
-                    if (declaration.value == "true") {
-                        text.setSpan(SuperscriptSpan())
                     }
                 }
 
