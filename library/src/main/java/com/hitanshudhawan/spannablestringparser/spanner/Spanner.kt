@@ -1,6 +1,7 @@
 package com.hitanshudhawan.spannablestringparser.spanner
 
 import android.graphics.*
+import android.os.Build
 import android.text.*
 import android.text.style.*
 import com.hitanshudhawan.spannablestringparser.parser.Node
@@ -37,13 +38,19 @@ internal class Spanner(private val syntaxTree: List<Node>, private val customSpa
                 }
 
                 "line-height" -> {
-                    //
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                        val value = declaration.value
+                        if (value.endsWith("px"))
+                            text.setSpan(LineHeightSpan.Standard(value.substring(0, value.length - 2).toInt()))
+                    }
                 }
 
                 "text-decoration-line" -> {
                     when (declaration.value) {
-                        "underline" -> text.setSpan(UnderlineSpan())
-                        "line-through" -> text.setSpan(StrikethroughSpan())
+                        "underline" ->
+                            text.setSpan(UnderlineSpan())
+                        "line-through" ->
+                            text.setSpan(StrikethroughSpan())
                     }
                 }
 
@@ -66,15 +73,12 @@ internal class Spanner(private val syntaxTree: List<Node>, private val customSpa
                 "font-size" -> {
                     val value = declaration.value
                     when {
-                        value.endsWith("dp") -> {
+                        value.endsWith("dp") ->
                             text.setSpan(AbsoluteSizeSpan(value.substring(0, value.length - 2).toInt(), true))
-                        }
-                        value.endsWith("em") -> {
+                        value.endsWith("em") ->
                             text.setSpan(RelativeSizeSpan(value.substring(0, value.length - 2).toFloat()))
-                        }
-                        value.endsWith("px") -> {
+                        value.endsWith("px") ->
                             text.setSpan(AbsoluteSizeSpan(value.substring(0, value.length - 2).toInt(), false))
-                        }
                     }
                 }
 
