@@ -1,7 +1,6 @@
 package com.hitanshudhawan.spannablestringparser.spanner
 
 import android.graphics.*
-import android.os.Build
 import android.text.*
 import android.text.style.*
 import com.hitanshudhawan.spannablestringparser.parser.Node
@@ -29,7 +28,7 @@ internal class Spanner(private val syntaxTree: List<Node>, private val customSpa
 
             when (declaration.property) {
 
-                "color" -> {
+                "text-color" -> {
                     text.setSpan(ForegroundColorSpan(Color.parseColor(declaration.value)))
                 }
 
@@ -38,52 +37,10 @@ internal class Spanner(private val syntaxTree: List<Node>, private val customSpa
                 }
 
                 "line-background-color" -> {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                        text.setSpan(LineBackgroundSpan.Standard(Color.parseColor(declaration.value)))
-                    }
+                    text.setSpan(LineBackgroundSpan.Standard(Color.parseColor(declaration.value)))
                 }
 
-                "letter-spacing" -> {
-                    //
-                }
-
-                "line-height" -> {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                        val value = declaration.value
-                        if (value.endsWith("px")) {
-                            text.setSpan(LineHeightSpan.Standard(value.substring(0, value.length - 2).toInt()))
-                        }
-                    }
-                }
-
-                "text-decoration-line" -> {
-                    when (declaration.value) {
-                        "underline" -> {
-                            text.setSpan(UnderlineSpan())
-                        }
-                        "line-through" -> {
-                            text.setSpan(StrikethroughSpan())
-                        }
-                    }
-                }
-
-                "text-transform" -> {
-                    //
-                }
-
-                "vertical-align" -> {
-                    //
-                }
-
-                "word-spacing" -> {
-                    //
-                }
-
-                "font-family" -> {
-                    //
-                }
-
-                "font-size" -> {
+                "text-size" -> {
                     val value = declaration.value
                     when {
                         value.endsWith("dp") -> {
@@ -98,31 +55,48 @@ internal class Spanner(private val syntaxTree: List<Node>, private val customSpa
                     }
                 }
 
-                "font-style" -> {
-                    if (declaration.value == "italic") {
-                        text.setSpan(StyleSpan(Typeface.ITALIC))
+                "text-style" -> {
+                    when (declaration.value) {
+                        "bold" -> {
+                            text.setSpan(StyleSpan(Typeface.BOLD))
+                        }
+                        "italic" -> {
+                            text.setSpan(StyleSpan(Typeface.ITALIC))
+                        }
                     }
                 }
 
-                "font-weight" -> {
-                    if (declaration.value == "bold") {
-                        text.setSpan(StyleSpan(Typeface.BOLD))
+                "text-decoration" -> {
+                    when (declaration.value) {
+                        "underline" -> {
+                            text.setSpan(UnderlineSpan())
+                        }
+                        "strike-through" -> {
+                            text.setSpan(StrikethroughSpan())
+                        }
                     }
                 }
 
-                "super-script" -> {
-                    if (declaration.value == "true") {
-                        text.setSpan(SuperscriptSpan())
+                "line-height" -> {
+                    val value = declaration.value
+                    if (value.endsWith("px")) {
+                        text.setSpan(LineHeightSpan.Standard(value.substring(0, value.length - 2).toInt()))
                     }
                 }
 
-                "sub-script" -> {
+                "subscript" -> {
                     if (declaration.value == "true") {
                         text.setSpan(SubscriptSpan())
                     }
                 }
 
-                "href" -> {
+                "superscript" -> {
+                    if (declaration.value == "true") {
+                        text.setSpan(SuperscriptSpan())
+                    }
+                }
+
+                "url" -> {
                     text.setSpan(URLSpan(declaration.value))
                 }
 
