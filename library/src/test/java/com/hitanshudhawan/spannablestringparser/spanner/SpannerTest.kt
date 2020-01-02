@@ -13,8 +13,8 @@ import org.robolectric.RobolectricTestRunner
 class SpannerTest {
 
     @Test
-    fun testColor001() {
-        val string = "{ `Hitanshu` < color : #0000FF /> }"
+    fun `text-color 001`() {
+        val string = "{ `Hitanshu` < text-color : #0000FF /> }"
         with(string.spannify()) {
             val spannable = this as SpannableStringBuilder
 
@@ -27,8 +27,8 @@ class SpannerTest {
     }
 
     @Test
-    fun testColor002() {
-        val string = "{ `Hitanshu` < color : #AA0000FF /> }"
+    fun `text-color 002`() {
+        val string = "{ `Hitanshu` < text-color : #AA0000FF /> }"
         with(string.spannify()) {
             val spannable = this as SpannableStringBuilder
 
@@ -41,8 +41,8 @@ class SpannerTest {
     }
 
     @Test
-    fun testColor003() {
-        val string = "Hello { `Hitanshu` < color : #0000FF /> } Dhawan"
+    fun `text-color 003`() {
+        val string = "Hello { `Hitanshu` < text-color : #0000FF /> } Dhawan"
         with(string.spannify()) {
             val spannable = this as SpannableStringBuilder
 
