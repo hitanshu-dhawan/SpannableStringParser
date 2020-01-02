@@ -110,6 +110,63 @@ class SpannerTest {
     }
 
     @Test
+    fun `text-size 001`() {
+        val string = "{ `Hitanshu` < text-size : 16dp /> }"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("Hitanshu", spannable.toString())
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.size == 1)
+            assertEquals(16, (spans1[0] as AbsoluteSizeSpan).size)
+            assertTrue((spans1[0] as AbsoluteSizeSpan).dip)
+        }
+    }
+
+    @Test
+    fun `text-size 002`() {
+        val string = "{ `Hitanshu` < text-size : 1.5em /> }"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("Hitanshu", spannable.toString())
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.size == 1)
+            assertEquals(1.5F, (spans1[0] as RelativeSizeSpan).sizeChange)
+        }
+    }
+
+    @Test
+    fun `text-size 003`() {
+        val string = "{ `Hitanshu` < text-size : 16px /> }"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("Hitanshu", spannable.toString())
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.size == 1)
+            assertEquals(16, (spans1[0] as AbsoluteSizeSpan).size)
+            assertFalse((spans1[0] as AbsoluteSizeSpan).dip)
+        }
+    }
+
+    @Test
+    fun `text-size 004`() {
+        val string = "{ `Hitanshu` < text-size : random-value /> }"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("Hitanshu", spannable.toString())
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.isEmpty())
+        }
+    }
+
+    @Test
     fun testTextDecorationLine001() {
         val string = "{ `Hitanshu` < text-decoration-line : underline /> }"
         with(string.spannify()) {
@@ -176,63 +233,6 @@ class SpannerTest {
     @Test
     fun testTextDecorationLine005() {
         val string = "{ `Hitanshu` < text-decoration-line : random-value /> }"
-        with(string.spannify()) {
-            val spannable = this as SpannableStringBuilder
-
-            assertEquals("Hitanshu", spannable.toString())
-
-            val spans1 = spannable.getSpans()
-            assertTrue(spans1.isEmpty())
-        }
-    }
-
-    @Test
-    fun testFontSize001() {
-        val string = "{ `Hitanshu` < font-size : 16dp /> }"
-        with(string.spannify()) {
-            val spannable = this as SpannableStringBuilder
-
-            assertEquals("Hitanshu", spannable.toString())
-
-            val spans1 = spannable.getSpans()
-            assertTrue(spans1.size == 1)
-            assertEquals(16, (spans1[0] as AbsoluteSizeSpan).size)
-            assertTrue((spans1[0] as AbsoluteSizeSpan).dip)
-        }
-    }
-
-    @Test
-    fun testFontSize002() {
-        val string = "{ `Hitanshu` < font-size : 1.5em /> }"
-        with(string.spannify()) {
-            val spannable = this as SpannableStringBuilder
-
-            assertEquals("Hitanshu", spannable.toString())
-
-            val spans1 = spannable.getSpans()
-            assertTrue(spans1.size == 1)
-            assertEquals(1.5F, (spans1[0] as RelativeSizeSpan).sizeChange)
-        }
-    }
-
-    @Test
-    fun testFontSize003() {
-        val string = "{ `Hitanshu` < font-size : 16px /> }"
-        with(string.spannify()) {
-            val spannable = this as SpannableStringBuilder
-
-            assertEquals("Hitanshu", spannable.toString())
-
-            val spans1 = spannable.getSpans()
-            assertTrue(spans1.size == 1)
-            assertEquals(16, (spans1[0] as AbsoluteSizeSpan).size)
-            assertFalse((spans1[0] as AbsoluteSizeSpan).dip)
-        }
-    }
-
-    @Test
-    fun testFontSize004() {
-        val string = "{ `Hitanshu` < font-size : random-value /> }"
         with(string.spannify()) {
             val spannable = this as SpannableStringBuilder
 
