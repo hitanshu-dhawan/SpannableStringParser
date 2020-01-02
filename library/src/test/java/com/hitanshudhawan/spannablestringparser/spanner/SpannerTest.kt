@@ -167,8 +167,8 @@ class SpannerTest {
     }
 
     @Test
-    fun testTextDecorationLine001() {
-        val string = "{ `Hitanshu` < text-decoration-line : underline /> }"
+    fun `text-decoration 001`() {
+        val string = "{ `Hitanshu` < text-decoration : underline /> }"
         with(string.spannify()) {
             val spannable = this as SpannableStringBuilder
 
@@ -181,8 +181,8 @@ class SpannerTest {
     }
 
     @Test
-    fun testTextDecorationLine002() {
-        val string = "{ `Hitanshu` < text-decoration-line : line-through /> }"
+    fun `text-decoration 002`() {
+        val string = "{ `Hitanshu` < text-decoration : strike-through /> }"
         with(string.spannify()) {
             val spannable = this as SpannableStringBuilder
 
@@ -195,8 +195,8 @@ class SpannerTest {
     }
 
     @Test
-    fun testTextDecorationLine003() {
-        val string = "Hello { `Hitanshu` < text-decoration-line : underline /> } Dhawan"
+    fun `text-decoration 003`() {
+        val string = "Hello { `Hitanshu` < text-decoration : underline /> } Dhawan"
         with(string.spannify()) {
             val spannable = this as SpannableStringBuilder
 
@@ -213,8 +213,8 @@ class SpannerTest {
     }
 
     @Test
-    fun testTextDecorationLine004() {
-        val string = "Hello { `Hitanshu` < text-decoration-line : line-through /> } Dhawan"
+    fun `text-decoration 004`() {
+        val string = "Hello { `Hitanshu` < text-decoration : strike-through /> } Dhawan"
         with(string.spannify()) {
             val spannable = this as SpannableStringBuilder
 
@@ -231,8 +231,8 @@ class SpannerTest {
     }
 
     @Test
-    fun testTextDecorationLine005() {
-        val string = "{ `Hitanshu` < text-decoration-line : random-value /> }"
+    fun `text-decoration 005`() {
+        val string = "{ `Hitanshu` < text-decoration : random-value /> }"
         with(string.spannify()) {
             val spannable = this as SpannableStringBuilder
 
