@@ -6,6 +6,7 @@ import android.os.Build.VERSION_CODES.Q
 import android.text.*
 import android.text.style.*
 import com.hitanshudhawan.spannablestringparser.parser.Node
+import com.hitanshudhawan.spannablestringparser.safe
 
 /**
  * Spanner : Converts a syntax tree into SpannableString.
@@ -30,19 +31,19 @@ internal class Spanner(private val syntaxTree: List<Node>, private val customSpa
 
             when (declaration.property) {
 
-                "text-color" -> {
+                "text-color" -> safe {
                     text.setSpan(ForegroundColorSpan(Color.parseColor(declaration.value)))
                 }
 
-                "background-color" -> {
+                "background-color" -> safe {
                     text.setSpan(BackgroundColorSpan(Color.parseColor(declaration.value)))
                 }
 
-                "line-background-color" -> if (SDK_INT >= Q) {
+                "line-background-color" -> if (SDK_INT >= Q) safe {
                     text.setSpan(LineBackgroundSpan.Standard(Color.parseColor(declaration.value)))
                 }
 
-                "text-size" -> {
+                "text-size" -> safe {
                     val value = declaration.value
                     when {
                         value.endsWith("dp") -> {
@@ -57,7 +58,7 @@ internal class Spanner(private val syntaxTree: List<Node>, private val customSpa
                     }
                 }
 
-                "text-decoration" -> {
+                "text-decoration" -> safe {
                     when (declaration.value) {
                         "underline" -> {
                             text.setSpan(UnderlineSpan())
@@ -68,19 +69,19 @@ internal class Spanner(private val syntaxTree: List<Node>, private val customSpa
                     }
                 }
 
-                "subscript" -> {
+                "subscript" -> safe {
                     if (declaration.value == "true") {
                         text.setSpan(SubscriptSpan())
                     }
                 }
 
-                "superscript" -> {
+                "superscript" -> safe {
                     if (declaration.value == "true") {
                         text.setSpan(SuperscriptSpan())
                     }
                 }
 
-                "text-style" -> {
+                "text-style" -> safe {
                     when (declaration.value) {
                         "normal" -> {
                             text.setSpan(StyleSpan(Typeface.NORMAL))
@@ -94,7 +95,7 @@ internal class Spanner(private val syntaxTree: List<Node>, private val customSpa
                     }
                 }
 
-                "font-family" -> {
+                "font-family" -> safe {
                     when (declaration.value) {
                         "monospace", "serif", "sans-serif" -> {
                             text.setSpan(TypefaceSpan(declaration.value))
@@ -102,7 +103,7 @@ internal class Spanner(private val syntaxTree: List<Node>, private val customSpa
                     }
                 }
 
-                "text-alignment" -> {
+                "text-alignment" -> safe {
                     when (declaration.value) {
                         "normal" -> {
                             text.setSpan(AlignmentSpan.Standard(Layout.Alignment.ALIGN_NORMAL))
@@ -116,7 +117,7 @@ internal class Spanner(private val syntaxTree: List<Node>, private val customSpa
                     }
                 }
 
-                "line-height" -> if (SDK_INT >= Q) {
+                "line-height" -> if (SDK_INT >= Q) safe {
                     val value = declaration.value
                     when {
                         value.endsWith("px") -> {
@@ -125,11 +126,11 @@ internal class Spanner(private val syntaxTree: List<Node>, private val customSpa
                     }
                 }
 
-                "url" -> {
+                "url" -> safe {
                     text.setSpan(URLSpan(declaration.value))
                 }
 
-                else -> {
+                else -> safe {
                     customSpanner.invoke(declaration.property, declaration.value)?.let { text.setSpan(it) }
                 }
 

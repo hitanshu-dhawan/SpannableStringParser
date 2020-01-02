@@ -1,5 +1,6 @@
 package com.hitanshudhawan.spannablestringparser
 
+import android.util.Log
 import com.hitanshudhawan.spannablestringparser.lexer.*
 import com.hitanshudhawan.spannablestringparser.parser.*
 import com.hitanshudhawan.spannablestringparser.spanner.Spanner
@@ -18,4 +19,12 @@ internal fun List<Token>.parse(): List<Node> {
 
 internal fun List<Node>.spannify(customSpanner: (String, String) -> Any?): CharSequence {
     return Spanner(this, customSpanner).spannify()
+}
+
+internal fun safe(block: () -> Unit) {
+    try {
+        block.invoke()
+    } catch (e: Exception) {
+        Log.e("SpannableStringParser", e.toString())
+    }
 }
