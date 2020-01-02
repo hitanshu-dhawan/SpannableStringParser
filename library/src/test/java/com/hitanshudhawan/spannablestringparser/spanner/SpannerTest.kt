@@ -59,6 +59,52 @@ class SpannerTest {
     }
 
     @Test
+    fun `background-color 001`() {
+        val string = "{ `Hitanshu` < background-color : #0000FF /> }"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("Hitanshu", spannable.toString())
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.size == 1)
+            assertEquals(Color.parseColor("#0000FF"), (spans1[0] as BackgroundColorSpan).backgroundColor)
+        }
+    }
+
+    @Test
+    fun `background-color 002`() {
+        val string = "{ `Hitanshu` < background-color : #AA0000FF /> }"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("Hitanshu", spannable.toString())
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.size == 1)
+            assertEquals(Color.parseColor("#AA0000FF"), (spans1[0] as BackgroundColorSpan).backgroundColor)
+        }
+    }
+
+    @Test
+    fun `background-color 003`() {
+        val string = "Hello { `Hitanshu` < background-color : #0000FF /> } Dhawan"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("Hello Hitanshu Dhawan", spannable.toString())
+
+            val spans1 = spannable.getSpans(queryStart = 0, queryEnd = 6)
+            assertTrue(spans1.isEmpty())
+            val spans2 = spannable.getSpans(queryStart = 6, queryEnd = 14)
+            assertTrue(spans2.size == 1)
+            assertEquals(Color.parseColor("#0000FF"), (spans2[0] as BackgroundColorSpan).backgroundColor)
+            val spans3 = spannable.getSpans(queryStart = 14, queryEnd = length)
+            assertTrue(spans3.isEmpty())
+        }
+    }
+
+    @Test
     fun testTextDecorationLine001() {
         val string = "{ `Hitanshu` < text-decoration-line : underline /> }"
         with(string.spannify()) {
