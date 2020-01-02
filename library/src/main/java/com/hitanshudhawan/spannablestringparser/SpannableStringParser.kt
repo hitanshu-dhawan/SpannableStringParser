@@ -2,7 +2,7 @@ package com.hitanshudhawan.spannablestringparser
 
 // SpannableStringParser
 
-private var customSpanner: (String, String) -> Any? = { _, _ -> }
+private var customSpanner: (String, String) -> Any? = { _, _ -> null }
 
 /**
  * Add custom properties to span.
