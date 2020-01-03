@@ -5,6 +5,7 @@ import android.graphics.Typeface
 import android.text.Layout
 import android.text.SpannableStringBuilder
 import android.text.style.*
+import com.hitanshudhawan.spannablestringparser.spanner
 import com.hitanshudhawan.spannablestringparser.spannify
 import org.junit.Assert.*
 import org.junit.Test
@@ -634,6 +635,48 @@ class SpannerTest {
 
             val spans1 = spannable.getSpans()
             assertTrue(spans1.isEmpty())
+        }
+    }
+
+    @Test
+    fun `custom spanner 001`() {
+        val string = "C{`8`<sub:true/>}H{`10`<sub:true/>}N{`4`<sub:true/>}O{`2`<sub:true/>}"
+        spanner { property, value ->
+            when (property) {
+                "sub" -> if (value == "true") return@spanner SubscriptSpan()
+            }
+            return@spanner null
+        }
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("C8H10N4O2", spannable.toString())
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.size == 4)
+            assertTrue(spans1[0] is SubscriptSpan)
+            assertTrue(spans1[1] is SubscriptSpan)
+            assertTrue(spans1[2] is SubscriptSpan)
+            assertTrue(spans1[3] is SubscriptSpan)
+        }
+    }
+
+    @Test
+    fun `custom spanner 002`() {
+        val string = "a{`2`<super:true;text-size:0.5em/>} + b{`2`<super:true;text-size:0.5em/>} = c{`2`<super:true;text-size:0.5em/>}"
+        spanner { property, value ->
+            when (property) {
+                "sub" -> if (value == "true") return@spanner SubscriptSpan()
+            }
+            return@spanner null
+        }
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("a2 + b2 = c2", spannable.toString())
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.size == 3)
         }
     }
 
