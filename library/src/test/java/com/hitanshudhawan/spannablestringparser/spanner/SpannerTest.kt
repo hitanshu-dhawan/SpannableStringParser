@@ -445,6 +445,53 @@ class SpannerTest {
         // todo
     }
 
+    @Test
+    fun `url 001`() {
+        val string = "click { `here` < url : `http://www.hitanshudhawan.com` /> } for more information"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("click here for more information", spannable.toString())
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.size == 1)
+            assertTrue(spans1[0] is URLSpan)
+            assertEquals("http://www.hitanshudhawan.com", (spans1[0] as URLSpan).url)
+            assertEquals(6, spannable.getSpanStart(spans1[0]))
+            assertEquals(10, spannable.getSpanEnd(spans1[0]))
+        }
+    }
+
+    @Test
+    fun `url 002`() {
+        val string = "click { `here` < url : www.hitanshudhawan.com /> } for more information"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("click here for more information", spannable.toString())
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.size == 1)
+            assertTrue(spans1[0] is URLSpan)
+            assertEquals("www.hitanshudhawan.com", (spans1[0] as URLSpan).url)
+            assertEquals(6, spannable.getSpanStart(spans1[0]))
+            assertEquals(10, spannable.getSpanEnd(spans1[0]))
+        }
+    }
+
+    @Test
+    fun `url 003`() {
+        val string = "click { `here` < url : http://www.hitanshudhawan.com /> } for more information"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("click { `here` < url : http://www.hitanshudhawan.com /> } for more information", spannable.toString())
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.isEmpty())
+        }
+    }
+
     //
 
     @Test
