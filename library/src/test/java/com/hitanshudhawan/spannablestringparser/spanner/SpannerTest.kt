@@ -244,6 +244,47 @@ class SpannerTest {
     }
 
     @Test
+    fun `subscript 001`() {
+        val string = "a{`2`<subscript:true/>} + b{`2`<subscript:true/>} = c{`2`<subscript:true/>}"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("a2 + b2 = c2", spannable.toString())
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.size == 3)
+            assertTrue(spans1[0] is SubscriptSpan)
+            assertEquals(1, spannable.getSpanStart(spans1[0]))
+            assertEquals(2, spannable.getSpanEnd(spans1[0]))
+            assertTrue(spans1[1] is SubscriptSpan)
+            assertEquals(6, spannable.getSpanStart(spans1[1]))
+            assertEquals(7, spannable.getSpanEnd(spans1[1]))
+            assertTrue(spans1[2] is SubscriptSpan)
+            assertEquals(11, spannable.getSpanStart(spans1[2]))
+            assertEquals(12, spannable.getSpanEnd(spans1[2]))
+        }
+    }
+
+    @Test
+    fun `subscript 002`() {
+        val string = "a{`2`<subscript:true/>} + b{`2`<subscript:true/>} = c{`2`<subscript:false/>}"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("a2 + b2 = c2", spannable.toString())
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.size == 2)
+            assertTrue(spans1[0] is SubscriptSpan)
+            assertEquals(1, spannable.getSpanStart(spans1[0]))
+            assertEquals(2, spannable.getSpanEnd(spans1[0]))
+            assertTrue(spans1[1] is SubscriptSpan)
+            assertEquals(6, spannable.getSpanStart(spans1[1]))
+            assertEquals(7, spannable.getSpanEnd(spans1[1]))
+        }
+    }
+
+    @Test
     fun testFontStyle001() {
         val string = "{ `Hitanshu` < font-style : italic /> }"
         with(string.spannify()) {
