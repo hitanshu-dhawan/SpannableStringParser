@@ -1,8 +1,10 @@
 package com.hitanshudhawan.spannablestringparser
 
 import android.util.Log
-import com.hitanshudhawan.spannablestringparser.lexer.*
-import com.hitanshudhawan.spannablestringparser.parser.*
+import com.hitanshudhawan.spannablestringparser.lexer.Lexer
+import com.hitanshudhawan.spannablestringparser.lexer.Token
+import com.hitanshudhawan.spannablestringparser.parser.Node
+import com.hitanshudhawan.spannablestringparser.parser.Parser
 import com.hitanshudhawan.spannablestringparser.spanner.Spanner
 
 internal fun String.tokenize(): List<Token> {

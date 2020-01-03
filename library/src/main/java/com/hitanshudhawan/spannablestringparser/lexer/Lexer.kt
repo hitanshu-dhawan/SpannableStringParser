@@ -1,6 +1,7 @@
 package com.hitanshudhawan.spannablestringparser.lexer
 
-import com.hitanshudhawan.spannablestringparser.lexer.TokenType.*
+import com.hitanshudhawan.spannablestringparser.lexer.TokenType.TEXT
+import com.hitanshudhawan.spannablestringparser.lexer.TokenType.WHITESPACE
 
 /**
  * Lexer : Converts a String into sequence of tokens.

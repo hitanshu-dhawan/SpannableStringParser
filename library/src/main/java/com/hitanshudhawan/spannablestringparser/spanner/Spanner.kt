@@ -1,6 +1,7 @@
 package com.hitanshudhawan.spannablestringparser.spanner
 
-import android.graphics.*
+import android.graphics.Color
+import android.graphics.Typeface
 import android.os.Build.VERSION.SDK_INT
 import android.os.Build.VERSION_CODES.Q
 import android.text.*
