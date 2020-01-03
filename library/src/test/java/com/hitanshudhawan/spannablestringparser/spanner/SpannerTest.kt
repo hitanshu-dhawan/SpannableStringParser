@@ -380,6 +380,60 @@ class SpannerTest {
         }
     }
 
+    @Test
+    fun `font-family 001`() {
+        val string = "{ `Hitanshu` < font-family : monospace /> }"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("Hitanshu", spannable.toString())
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.size == 1)
+            assertEquals("monospace", (spans1[0] as TypefaceSpan).family)
+        }
+    }
+
+    @Test
+    fun `font-family 002`() {
+        val string = "{ `Hitanshu` < font-family : serif /> }"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("Hitanshu", spannable.toString())
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.size == 1)
+            assertEquals("serif", (spans1[0] as TypefaceSpan).family)
+        }
+    }
+
+    @Test
+    fun `font-family 003`() {
+        val string = "{ `Hitanshu` < font-family : sans-serif /> }"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("Hitanshu", spannable.toString())
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.size == 1)
+            assertEquals("sans-serif", (spans1[0] as TypefaceSpan).family)
+        }
+    }
+
+    @Test
+    fun `font-family 004`() {
+        val string = "{ `Hitanshu` < font-family : random-value /> }"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("Hitanshu", spannable.toString())
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.isEmpty())
+        }
+    }
 
     @Test
     fun testFontStyle001() {
