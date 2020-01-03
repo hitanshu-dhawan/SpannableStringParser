@@ -326,6 +326,61 @@ class SpannerTest {
     }
 
     @Test
+    fun `text-style 001`() {
+        val string = "{ `Hitanshu` < text-style : normal /> }"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("Hitanshu", spannable.toString())
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.size == 1)
+            assertEquals(Typeface.NORMAL, (spans1[0] as StyleSpan).style)
+        }
+    }
+
+    @Test
+    fun `text-style 002`() {
+        val string = "{ `Hitanshu` < text-style : bold /> }"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("Hitanshu", spannable.toString())
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.size == 1)
+            assertEquals(Typeface.BOLD, (spans1[0] as StyleSpan).style)
+        }
+    }
+
+    @Test
+    fun `text-style 003`() {
+        val string = "{ `Hitanshu` < text-style : italic /> }"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("Hitanshu", spannable.toString())
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.size == 1)
+            assertEquals(Typeface.ITALIC, (spans1[0] as StyleSpan).style)
+        }
+    }
+
+    @Test
+    fun `text-style 004`() {
+        val string = "{ `Hitanshu` < text-style : random-value /> }"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("Hitanshu", spannable.toString())
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.isEmpty())
+        }
+    }
+
+    @Test
     fun testFontStyle001() {
         val string = "{ `Hitanshu` < font-style : italic /> }"
         with(string.spannify()) {
