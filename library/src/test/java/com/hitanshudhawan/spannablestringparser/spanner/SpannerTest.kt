@@ -173,6 +173,45 @@ class SpannerTest {
     }
 
     @Test
+    fun `text-size 005`() {
+        val string = "{ `Hitanshu` < text-size : 16sdp /> }"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("Hitanshu", spannable.toString())
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.isEmpty())
+        }
+    }
+
+    @Test
+    fun `text-size 006`() {
+        val string = "{ `Hitanshu` < text-size : 1.5sem /> }"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("Hitanshu", spannable.toString())
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.isEmpty())
+        }
+    }
+
+    @Test
+    fun `text-size 007`() {
+        val string = "{ `Hitanshu` < text-size : 16spx /> }"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("Hitanshu", spannable.toString())
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.isEmpty())
+        }
+    }
+
+    @Test
     fun `text-decoration 001`() {
         val string = "{ `Hitanshu` < text-decoration : underline /> }"
         with(string.spannify()) {
