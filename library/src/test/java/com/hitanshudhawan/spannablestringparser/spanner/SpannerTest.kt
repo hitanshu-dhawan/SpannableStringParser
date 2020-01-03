@@ -1,14 +1,18 @@
 package com.hitanshudhawan.spannablestringparser.spanner
 
-import android.graphics.*
-import android.text.*
+import android.graphics.Color
+import android.graphics.Typeface
+import android.text.Layout
+import android.text.SpannableStringBuilder
 import android.text.style.*
 import com.hitanshudhawan.spannablestringparser.spannify
 import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.Config
 
+@Config(minSdk = 14, maxSdk = 29)
 @RunWith(RobolectricTestRunner::class)
 class SpannerTest {
 
@@ -106,7 +110,9 @@ class SpannerTest {
 
     @Test
     fun `line-background-color 001`() {
-        // todo
+        // TODO
+        // Robolectric doesn't support API 29, requires Java 9
+        // https://github.com/robolectric/robolectric/issues/5258
     }
 
     @Test
@@ -540,7 +546,9 @@ class SpannerTest {
 
     @Test
     fun `line-height 001`() {
-        // todo
+        // TODO
+        // Robolectric doesn't support API 29, requires Java 9
+        // https://github.com/robolectric/robolectric/issues/5258
     }
 
     @Test
