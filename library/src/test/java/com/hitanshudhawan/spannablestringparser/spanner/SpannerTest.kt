@@ -1,9 +1,9 @@
 package com.hitanshudhawan.spannablestringparser.spanner
 
 import android.graphics.*
-import android.text.SpannableStringBuilder
+import android.text.*
 import android.text.style.*
-import com.hitanshudhawan.spannablestringparser.*
+import com.hitanshudhawan.spannablestringparser.spannify
 import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -437,7 +437,105 @@ class SpannerTest {
 
     @Test
     fun `text-alignment 001`() {
-        // todo
+        val string = "{ `Hitanshu` < text-alignment : normal /> }"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("Hitanshu", spannable.toString())
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.size == 1)
+            assertEquals(Layout.Alignment.ALIGN_NORMAL, (spans1[0] as AlignmentSpan.Standard).alignment)
+        }
+    }
+
+    @Test
+    fun `text-alignment 002`() {
+        val string = "{ `Hitanshu` < text-alignment : opposite /> }"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("Hitanshu", spannable.toString())
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.size == 1)
+            assertEquals(Layout.Alignment.ALIGN_OPPOSITE, (spans1[0] as AlignmentSpan.Standard).alignment)
+        }
+    }
+
+    @Test
+    fun `text-alignment 003`() {
+        val string = "{ `Hitanshu` < text-alignment : center /> }"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("Hitanshu", spannable.toString())
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.size == 1)
+            assertEquals(Layout.Alignment.ALIGN_CENTER, (spans1[0] as AlignmentSpan.Standard).alignment)
+        }
+    }
+
+    @Test
+    fun `text-alignment 004`() {
+        val string = "{ `Hitanshu` < text-alignment : random-value /> }"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("Hitanshu", spannable.toString())
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.isEmpty())
+        }
+    }
+
+    @Test
+    fun `text-alignment 005`() {
+        val string = "Hitanshu { `Hitanshu` < text-alignment : normal /> } Hitanshu"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("Hitanshu Hitanshu Hitanshu", spannable.toString())
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.size == 1)
+            assertEquals(Layout.Alignment.ALIGN_NORMAL, (spans1[0] as AlignmentSpan.Standard).alignment)
+            assertEquals(9, spannable.getSpanStart(spans1[0]))
+            assertEquals(17, spannable.getSpanEnd(spans1[0]))
+        }
+    }
+
+    @Test
+    fun `text-alignment 006`() {
+        val string = "Hitanshu { `Hitanshu` < text-alignment : opposite /> } Hitanshu"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("Hitanshu Hitanshu Hitanshu", spannable.toString())
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.size == 1)
+            assertEquals(Layout.Alignment.ALIGN_OPPOSITE, (spans1[0] as AlignmentSpan.Standard).alignment)
+            assertEquals(9, spannable.getSpanStart(spans1[0]))
+            assertEquals(17, spannable.getSpanEnd(spans1[0]))
+        }
+    }
+
+    @Test
+    fun `text-alignment 007`() {
+        val string = "Hitanshu { `Hitanshu` < text-alignment : center /> } Hitanshu"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("Hitanshu Hitanshu Hitanshu", spannable.toString())
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.size == 1)
+            assertEquals(Layout.Alignment.ALIGN_CENTER, (spans1[0] as AlignmentSpan.Standard).alignment)
+            assertEquals(9, spannable.getSpanStart(spans1[0]))
+            assertEquals(17, spannable.getSpanEnd(spans1[0]))
+        }
     }
 
     @Test
