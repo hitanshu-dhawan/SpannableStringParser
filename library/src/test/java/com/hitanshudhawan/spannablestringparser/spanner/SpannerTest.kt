@@ -436,6 +436,16 @@ class SpannerTest {
     }
 
     @Test
+    fun `text-alignment 001`() {
+        // todo
+    }
+
+    @Test
+    fun `line-height 001`() {
+        // todo
+    }
+
+    @Test
     fun testFontStyle001() {
         val string = "{ `Hitanshu` < font-style : italic /> }"
         with(string.spannify()) {
