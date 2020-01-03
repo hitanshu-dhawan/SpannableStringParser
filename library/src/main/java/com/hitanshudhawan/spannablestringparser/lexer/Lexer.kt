@@ -20,9 +20,8 @@ internal class Lexer(private val text: String) {
             }
             ch.isWhitespaceChar() -> {
                 var value = ch
-                while (peekChar()?.isWhitespaceChar() == true) {
+                while (peekChar()?.isWhitespaceChar() == true)
                     value += nextChar()
-                }
                 return Token(WHITESPACE, value)
             }
             else -> {
