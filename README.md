@@ -86,7 +86,7 @@ spanner { property, value ->
 
 ## Supported Properties
 
-#### text-color
+#### `text-color`
 - The `text-color` property specifies the color of text.
 
 Examples: `color : #FF00FF` , `color : #00FF00FF`
