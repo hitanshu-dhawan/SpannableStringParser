@@ -62,7 +62,7 @@ internal class FiniteAutomaton {
     fun transit(token: Token): Int {
         currentState = automatonMap[currentState]?.get(token.tokenType) ?: initialState
         if (currentState == initialState)
-            currentState = automatonMap[currentState]?.get(token.tokenType) ?: initialState
+            currentState = automatonMap.getValue(currentState)[token.tokenType] ?: initialState
         return currentState
     }
 
