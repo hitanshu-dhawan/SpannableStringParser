@@ -89,33 +89,43 @@ spanner { property, value ->
 #### `text-color`
 - The `text-color` property specifies the color of text.
 
-Examples: `color : #FF00FF` , `color : #00FF00FF`
-<br><br>
-#### `text-decoration-line`
-> The `text-decoration-line` property sets the kind of text decoration to use (like underline, line-through).
+#### `background-color`
+- The `background-color` property specifies the background color of text.
 
-Examples: `text-decoration-line : underline` , `text-decoration-line : line-through`
-<br><br>
-#### `font-size`
-> The `font-size` property sets the size of a font.
+#### `line-background-color`
+- The `line-background-color` property specifies the background color of lines.
 
-Examples: `font-size : 12dp` , `font-size : 1.5em` , `font-size : 24px`
-<br><br>
-#### `font-style`
-> The `font-style` property specifies the font style for a text.
+#### `text-size`
+- The `text-size` property sets the size of text.
 
-Examples: `font-style : italic`
-<br><br>
-#### `font-weight`
-> The `font-weight` property sets how thick or thin characters in text should be displayed.
+#### `text-decoration`
+- The `text-decoration` property sets the kind of text decoration to use (like underline, strike-through).
 
-Examples: `font-weight : bold`
-<br><br>
+#### `subscript`
+- The `subscript` property defines subscript text.
+
+#### `superscript`
+- The `superscript` property defines superscript text.
+
+#### `text-style`
+- The `text-style` property specifies the style of text.
+
+#### `font-family`
+- The `font-family` property specifies the font of text.
+
+#### `text-alignment`
+- The `text-alignment` property specifies the alignment of text.
+
+#### `line-height`
+- The `line-height` property specifies the height of line.
+
+#### `url`
+- The `url` property specifies the url for text, clicking on which will open the url.
+
 #### `more-properties-coming-soon`
 You can add your custom properties using the `spanner` method.
 <br>
 But! If you want any property to be added in SpannableStringParser, feel free to open issues/pull requests.
-<br><br>
 
 ## Download
 Add JitPack repository to your root `build.gradle` file
