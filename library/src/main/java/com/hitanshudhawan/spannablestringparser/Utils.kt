@@ -7,7 +7,7 @@ import com.hitanshudhawan.spannablestringparser.parser.Node
 import com.hitanshudhawan.spannablestringparser.parser.Parser
 import com.hitanshudhawan.spannablestringparser.spanner.Spanner
 
-internal fun String.tokenize(): List<Token> {
+internal fun CharSequence.tokenize(): List<Token> {
     val lexer = Lexer(this)
     val tokens = ArrayList<Token>()
     while (true)

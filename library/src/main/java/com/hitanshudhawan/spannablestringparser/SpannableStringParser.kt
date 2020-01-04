@@ -14,4 +14,4 @@ fun spanner(spanner: (property: String, value: String) -> Any?) {
 /**
  * Converts a String into SpannableString.
  */
-fun String.spannify() = tokenize().parse().spannify(customSpanner)
+fun CharSequence.spannify() = tokenize().parse().spannify(customSpanner)
