@@ -76,7 +76,7 @@ internal class Parser(private val tokens: List<Token>) {
                 }
                 finiteAutomaton.propertyState -> {
                     if (ruleSetToken.tokenType == TEXT)
-                        ruleSetProperty = ruleSetToken.run { tokenType.text ?: value!! }
+                        ruleSetProperty = ruleSetToken.run { value!! }
                 }
                 finiteAutomaton.startValueState -> {
                     if (ruleSetToken.tokenType != BACKTICK)
@@ -86,7 +86,7 @@ internal class Parser(private val tokens: List<Token>) {
                     if (ruleSetToken.tokenType == BACKTICK)
                         ruleSetDeclarations.add(Declaration(property = ruleSetProperty, value = ruleSetValue))
                     if (ruleSetToken.tokenType == TEXT)
-                        ruleSetDeclarations.add(Declaration(property = ruleSetProperty, value = ruleSetToken.run { tokenType.text ?: value!! }))
+                        ruleSetDeclarations.add(Declaration(property = ruleSetProperty, value = ruleSetToken.run { value!! }))
 
                     ruleSetValue = ""
                 }

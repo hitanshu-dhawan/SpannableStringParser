@@ -138,7 +138,12 @@ object TestingUtils {
             119 to "{ `Hitanshu` `Dhawan` < a : b | c ; d : e /> }",
             //
             120 to "{ `Hitanshu` < property : `v a l u e` /> }",
-            121 to "{ `Hitanshu` < property : ` v a l u e ` /> }"
+            121 to "{ `Hitanshu` < property : ` v a l u e ` /> }",
+            //
+            122 to " { {`Hitanshu`<a:b|c;d:e/>}{`Dhawan`<a:b|c;d:e/>} } ",
+            123 to "{ {`Hitanshu`<a:b|c;d:e/>} }{ {`Dhawan`<a:b|c;d:e/>} }",
+            124 to "  { {`Hitanshu`<a:b|c;d:e/>} {`Dhawan`<a:b|c;d:e/>} }  ",
+            125 to " { {`Hitanshu`<a:b|c;d:e/>} } { {`Dhawan`<a:b|c;d:e/>} } "
         )
     }
 

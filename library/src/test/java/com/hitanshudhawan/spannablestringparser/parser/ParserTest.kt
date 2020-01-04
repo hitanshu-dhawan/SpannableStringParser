@@ -1768,4 +1768,115 @@ class ParserTest {
         )
     }
 
+    @Test
+    fun test122() {
+        assertEquals(
+            listOf(
+                Node(" { "),
+                Node(
+                    "Hitanshu",
+                    listOf(
+                        Declaration("a", "b"),
+                        Declaration("a", "c"),
+                        Declaration("d", "e")
+                    )
+                ),
+                Node(
+                    "Dhawan",
+                    listOf(
+                        Declaration("a", "b"),
+                        Declaration("a", "c"),
+                        Declaration("d", "e")
+                    )
+                ),
+                Node(" } ")
+            ),
+            testStrings.getValue(122).tokenize().parse()
+        )
+    }
+
+    @Test
+    fun test123() {
+        assertEquals(
+            listOf(
+                Node("{ "),
+                Node(
+                    "Hitanshu",
+                    listOf(
+                        Declaration("a", "b"),
+                        Declaration("a", "c"),
+                        Declaration("d", "e")
+                    )
+                ),
+                Node(" }{ "),
+                Node(
+                    "Dhawan",
+                    listOf(
+                        Declaration("a", "b"),
+                        Declaration("a", "c"),
+                        Declaration("d", "e")
+                    )
+                ),
+                Node(" }")
+            ),
+            testStrings.getValue(123).tokenize().parse()
+        )
+    }
+
+    @Test
+    fun test124() {
+        assertEquals(
+            listOf(
+                Node("  { "),
+                Node(
+                    "Hitanshu",
+                    listOf(
+                        Declaration("a", "b"),
+                        Declaration("a", "c"),
+                        Declaration("d", "e")
+                    )
+                ),
+                Node(" "),
+                Node(
+                    "Dhawan",
+                    listOf(
+                        Declaration("a", "b"),
+                        Declaration("a", "c"),
+                        Declaration("d", "e")
+                    )
+                ),
+                Node(" }  ")
+            ),
+            testStrings.getValue(124).tokenize().parse()
+        )
+    }
+
+    @Test
+    fun test125() {
+        assertEquals(
+            listOf(
+                Node(" { "),
+                Node(
+                    "Hitanshu",
+                    listOf(
+                        Declaration("a", "b"),
+                        Declaration("a", "c"),
+                        Declaration("d", "e")
+                    )
+                ),
+                Node(" } { "),
+                Node(
+                    "Dhawan",
+                    listOf(
+                        Declaration("a", "b"),
+                        Declaration("a", "c"),
+                        Declaration("d", "e")
+                    )
+                ),
+                Node(" } ")
+            ),
+            testStrings.getValue(125).tokenize().parse()
+        )
+    }
+
 }
