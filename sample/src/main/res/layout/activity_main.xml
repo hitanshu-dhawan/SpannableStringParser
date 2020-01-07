@@ -16,14 +16,4 @@
         android:textSize="16sp"
         tools:ignore="HardcodedText" />
 
-    <EditText
-        android:id="@+id/edit_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#eeeeee"
-        android:hint="Enter text here ..."
-        android:padding="16dp"
-        android:textSize="16sp"
-        tools:ignore="HardcodedText" />
-
 </LinearLayout>
