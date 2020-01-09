@@ -88,30 +88,42 @@ spanner { property, value ->
 
 #### `text-color`
 - The `text-color` property specifies the color of text.
+
 ```kotlin
 "Hello { `World` < text-color:#FF00FF /> }"
 ```
+![](images/Screenshot_1578246032.png)
+
 ```kotlin
 "Hello { `World` < text-color:#44FF00FF /> }"
 ```
+![](images/Screenshot_1578246063.png)
 
 #### `background-color`
 - The `background-color` property specifies the background color of text.
+
 ```kotlin
 "Hello { `World` < background-color:#FF00FF /> }"
 ```
+![](images/Screenshot_1578252660.png)
+
 ```kotlin
 "Hello { `World` < background-color:#44FF00FF /> }"
 ```
+![](images/Screenshot_1578252687.png)
 
 #### `line-background-color`
 - The `line-background-color` property specifies the background color of lines.
+
 ```kotlin
 "Hello { `World` < line-background-color:#FF00FF /> }"
 ```
+![](images/Screenshot_1578279891.png)
+
 ```kotlin
 "Hello { `World` < line-background-color:#44FF00FF /> }"
 ```
+![](images/Screenshot_1578279925.png)
 
 #### `text-size`
 - The `text-size` property sets the size of text.
