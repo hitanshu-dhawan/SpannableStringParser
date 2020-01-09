@@ -127,24 +127,34 @@ spanner { property, value ->
 
 #### `text-size`
 - The `text-size` property sets the size of text.
+
 ```kotlin
 "Hello { `World` < text-size:24dp /> }"
 ```
+![](images/Screenshot_1578292377.png)
+
 ```kotlin
 "Hello { `World` < text-size:2.4em /> }"
 ```
+![](images/Screenshot_1578292456.png)
+
 ```kotlin
 "Hello { `World` < text-size:24px /> }"
 ```
+![](images/Screenshot_1578292537.png)
 
 #### `text-decoration`
 - The `text-decoration` property sets the kind of text decoration to use (like underline, strike-through).
+
 ```kotlin
 "Hello { `World` < text-decoration:underline /> }"
 ```
+![](images/Screenshot_1578292644.png)
+
 ```kotlin
 "Hello { `World` < text-decoration:strike-through /> }"
 ```
+![](images/Screenshot_1578292676.png)
 
 #### `subscript`
 - The `subscript` property defines subscript text.
