@@ -88,39 +88,112 @@ spanner { property, value ->
 
 #### `text-color`
 - The `text-color` property specifies the color of text.
+```kotlin
+"Hello { `World` < text-color:#FF00FF /> }"
+```
+```kotlin
+"Hello { `World` < text-color:#44FF00FF /> }"
+```
 
 #### `background-color`
 - The `background-color` property specifies the background color of text.
+```kotlin
+"Hello { `World` < background-color:#FF00FF /> }"
+```
+```kotlin
+"Hello { `World` < background-color:#44FF00FF /> }"
+```
 
 #### `line-background-color`
 - The `line-background-color` property specifies the background color of lines.
+```kotlin
+"Hello { `World` < line-background-color:#FF00FF /> }"
+```
+```kotlin
+"Hello { `World` < line-background-color:#44FF00FF /> }"
+```
 
 #### `text-size`
 - The `text-size` property sets the size of text.
+```kotlin
+"Hello { `World` < text-size:24dp /> }"
+```
+```kotlin
+"Hello { `World` < text-size:2.4em /> }"
+```
+```kotlin
+"Hello { `World` < text-size:24px /> }"
+```
 
 #### `text-decoration`
 - The `text-decoration` property sets the kind of text decoration to use (like underline, strike-through).
+```kotlin
+"Hello { `World` < text-decoration:underline /> }"
+```
+```kotlin
+"Hello { `World` < text-decoration:strike-through /> }"
+```
 
 #### `subscript`
 - The `subscript` property defines subscript text.
+```kotlin
+"Hello { `World` < subscript:true /> }"
+```
 
 #### `superscript`
 - The `superscript` property defines superscript text.
+```kotlin
+"Hello { `World` < superscript:true /> }"
+```
 
 #### `text-style`
 - The `text-style` property specifies the style of text.
+```kotlin
+"Hello { `World` < text-style:normal /> }"
+```
+```kotlin
+"Hello { `World` < text-style:bold /> }"
+```
+```kotlin
+"Hello { `World` < text-style:italic /> }"
+```
 
 #### `font-family`
 - The `font-family` property specifies the font of text.
+```kotlin
+"Hello { `World` < font-family:monospace /> }"
+```
+```kotlin
+"Hello { `World` < font-family:serif /> }"
+```
+```kotlin
+"Hello { `World` < font-family:sans-serif /> }"
+```
 
 #### `text-alignment`
 - The `text-alignment` property specifies the alignment of text.
+```kotlin
+"{ `Hello World` < text-alignment:normal /> }"
+```
+```kotlin
+"{ `Hello World` < text-alignment:opposite /> }"
+```
+```kotlin
+"{ `Hello World` < text-alignment:center /> }"
+```
 
 #### `line-height`
 - The `line-height` property specifies the height of line.
+```kotlin
+val lorem_ipsum = "lorem ipsum ..."
+"{ `${lorem_ipsum}` < line-height:120px /> }"
+```
 
 #### `url`
 - The `url` property specifies the url for text, clicking on which will open the url.
+```kotlin
+"Click { `here` < url:`https://www.google.com` /> } for more information"
+```
 
 #### `more-properties-coming-soon`
 You can add your custom properties using the `spanner` method.
