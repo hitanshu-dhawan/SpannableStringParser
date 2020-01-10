@@ -99,6 +99,8 @@ spanner { property, value ->
 ```
 ![](images/Screenshot_1578246063.png)
 
+---
+
 ### `background-color`
 - The `background-color` property specifies the background color of text.
 
@@ -112,6 +114,8 @@ spanner { property, value ->
 ```
 ![](images/Screenshot_1578252687.png)
 
+---
+
 ### `line-background-color`
 - The `line-background-color` property specifies the background color of lines.
 
@@ -124,6 +128,8 @@ spanner { property, value ->
 "Hello { `World` < line-background-color:#44FF00FF /> }"
 ```
 ![](images/Screenshot_1578279925.png)
+
+---
 
 ### `text-size`
 - The `text-size` property sets the size of text.
@@ -143,6 +149,8 @@ spanner { property, value ->
 ```
 ![](images/Screenshot_1578292537.png)
 
+---
+
 ### `text-decoration`
 - The `text-decoration` property sets the kind of text decoration to use (like underline, strike-through).
 
@@ -156,6 +164,8 @@ spanner { property, value ->
 ```
 ![](images/Screenshot_1578292676.png)
 
+---
+
 ### `subscript`
 - The `subscript` property defines subscript text.
 
@@ -164,6 +174,8 @@ spanner { property, value ->
 ```
 ![](images/Screenshot_1578292812.png)
 
+---
+
 ### `superscript`
 - The `superscript` property defines superscript text.
 
@@ -171,6 +183,8 @@ spanner { property, value ->
 "Hello { `World` < superscript:true /> }"
 ```
 ![](images/Screenshot_1578292829.png)
+
+---
 
 ### `text-style`
 - The `text-style` property specifies the style of text.
@@ -190,6 +204,8 @@ spanner { property, value ->
 ```
 ![](images/Screenshot_1578293070.png)
 
+---
+
 ### `font-family`
 - The `font-family` property specifies the font of text.
 
@@ -207,6 +223,8 @@ spanner { property, value ->
 "Hello { `World` < font-family:sans-serif /> }"
 ```
 ![](images/Screenshot_1578293202.png)
+
+---
 
 ### `text-alignment`
 - The `text-alignment` property specifies the alignment of text.
@@ -226,6 +244,8 @@ spanner { property, value ->
 ```
 ![](images/Screenshot_1578295414.png)
 
+---
+
 ### `line-height`
 - The `line-height` property specifies the height of line.
 
@@ -235,6 +255,8 @@ val lorem_ipsum = "lorem ipsum ..."
 ```
 ![](images/Screenshot_1578414927.png)
 
+---
+
 ### `url`
 - The `url` property specifies the url for text, clicking on which will open the url.
 
@@ -242,6 +264,8 @@ val lorem_ipsum = "lorem ipsum ..."
 "Click { `here` < url:`https://www.google.com` /> } for more information"
 ```
 ![](images/Screenshot_1578585027.png)
+
+---
 
 ### `more-properties-coming-soon`
 You can add your custom properties using the `spanner` method.
