@@ -73,11 +73,13 @@ text_view.text = "{ `text` < property:value ; property:value|value /> }".spannif
 ```kotlin
 spanner { property, value ->
     when (property) {
-        "sub-script" -> if (value == "true") {
-            return@spanner SubscriptSpan()
+        "..." -> {
+            if (value == "...")
+                return@spanner Custom1Span()
         }
-        "super-script" -> if (value == "true") {
-            return@spanner SuperscriptSpan()
+        "..." -> {
+            if (value == "...")
+                return@spanner Custom2Span()
         }
     }
     return@spanner null
@@ -99,6 +101,8 @@ spanner { property, value ->
 ```
 ![](images/supported-properties-text-color-2.png)
 
+---
+
 ### `background-color`
 - The `background-color` property specifies the background color of text.
 
@@ -112,6 +116,8 @@ spanner { property, value ->
 ```
 ![](images/supported-properties-background-color-2.png)
 
+---
+
 ### `line-background-color`
 - The `line-background-color` property specifies the background color of lines.
 
@@ -124,6 +130,8 @@ spanner { property, value ->
 "Hello { `World` < line-background-color:#44FF00FF /> }"
 ```
 ![](images/supported-properties-line-background-color-2.png)
+
+---
 
 ### `text-size`
 - The `text-size` property sets the size of text.
@@ -143,6 +151,8 @@ spanner { property, value ->
 ```
 ![](images/supported-properties-text-size-3.png)
 
+---
+
 ### `text-decoration`
 - The `text-decoration` property sets the kind of text decoration to use (like underline, strike-through).
 
@@ -156,6 +166,8 @@ spanner { property, value ->
 ```
 ![](images/supported-properties-text-decoration-2.png)
 
+---
+
 ### `subscript`
 - The `subscript` property defines subscript text.
 
@@ -164,6 +176,8 @@ spanner { property, value ->
 ```
 ![](images/supported-properties-subscript-1.png)
 
+---
+
 ### `superscript`
 - The `superscript` property defines superscript text.
 
@@ -171,6 +185,8 @@ spanner { property, value ->
 "Hello { `World` < superscript:true /> }"
 ```
 ![](images/supported-properties-superscript-1.png)
+
+---
 
 ### `text-style`
 - The `text-style` property specifies the style of text.
@@ -190,6 +206,8 @@ spanner { property, value ->
 ```
 ![](images/supported-properties-text-style-3.png)
 
+---
+
 ### `font-family`
 - The `font-family` property specifies the font of text.
 
@@ -207,6 +225,8 @@ spanner { property, value ->
 "Hello { `World` < font-family:sans-serif /> }"
 ```
 ![](images/supported-properties-font-family-3.png)
+
+---
 
 ### `text-alignment`
 - The `text-alignment` property specifies the alignment of text.
@@ -226,6 +246,8 @@ spanner { property, value ->
 ```
 ![](images/supported-properties-text-alignment-3.png)
 
+---
+
 ### `line-height`
 - The `line-height` property specifies the height of line.
 
@@ -235,6 +257,8 @@ val lorem_ipsum = "lorem ipsum ..."
 ```
 ![](images/supported-properties-line-height-1.png)
 
+---
+
 ### `url`
 - The `url` property specifies the url for text, clicking on which will open the url.
 
@@ -242,6 +266,8 @@ val lorem_ipsum = "lorem ipsum ..."
 "Click { `here` < url:`https://www.google.com` /> } for more information"
 ```
 ![](images/supported-properties-url-1.png)
+
+---
 
 ### `more-properties-coming-soon`
 You can add your custom properties using the `spanner` method.
