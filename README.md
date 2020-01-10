@@ -158,51 +158,73 @@ spanner { property, value ->
 
 #### `subscript`
 - The `subscript` property defines subscript text.
+
 ```kotlin
 "Hello { `World` < subscript:true /> }"
 ```
+![](images/Screenshot_1578292812.png)
 
 #### `superscript`
 - The `superscript` property defines superscript text.
+
 ```kotlin
 "Hello { `World` < superscript:true /> }"
 ```
+![](images/Screenshot_1578292829.png)
 
 #### `text-style`
 - The `text-style` property specifies the style of text.
+
 ```kotlin
 "Hello { `World` < text-style:normal /> }"
 ```
+![](images/Screenshot_1578293041.png)
+
 ```kotlin
 "Hello { `World` < text-style:bold /> }"
 ```
+![](images/Screenshot_1578293057.png)
+
 ```kotlin
 "Hello { `World` < text-style:italic /> }"
 ```
+![](images/Screenshot_1578293070.png)
 
 #### `font-family`
 - The `font-family` property specifies the font of text.
+
 ```kotlin
 "Hello { `World` < font-family:monospace /> }"
 ```
+![](images/Screenshot_1578293171.png)
+
 ```kotlin
 "Hello { `World` < font-family:serif /> }"
 ```
+![](images/Screenshot_1578293189.png)
+
 ```kotlin
 "Hello { `World` < font-family:sans-serif /> }"
 ```
+![](images/Screenshot_1578293202.png)
 
 #### `text-alignment`
 - The `text-alignment` property specifies the alignment of text.
+
 ```kotlin
 "{ `Hello World` < text-alignment:normal /> }"
 ```
+![](images/Screenshot_1578293481.png)
+
 ```kotlin
 "{ `Hello World` < text-alignment:opposite /> }"
 ```
+![](images/Screenshot_1578295396.png)
+
 ```kotlin
 "{ `Hello World` < text-alignment:center /> }"
 ```
+![](images/Screenshot_1578295414.png)
 
 #### `line-height`
 - The `line-height` property specifies the height of line.
