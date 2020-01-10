@@ -73,11 +73,13 @@ text_view.text = "{ `text` < property:value ; property:value|value /> }".spannif
 ```kotlin
 spanner { property, value ->
     when (property) {
-        "sub-script" -> if (value == "true") {
-            return@spanner SubscriptSpan()
+        "..." -> {
+            if (value == "...")
+                return@spanner Custom1Span()
         }
-        "super-script" -> if (value == "true") {
-            return@spanner SuperscriptSpan()
+        "..." -> {
+            if (value == "...")
+                return@spanner Custom2Span()
         }
     }
     return@spanner null
