@@ -92,12 +92,12 @@ spanner { property, value ->
 ```kotlin
 "Hello { `World` < text-color:#FF00FF /> }"
 ```
-![](images/Screenshot_1578246032.png)
+![](images/supported-properties-text-color-1.png)
 
 ```kotlin
 "Hello { `World` < text-color:#44FF00FF /> }"
 ```
-![](images/Screenshot_1578246063.png)
+![](images/supported-properties-text-color-2.png)
 
 ### `background-color`
 - The `background-color` property specifies the background color of text.
@@ -105,12 +105,12 @@ spanner { property, value ->
 ```kotlin
 "Hello { `World` < background-color:#FF00FF /> }"
 ```
-![](images/Screenshot_1578252660.png)
+![](images/supported-properties-background-color-1.png)
 
 ```kotlin
 "Hello { `World` < background-color:#44FF00FF /> }"
 ```
-![](images/Screenshot_1578252687.png)
+![](images/supported-properties-background-color-2.png)
 
 ### `line-background-color`
 - The `line-background-color` property specifies the background color of lines.
@@ -118,12 +118,12 @@ spanner { property, value ->
 ```kotlin
 "Hello { `World` < line-background-color:#FF00FF /> }"
 ```
-![](images/Screenshot_1578279891.png)
+![](images/supported-properties-line-background-color-1.png)
 
 ```kotlin
 "Hello { `World` < line-background-color:#44FF00FF /> }"
 ```
-![](images/Screenshot_1578279925.png)
+![](images/supported-properties-line-background-color-2.png)
 
 ### `text-size`
 - The `text-size` property sets the size of text.
@@ -131,17 +131,17 @@ spanner { property, value ->
 ```kotlin
 "Hello { `World` < text-size:24dp /> }"
 ```
-![](images/Screenshot_1578292377.png)
+![](images/supported-properties-text-size-1.png)
 
 ```kotlin
 "Hello { `World` < text-size:2.4em /> }"
 ```
-![](images/Screenshot_1578292456.png)
+![](images/supported-properties-text-size-2.png)
 
 ```kotlin
 "Hello { `World` < text-size:24px /> }"
 ```
-![](images/Screenshot_1578292537.png)
+![](images/supported-properties-text-size-3.png)
 
 ### `text-decoration`
 - The `text-decoration` property sets the kind of text decoration to use (like underline, strike-through).
@@ -149,12 +149,12 @@ spanner { property, value ->
 ```kotlin
 "Hello { `World` < text-decoration:underline /> }"
 ```
-![](images/Screenshot_1578292644.png)
+![](images/supported-properties-text-decoration-1.png)
 
 ```kotlin
 "Hello { `World` < text-decoration:strike-through /> }"
 ```
-![](images/Screenshot_1578292676.png)
+![](images/supported-properties-text-decoration-2.png)
 
 ### `subscript`
 - The `subscript` property defines subscript text.
@@ -162,7 +162,7 @@ spanner { property, value ->
 ```kotlin
 "Hello { `World` < subscript:true /> }"
 ```
-![](images/Screenshot_1578292812.png)
+![](images/supported-properties-subscript-1.png)
 
 ### `superscript`
 - The `superscript` property defines superscript text.
@@ -170,7 +170,7 @@ spanner { property, value ->
 ```kotlin
 "Hello { `World` < superscript:true /> }"
 ```
-![](images/Screenshot_1578292829.png)
+![](images/supported-properties-superscript-1.png)
 
 ### `text-style`
 - The `text-style` property specifies the style of text.
@@ -178,17 +178,17 @@ spanner { property, value ->
 ```kotlin
 "Hello { `World` < text-style:normal /> }"
 ```
-![](images/Screenshot_1578293041.png)
+![](images/supported-properties-text-style-1.png)
 
 ```kotlin
 "Hello { `World` < text-style:bold /> }"
 ```
-![](images/Screenshot_1578293057.png)
+![](images/supported-properties-text-style-2.png)
 
 ```kotlin
 "Hello { `World` < text-style:italic /> }"
 ```
-![](images/Screenshot_1578293070.png)
+![](images/supported-properties-text-style-3.png)
 
 ### `font-family`
 - The `font-family` property specifies the font of text.
@@ -196,17 +196,17 @@ spanner { property, value ->
 ```kotlin
 "Hello { `World` < font-family:monospace /> }"
 ```
-![](images/Screenshot_1578293171.png)
+![](images/supported-properties-font-family-1.png)
 
 ```kotlin
 "Hello { `World` < font-family:serif /> }"
 ```
-![](images/Screenshot_1578293189.png)
+![](images/supported-properties-font-family-2.png)
 
 ```kotlin
 "Hello { `World` < font-family:sans-serif /> }"
 ```
-![](images/Screenshot_1578293202.png)
+![](images/supported-properties-font-family-3.png)
 
 ### `text-alignment`
 - The `text-alignment` property specifies the alignment of text.
@@ -214,17 +214,17 @@ spanner { property, value ->
 ```kotlin
 "{ `Hello World` < text-alignment:normal /> }"
 ```
-![](images/Screenshot_1578293481.png)
+![](images/supported-properties-text-alignment-1.png)
 
 ```kotlin
 "{ `Hello World` < text-alignment:opposite /> }"
 ```
-![](images/Screenshot_1578295396.png)
+![](images/supported-properties-text-alignment-2.png)
 
 ```kotlin
 "{ `Hello World` < text-alignment:center /> }"
 ```
-![](images/Screenshot_1578295414.png)
+![](images/supported-properties-text-alignment-3.png)
 
 ### `line-height`
 - The `line-height` property specifies the height of line.
@@ -233,7 +233,7 @@ spanner { property, value ->
 val lorem_ipsum = "lorem ipsum ..."
 "{ `${lorem_ipsum}` < line-height:120px /> }"
 ```
-![](images/Screenshot_1578414927.png)
+![](images/supported-properties-line-height-1.png)
 
 ### `url`
 - The `url` property specifies the url for text, clicking on which will open the url.
@@ -241,7 +241,7 @@ val lorem_ipsum = "lorem ipsum ..."
 ```kotlin
 "Click { `here` < url:`https://www.google.com` /> } for more information"
 ```
-![](images/Screenshot_1578585027.png)
+![](images/supported-properties-url-1.png)
 
 ### `more-properties-coming-soon`
 You can add your custom properties using the `spanner` method.
