@@ -25,7 +25,7 @@ This is where <b>SpannableStringParser</b> helps us.
 You can specify which text to style and how to style them inside the string itself, and use the `spannify()` extension function to style it.
 
 ```kotlin
-val string = "Text with a { `foreground color` < color:#FF0000 /> } span".spannify()
+val string = "Text with a { `foreground color` < text-color:#FF0000 /> } span".spannify()
 ```
 
 This string can also come from a back-end server and if we wish to change the style of the text in future, the string can be easily changed from back-end and no front-end change will be required.
@@ -36,19 +36,19 @@ This string can also come from a back-end server and if we wish to change the st
 
 #### 1. Text having a property
 ```kotlin
-"Hello { `SpannableStringParser` < color:#0000FF /> }"
+"Hello { `SpannableStringParser` < text-color:#0000FF /> }"
 ```
 ![](images/have_a_look_1.png)
 ---
 #### 2. Text having multiple properties
 ```kotlin
-"Hello { `SpannableStringParser` < color:#0000FF ; text-decoration-line:underline /> }"
+"Hello { `SpannableStringParser` < text-color:#0000FF ; text-decoration:underline /> }"
 ```
 ![](images/have_a_look_2.png)
 ---
 #### 3. Text having multiple properties with multiple values
 ```kotlin
-"Hello { `SpannableStringParser` < color:#0000FF ; text-decoration-line:underline|line-through /> }"
+"Hello { `SpannableStringParser` < text-color:#0000FF ; text-decoration:underline|strike-through /> }"
 ```
 ![](images/have_a_look_3.png)
 
