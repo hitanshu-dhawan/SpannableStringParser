@@ -86,7 +86,7 @@ spanner { property, value ->
 
 ## Supported Properties
 
-#### `text-color`
+### `text-color`
 - The `text-color` property specifies the color of text.
 
 ```kotlin
@@ -99,7 +99,7 @@ spanner { property, value ->
 ```
 ![](images/Screenshot_1578246063.png)
 
-#### `background-color`
+### `background-color`
 - The `background-color` property specifies the background color of text.
 
 ```kotlin
@@ -112,7 +112,7 @@ spanner { property, value ->
 ```
 ![](images/Screenshot_1578252687.png)
 
-#### `line-background-color`
+### `line-background-color`
 - The `line-background-color` property specifies the background color of lines.
 
 ```kotlin
@@ -125,7 +125,7 @@ spanner { property, value ->
 ```
 ![](images/Screenshot_1578279925.png)
 
-#### `text-size`
+### `text-size`
 - The `text-size` property sets the size of text.
 
 ```kotlin
@@ -143,7 +143,7 @@ spanner { property, value ->
 ```
 ![](images/Screenshot_1578292537.png)
 
-#### `text-decoration`
+### `text-decoration`
 - The `text-decoration` property sets the kind of text decoration to use (like underline, strike-through).
 
 ```kotlin
@@ -156,7 +156,7 @@ spanner { property, value ->
 ```
 ![](images/Screenshot_1578292676.png)
 
-#### `subscript`
+### `subscript`
 - The `subscript` property defines subscript text.
 
 ```kotlin
@@ -164,7 +164,7 @@ spanner { property, value ->
 ```
 ![](images/Screenshot_1578292812.png)
 
-#### `superscript`
+### `superscript`
 - The `superscript` property defines superscript text.
 
 ```kotlin
@@ -172,7 +172,7 @@ spanner { property, value ->
 ```
 ![](images/Screenshot_1578292829.png)
 
-#### `text-style`
+### `text-style`
 - The `text-style` property specifies the style of text.
 
 ```kotlin
@@ -190,7 +190,7 @@ spanner { property, value ->
 ```
 ![](images/Screenshot_1578293070.png)
 
-#### `font-family`
+### `font-family`
 - The `font-family` property specifies the font of text.
 
 ```kotlin
@@ -208,7 +208,7 @@ spanner { property, value ->
 ```
 ![](images/Screenshot_1578293202.png)
 
-#### `text-alignment`
+### `text-alignment`
 - The `text-alignment` property specifies the alignment of text.
 
 ```kotlin
@@ -226,7 +226,7 @@ spanner { property, value ->
 ```
 ![](images/Screenshot_1578295414.png)
 
-#### `line-height`
+### `line-height`
 - The `line-height` property specifies the height of line.
 
 ```kotlin
@@ -235,7 +235,7 @@ val lorem_ipsum = "lorem ipsum ..."
 ```
 ![](images/Screenshot_1578414927.png)
 
-#### `url`
+### `url`
 - The `url` property specifies the url for text, clicking on which will open the url.
 
 ```kotlin
@@ -243,7 +243,7 @@ val lorem_ipsum = "lorem ipsum ..."
 ```
 ![](images/Screenshot_1578585027.png)
 
-#### `more-properties-coming-soon`
+### `more-properties-coming-soon`
 You can add your custom properties using the `spanner` method.
 <br>
 But! If you want any property to be added in SpannableStringParser, feel free to open issues/pull requests.
