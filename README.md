@@ -228,16 +228,20 @@ spanner { property, value ->
 
 #### `line-height`
 - The `line-height` property specifies the height of line.
+
 ```kotlin
 val lorem_ipsum = "lorem ipsum ..."
 "{ `${lorem_ipsum}` < line-height:120px /> }"
 ```
+![](images/Screenshot_1578414927.png)
 
 #### `url`
 - The `url` property specifies the url for text, clicking on which will open the url.
+
 ```kotlin
 "Click { `here` < url:`https://www.google.com` /> } for more information"
 ```
+![](images/Screenshot_1578585027.png)
 
 #### `more-properties-coming-soon`
 You can add your custom properties using the `spanner` method.
