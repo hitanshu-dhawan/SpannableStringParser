@@ -143,7 +143,12 @@ object TestingUtils {
             122 to " { {`Hitanshu`<a:b|c;d:e/>}{`Dhawan`<a:b|c;d:e/>} } ",
             123 to "{ {`Hitanshu`<a:b|c;d:e/>} }{ {`Dhawan`<a:b|c;d:e/>} }",
             124 to "  { {`Hitanshu`<a:b|c;d:e/>} {`Dhawan`<a:b|c;d:e/>} }  ",
-            125 to " { {`Hitanshu`<a:b|c;d:e/>} } { {`Dhawan`<a:b|c;d:e/>} } "
+            125 to " { {`Hitanshu`<a:b|c;d:e/>} } { {`Dhawan`<a:b|c;d:e/>} } ",
+            //
+            126 to "Hello Hitanshu",
+            127 to "Hello\tHitanshu",
+            128 to "Hello\rHitanshu",
+            129 to "Hello\nHitanshu"
         )
     }
 

@@ -1157,4 +1157,52 @@ class LexerTest {
         )
     }
 
+    @Test
+    fun test126() {
+        assertEquals(
+            listOf(
+                Token(TEXT, "Hello"),
+                Token(WHITESPACE, " "),
+                Token(TEXT, "Hitanshu")
+            ),
+            testStrings.getValue(126).tokenize()
+        )
+    }
+
+    @Test
+    fun test127() {
+        assertEquals(
+            listOf(
+                Token(TEXT, "Hello"),
+                Token(WHITESPACE, "\t"),
+                Token(TEXT, "Hitanshu")
+            ),
+            testStrings.getValue(127).tokenize()
+        )
+    }
+
+    @Test
+    fun test128() {
+        assertEquals(
+            listOf(
+                Token(TEXT, "Hello"),
+                Token(WHITESPACE, "\r"),
+                Token(TEXT, "Hitanshu")
+            ),
+            testStrings.getValue(128).tokenize()
+        )
+    }
+
+    @Test
+    fun test129() {
+        assertEquals(
+            listOf(
+                Token(TEXT, "Hello"),
+                Token(WHITESPACE, "\n"),
+                Token(TEXT, "Hitanshu")
+            ),
+            testStrings.getValue(129).tokenize()
+        )
+    }
+
 }
