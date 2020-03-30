@@ -1,7 +1,16 @@
 package com.hitanshudhawan.spannablestringparser.parser
 
 import com.hitanshudhawan.spannablestringparser.lexer.Token
-import com.hitanshudhawan.spannablestringparser.lexer.TokenType.*
+import com.hitanshudhawan.spannablestringparser.lexer.TokenType.BACKTICK
+import com.hitanshudhawan.spannablestringparser.lexer.TokenType.COLON
+import com.hitanshudhawan.spannablestringparser.lexer.TokenType.END_TAG
+import com.hitanshudhawan.spannablestringparser.lexer.TokenType.LEFT_BRACE
+import com.hitanshudhawan.spannablestringparser.lexer.TokenType.PIPE
+import com.hitanshudhawan.spannablestringparser.lexer.TokenType.RIGHT_BRACE
+import com.hitanshudhawan.spannablestringparser.lexer.TokenType.SEMICOLON
+import com.hitanshudhawan.spannablestringparser.lexer.TokenType.START_TAG
+import com.hitanshudhawan.spannablestringparser.lexer.TokenType.TEXT
+import com.hitanshudhawan.spannablestringparser.lexer.TokenType.WHITESPACE
 
 /**
  * FiniteAutomaton : A finite-state machine to recognize proper syntax.
@@ -65,5 +74,4 @@ internal class FiniteAutomaton {
             currentState = automatonMap.getValue(currentState)[token.tokenType] ?: initialState
         return currentState
     }
-
 }

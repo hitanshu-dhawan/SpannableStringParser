@@ -4,10 +4,23 @@ import android.graphics.Color
 import android.graphics.Typeface
 import android.text.Layout
 import android.text.SpannableStringBuilder
-import android.text.style.*
+import android.text.style.AbsoluteSizeSpan
+import android.text.style.AlignmentSpan
+import android.text.style.BackgroundColorSpan
+import android.text.style.ForegroundColorSpan
+import android.text.style.RelativeSizeSpan
+import android.text.style.StrikethroughSpan
+import android.text.style.StyleSpan
+import android.text.style.SubscriptSpan
+import android.text.style.SuperscriptSpan
+import android.text.style.TypefaceSpan
+import android.text.style.URLSpan
+import android.text.style.UnderlineSpan
 import com.hitanshudhawan.spannablestringparser.spanner
 import com.hitanshudhawan.spannablestringparser.spannify
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -698,5 +711,4 @@ class SpannerTest {
     private fun SpannableStringBuilder.getSpans(queryStart: Int = 0, queryEnd: Int = length): Array<Any> {
         return getSpans(queryStart, queryEnd, Any::class.java)
     }
-
 }

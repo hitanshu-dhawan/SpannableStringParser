@@ -1,8 +1,11 @@
 package com.hitanshudhawan.spannablestringparser.parser
 
 import com.hitanshudhawan.spannablestringparser.lexer.Token
-import com.hitanshudhawan.spannablestringparser.lexer.TokenType.*
-import java.util.*
+import com.hitanshudhawan.spannablestringparser.lexer.TokenType.BACKTICK
+import com.hitanshudhawan.spannablestringparser.lexer.TokenType.LEFT_BRACE
+import com.hitanshudhawan.spannablestringparser.lexer.TokenType.TEXT
+import java.util.LinkedList
+import java.util.Queue
 import kotlin.collections.ArrayList
 
 /**
@@ -95,5 +98,4 @@ internal class Parser(private val tokens: List<Token>) {
 
         return Node(text = ruleSetText, declarations = ruleSetDeclarations)
     }
-
 }

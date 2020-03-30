@@ -1,7 +1,16 @@
 package com.hitanshudhawan.spannablestringparser.lexer
 
 import com.hitanshudhawan.spannablestringparser.TestingUtils.testStrings
-import com.hitanshudhawan.spannablestringparser.lexer.TokenType.*
+import com.hitanshudhawan.spannablestringparser.lexer.TokenType.BACKTICK
+import com.hitanshudhawan.spannablestringparser.lexer.TokenType.COLON
+import com.hitanshudhawan.spannablestringparser.lexer.TokenType.END_TAG
+import com.hitanshudhawan.spannablestringparser.lexer.TokenType.LEFT_BRACE
+import com.hitanshudhawan.spannablestringparser.lexer.TokenType.PIPE
+import com.hitanshudhawan.spannablestringparser.lexer.TokenType.RIGHT_BRACE
+import com.hitanshudhawan.spannablestringparser.lexer.TokenType.SEMICOLON
+import com.hitanshudhawan.spannablestringparser.lexer.TokenType.START_TAG
+import com.hitanshudhawan.spannablestringparser.lexer.TokenType.TEXT
+import com.hitanshudhawan.spannablestringparser.lexer.TokenType.WHITESPACE
 import com.hitanshudhawan.spannablestringparser.tokenize
 import org.junit.Assert.assertEquals
 import org.junit.Test
@@ -1204,5 +1213,4 @@ class LexerTest {
             testStrings.getValue(129).tokenize()
         )
     }
-
 }
