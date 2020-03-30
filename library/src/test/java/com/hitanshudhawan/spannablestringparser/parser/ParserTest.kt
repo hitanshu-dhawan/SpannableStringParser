@@ -1878,5 +1878,4 @@ class ParserTest {
             testStrings.getValue(125).tokenize().parse()
         )
     }
-
 }

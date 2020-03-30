@@ -4,8 +4,24 @@ import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Build.VERSION.SDK_INT
 import android.os.Build.VERSION_CODES.Q
-import android.text.*
-import android.text.style.*
+import android.text.Layout
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.SpannableStringBuilder
+import android.text.style.AbsoluteSizeSpan
+import android.text.style.AlignmentSpan
+import android.text.style.BackgroundColorSpan
+import android.text.style.ForegroundColorSpan
+import android.text.style.LineBackgroundSpan
+import android.text.style.LineHeightSpan
+import android.text.style.RelativeSizeSpan
+import android.text.style.StrikethroughSpan
+import android.text.style.StyleSpan
+import android.text.style.SubscriptSpan
+import android.text.style.SuperscriptSpan
+import android.text.style.TypefaceSpan
+import android.text.style.URLSpan
+import android.text.style.UnderlineSpan
 import com.hitanshudhawan.spannablestringparser.parser.Node
 import com.hitanshudhawan.spannablestringparser.safe
 
