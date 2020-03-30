@@ -95,5 +95,4 @@ internal class Parser(private val tokens: List<Token>) {
 
         return Node(text = ruleSetText, declarations = ruleSetDeclarations)
     }
-
 }

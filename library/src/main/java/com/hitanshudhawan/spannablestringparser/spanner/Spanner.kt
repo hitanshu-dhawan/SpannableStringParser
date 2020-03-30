@@ -12,7 +12,10 @@ import com.hitanshudhawan.spannablestringparser.safe
 /**
  * Spanner : Converts a syntax tree into SpannableString.
  */
-internal class Spanner(private val syntaxTree: List<Node>, private val customSpanner: (property: String, value: String) -> Any?) {
+internal class Spanner(
+    private val syntaxTree: List<Node>,
+    private val customSpanner: (property: String, value: String) -> Any?
+) {
 
     fun spannify(): CharSequence {
         val text = SpannableStringBuilder()
@@ -134,9 +137,7 @@ internal class Spanner(private val syntaxTree: List<Node>, private val customSpa
                 else -> safe {
                     customSpanner.invoke(declaration.property, declaration.value)?.let { text.setSpan(it) }
                 }
-
             }
-
         }
 
         return text
@@ -145,5 +146,4 @@ internal class Spanner(private val syntaxTree: List<Node>, private val customSpa
     private fun SpannableString.setSpan(what: Any) {
         setSpan(what, 0, length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
     }
-
 }

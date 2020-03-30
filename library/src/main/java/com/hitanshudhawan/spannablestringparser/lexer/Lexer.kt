@@ -55,5 +55,4 @@ internal class Lexer(private val text: CharSequence) {
         }
         return false
     }
-
 }

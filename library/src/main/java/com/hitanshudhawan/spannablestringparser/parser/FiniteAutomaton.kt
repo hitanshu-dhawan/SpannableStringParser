@@ -65,5 +65,4 @@ internal class FiniteAutomaton {
             currentState = automatonMap.getValue(currentState)[token.tokenType] ?: initialState
         return currentState
     }
-
 }
