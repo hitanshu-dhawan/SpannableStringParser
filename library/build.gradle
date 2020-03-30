@@ -44,8 +44,3 @@ jacoco {
 tasks.withType(Test) {
     jacoco.includeNoLocationClasses = true
 }
-
-ktlint {
-    version = "0.36.0"
-    android = true
-}
