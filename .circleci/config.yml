@@ -9,8 +9,11 @@ jobs:
           name: Download Dependencies
           command: ./gradlew androidDependencies
       - run:
+          name: Run Lints
+          command: ./gradlew --continue ktlintCheck
+      - run:
           name: Run Tests
-          command: ./gradlew ktlintCheck test
+          command: ./gradlew test
       - run:
           name: Run Test Coverage
           command: ./gradlew jacocoTestReport
