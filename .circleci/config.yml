@@ -20,6 +20,3 @@ jobs:
       - run:
           name: Upload Test Coverage Reports
           command: bash <(curl -s https://codecov.io/bash) -Z
-      - run:
-          name: Upload Test Coverage Reports
-          command: bash <(curl -s https://coverage.codacy.com/get.sh)
