@@ -269,6 +269,11 @@ val lorem_ipsum = "lorem ipsum ..."
 ```
 ![](images/supported-properties-url-1.png)
 
+<b>Note:</b> You have to set `LinkMovementMethod` on the `TextView` for supporting url clicks.
+```
+text_view.movementMethod = LinkMovementMethod.getInstance()
+```
+
 ---
 
 ### `more-properties-coming-soon`
