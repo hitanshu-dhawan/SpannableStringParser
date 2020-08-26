@@ -28,7 +28,7 @@ import org.robolectric.annotation.Config
 
 @Config(minSdk = 14, maxSdk = 29)
 @RunWith(RobolectricTestRunner::class)
-class SpannerTest {
+internal class SpannerTest {
 
     @Test
     fun `text-color 001`() {

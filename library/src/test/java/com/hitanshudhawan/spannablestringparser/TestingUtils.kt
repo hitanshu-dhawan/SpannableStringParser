@@ -1,6 +1,6 @@
 package com.hitanshudhawan.spannablestringparser
 
-object TestingUtils {
+internal object TestingUtils {
 
     val testStrings by lazy {
         mapOf(

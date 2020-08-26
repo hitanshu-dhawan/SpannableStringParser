@@ -6,7 +6,7 @@ import com.hitanshudhawan.spannablestringparser.tokenize
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-class ParserTest {
+internal class ParserTest {
 
     @Test
     fun test001() {

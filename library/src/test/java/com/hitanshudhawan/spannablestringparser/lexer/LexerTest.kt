@@ -15,7 +15,7 @@ import com.hitanshudhawan.spannablestringparser.tokenize
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-class LexerTest {
+internal class LexerTest {
 
     @Test
     fun test001() {
