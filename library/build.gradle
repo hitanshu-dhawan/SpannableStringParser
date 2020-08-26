@@ -27,6 +27,13 @@ android {
             includeAndroidResources = true
         }
     }
+    //kotlin.explicitApi = 'strict'
+    kotlinOptions {
+        // TODO this should be moved to a top-level `kotlin { explicitApi() }` once that's working, for android projects, see https://youtrack.jetbrains.com/issue/KT-37652.
+        freeCompilerArgs += [
+                '-Xexplicit-api=strict',
+        ]
+    }
 }
 
 dependencies {
