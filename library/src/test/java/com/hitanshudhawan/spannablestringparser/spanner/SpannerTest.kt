@@ -135,7 +135,7 @@ internal class SpannerTest {
 
             val spans1 = spannable.getSpans()
             assertTrue(spans1.size == 1)
-            assertEquals(Color.parseColor("#0000FF"), (spans1[0] as LineBackgroundSpan.Standard).color)
+            assertEquals(Color.parseColor("#0000F"), (spans1[0] as LineBackgroundSpan.Standard).color)
         }
     }
 
@@ -150,7 +150,7 @@ internal class SpannerTest {
 
             val spans1 = spannable.getSpans()
             assertTrue(spans1.size == 1)
-            assertEquals(Color.parseColor("#AA0000FF"), (spans1[0] as LineBackgroundSpan.Standard).color)
+            assertEquals(Color.parseColor("#AA0000F"), (spans1[0] as LineBackgroundSpan.Standard).color)
         }
     }
 
@@ -167,7 +167,7 @@ internal class SpannerTest {
             assertTrue(spans1.isEmpty())
             val spans2 = spannable.getSpans(queryStart = 6, queryEnd = 14)
             assertTrue(spans2.size == 1)
-            assertEquals(Color.parseColor("#0000FF"), (spans2[0] as LineBackgroundSpan.Standard).color)
+            assertEquals(Color.parseColor("#0000F"), (spans2[0] as LineBackgroundSpan.Standard).color)
             val spans3 = spannable.getSpans(queryStart = 14, queryEnd = length)
             assertTrue(spans3.isEmpty())
         }
@@ -652,7 +652,7 @@ internal class SpannerTest {
 
             val spans1 = spannable.getSpans()
             assertTrue(spans1.size == 1)
-            assertEquals(16, (spans1[0] as LineHeightSpan.Standard).height)
+            assertEquals(1, (spans1[0] as LineHeightSpan.Standard).height)
         }
     }
 
