@@ -8,6 +8,7 @@ import android.text.style.AbsoluteSizeSpan
 import android.text.style.AlignmentSpan
 import android.text.style.BackgroundColorSpan
 import android.text.style.ForegroundColorSpan
+import android.text.style.LineBackgroundSpan
 import android.text.style.RelativeSizeSpan
 import android.text.style.StrikethroughSpan
 import android.text.style.StyleSpan
@@ -124,9 +125,16 @@ internal class SpannerTest {
 
     @Test
     fun `line-background-color 001`() {
-        // TODO
-        // Robolectric doesn't support API 29, requires Java 9
-        // https://github.com/robolectric/robolectric/issues/5258
+        val string = "{ `Hitanshu` < line-background-color : #0000FF /> }"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("Hitanshu", spannable.toString())
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.size == 1)
+            assertEquals(Color.parseColor("#0000FF"), (spans1[0] as LineBackgroundSpan.Standard).color)
+        }
     }
 
     @Test
