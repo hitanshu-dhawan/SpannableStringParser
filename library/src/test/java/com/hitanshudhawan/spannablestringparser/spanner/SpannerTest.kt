@@ -124,6 +124,7 @@ internal class SpannerTest {
     }
 
     @Test
+    @Config(minSdk = 29, maxSdk = 29)
     fun `line-background-color 001`() {
         val string = "{ `Hitanshu` < line-background-color : #0000FF /> }"
         with(string.spannify()) {
