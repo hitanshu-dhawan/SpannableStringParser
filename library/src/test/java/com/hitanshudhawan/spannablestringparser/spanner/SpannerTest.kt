@@ -9,6 +9,7 @@ import android.text.style.AlignmentSpan
 import android.text.style.BackgroundColorSpan
 import android.text.style.ForegroundColorSpan
 import android.text.style.LineBackgroundSpan
+import android.text.style.LineHeightSpan
 import android.text.style.RelativeSizeSpan
 import android.text.style.StrikethroughSpan
 import android.text.style.StyleSpan
@@ -641,10 +642,46 @@ internal class SpannerTest {
     }
 
     @Test
+    @Config(minSdk = 29, maxSdk = 29)
     fun `line-height 001`() {
-        // TODO
-        // Robolectric doesn't support API 29, requires Java 9
-        // https://github.com/robolectric/robolectric/issues/5258
+        val string = "{ `Hitanshu` < line-height : 16px /> }"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("Hitanshu", spannable.toString())
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.size == 1)
+            assertEquals(16, (spans1[0] as LineHeightSpan.Standard).height)
+        }
+    }
+
+    @Test
+    @Config(minSdk = 29, maxSdk = 29)
+    fun `line-height 002`() {
+        val string = "{ `Hitanshu` < line-height : random-value /> }"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("Hitanshu", spannable.toString())
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.isEmpty())
+        }
+    }
+
+    @Test
+    @Config(minSdk = 29, maxSdk = 29)
+    fun `line-height 003`() {
+        val string = "{ `Hitanshu` < line-height : 16spx /> }"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("Hitanshu", spannable.toString())
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.isEmpty())
+        }
     }
 
     @Test
