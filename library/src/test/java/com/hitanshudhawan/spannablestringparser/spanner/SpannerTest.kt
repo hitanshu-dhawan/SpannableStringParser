@@ -174,6 +174,20 @@ internal class SpannerTest {
     }
 
     @Test
+    @Config(minSdk = 14, maxSdk = 28)
+    fun `line-background-color 004`() {
+        val string = "{ `Hitanshu` < line-background-color : #0000FF /> }"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("Hitanshu", spannable.toString())
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.isEmpty())
+        }
+    }
+
+    @Test
     fun `text-size 001`() {
         val string = "{ `Hitanshu` < text-size : 16dp /> }"
         with(string.spannify()) {
@@ -674,6 +688,20 @@ internal class SpannerTest {
     @Config(minSdk = 29, maxSdk = 29)
     fun `line-height 003`() {
         val string = "{ `Hitanshu` < line-height : 16spx /> }"
+        with(string.spannify()) {
+            val spannable = this as SpannableStringBuilder
+
+            assertEquals("Hitanshu", spannable.toString())
+
+            val spans1 = spannable.getSpans()
+            assertTrue(spans1.isEmpty())
+        }
+    }
+
+    @Test
+    @Config(minSdk = 14, maxSdk = 28)
+    fun `line-height 004`() {
+        val string = "{ `Hitanshu` < line-height : 16px /> }"
         with(string.spannify()) {
             val spannable = this as SpannableStringBuilder
 
