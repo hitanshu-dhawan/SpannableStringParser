@@ -15,3 +15,7 @@ public fun spanner(spanner: (property: String, value: String) -> Any?) {
  * Converts a String into SpannableString.
  */
 public fun String.spannify(): CharSequence = tokenize().parse().spannify(customSpanner)
+
+public fun CharSequence.property(property: CharSequence, vararg values: CharSequence): CharSequence = ""
+
+// TODO : Improve Documentation (K-Doc)
