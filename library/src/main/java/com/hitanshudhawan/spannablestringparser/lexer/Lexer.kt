@@ -6,7 +6,7 @@ import com.hitanshudhawan.spannablestringparser.lexer.TokenType.WHITESPACE
 /**
  * Lexer : Converts a String into sequence of tokens.
  */
-internal class Lexer(private val text: CharSequence) {
+internal class Lexer(private val text: String) {
 
     private var index = 0
 
