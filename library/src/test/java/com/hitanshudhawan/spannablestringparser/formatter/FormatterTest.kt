@@ -68,6 +68,46 @@ internal class FormatterTest {
         "Hitanshu Dhawan".property("text color", "#0000FF").property("text decoration", "underline", "strike-through")
     }
 
+    @Test(expected = IllegalArgumentException::class)
+    fun `text having single empty property with single value`() {
+        "Hitanshu Dhawan".property("", "#0000FF")
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `text having single empty property with multiple values`() {
+        "Hitanshu Dhawan".property("", "underline", "strike-through")
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `text having multiple empty properties with single values`() {
+        "Hitanshu Dhawan".property("", "#0000FF").property("", "underline")
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `text having multiple empty properties with multiple values`() {
+        "Hitanshu Dhawan".property("", "#0000FF").property("", "underline", "strike-through")
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `text having single blank property with single value`() {
+        "Hitanshu Dhawan".property("  ", "#0000FF")
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `text having single blank property with multiple values`() {
+        "Hitanshu Dhawan".property("  ", "underline", "strike-through")
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `text having multiple blank properties with single values`() {
+        "Hitanshu Dhawan".property("  ", "#0000FF").property("  ", "underline")
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `text having multiple blank properties with multiple values`() {
+        "Hitanshu Dhawan".property("  ", "#0000FF").property("  ", "underline", "strike-through")
+    }
+
     //
 
     @Test
@@ -108,6 +148,46 @@ internal class FormatterTest {
             "{ `Hitanshu Dhawan` <text-decoration:underline|`strike through`;url:`https://www.google.com`/> }",
             "Hitanshu Dhawan".property("text-decoration", "underline", "strike through").property("url", "https://www.google.com")
         )
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `text having single property with single empty value`() {
+        "Hitanshu Dhawan".property("url", "")
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `text having single property with multiple empty values`() {
+        "Hitanshu Dhawan".property("text-decoration", "", "")
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `text having multiple properties with single empty values`() {
+        "Hitanshu Dhawan".property("url", "").property("text-decoration", "")
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `text having multiple properties with multiple empty values`() {
+        "Hitanshu Dhawan".property("url", "").property("text-decoration", "", "")
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `text having single property with single blank value`() {
+        "Hitanshu Dhawan".property("url", "  ")
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `text having single property with multiple blank values`() {
+        "Hitanshu Dhawan".property("text-decoration", "  ", "  ")
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `text having multiple properties with single blank values`() {
+        "Hitanshu Dhawan".property("url", "  ").property("text-decoration", "  ")
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `text having multiple properties with multiple blank values`() {
+        "Hitanshu Dhawan".property("url", "  ").property("text-decoration", "  ", "  ")
     }
 
     //
