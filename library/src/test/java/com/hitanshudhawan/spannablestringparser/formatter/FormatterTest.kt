@@ -23,7 +23,7 @@ internal class FormatterTest {
     }
 
     @Test
-    fun `text having multiple properties with single values`() {
+    fun `text having multiple properties with single value`() {
         assertEquals(
             "{ `Hitanshu Dhawan` <text-color:#0000FF;text-decoration:underline/> }",
             "Hitanshu Dhawan".property("text-color", "#0000FF").property("text-decoration", "underline")
@@ -41,8 +41,8 @@ internal class FormatterTest {
             "Hitanshu Dhawan".property("text-color", "#0000FF").property("text-decoration", "underline", "strike-through")
         )
         assertEquals(
-            "{ `Hitanshu Dhawan` <text-decoration:underline|strike-through;text-color:#0000FF/> }",
-            "Hitanshu Dhawan".property("text-decoration", "underline", "strike-through").property("text-color", "#0000FF")
+            "{ `Hitanshu Dhawan` <text-decoration:strike-through|underline;text-color:#0000FF/> }",
+            "Hitanshu Dhawan".property("text-decoration", "strike-through", "underline").property("text-color", "#0000FF")
         )
     }
 
@@ -59,7 +59,7 @@ internal class FormatterTest {
     }
 
     @Test(expected = IllegalArgumentException::class)
-    fun `text having multiple invalid properties with single values`() {
+    fun `text having multiple invalid properties with single value`() {
         "Hitanshu Dhawan".property("text color", "#0000FF").property("text decoration", "underline")
     }
 
@@ -79,7 +79,7 @@ internal class FormatterTest {
     }
 
     @Test(expected = IllegalArgumentException::class)
-    fun `text having multiple empty properties with single values`() {
+    fun `text having multiple empty properties with single value`() {
         "Hitanshu Dhawan".property("", "#0000FF").property("", "underline")
     }
 
@@ -99,7 +99,7 @@ internal class FormatterTest {
     }
 
     @Test(expected = IllegalArgumentException::class)
-    fun `text having multiple blank properties with single values`() {
+    fun `text having multiple blank properties with single value`() {
         "Hitanshu Dhawan".property("  ", "#0000FF").property("  ", "underline")
     }
 
@@ -127,7 +127,7 @@ internal class FormatterTest {
     }
 
     @Test
-    fun `text having multiple properties with single invalid values`() {
+    fun `text having multiple properties with single invalid value`() {
         assertEquals(
             "{ `Hitanshu Dhawan` <url:`https://www.google.com`;text-decoration:underline/> }",
             "Hitanshu Dhawan".property("url", "https://www.google.com").property("text-decoration", "underline")
@@ -145,8 +145,8 @@ internal class FormatterTest {
             "Hitanshu Dhawan".property("url", "https://www.google.com").property("text-decoration", "underline", "strike through")
         )
         assertEquals(
-            "{ `Hitanshu Dhawan` <text-decoration:underline|`strike through`;url:`https://www.google.com`/> }",
-            "Hitanshu Dhawan".property("text-decoration", "underline", "strike through").property("url", "https://www.google.com")
+            "{ `Hitanshu Dhawan` <text-decoration:`strike through`|underline;url:`https://www.google.com`/> }",
+            "Hitanshu Dhawan".property("text-decoration", "strike through", "underline").property("url", "https://www.google.com")
         )
     }
 
@@ -161,7 +161,7 @@ internal class FormatterTest {
     }
 
     @Test(expected = IllegalArgumentException::class)
-    fun `text having multiple properties with single empty values`() {
+    fun `text having multiple properties with single empty value`() {
         "Hitanshu Dhawan".property("url", "").property("text-decoration", "")
     }
 
@@ -181,7 +181,7 @@ internal class FormatterTest {
     }
 
     @Test(expected = IllegalArgumentException::class)
-    fun `text having multiple properties with single blank values`() {
+    fun `text having multiple properties with single blank value`() {
         "Hitanshu Dhawan".property("url", "  ").property("text-decoration", "  ")
     }
 
