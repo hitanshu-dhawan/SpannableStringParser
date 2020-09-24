@@ -132,7 +132,7 @@ internal object TestingUtils {
             114 to "{ `Google` < a : b | c ; d : `www|www`  /> }",
             115 to "{ `Google` < a : b | c ; d :  www;www   /> }",
             116 to "{ `Google` < a : b | c ; d : `www;www`  /> }",
-            117 to "{ `Google` <a:b|c;d:`https://www.one.com`|`https://www.two.com`;e:`https://www.three.com`/> }",
+            117 to "{ `Google` <a:b|c|`x y z`;d:`https://www.one.com`|`https://www.two.com`;e:`https://www.three.com`/> }",
             //
             118 to "{`Hitanshu``Dhawan`<a:b|c;d:e/>}",
             119 to "{ `Hitanshu` `Dhawan` < a : b | c ; d : e /> }",

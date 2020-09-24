@@ -220,4 +220,14 @@ internal class FormatterTest {
             "  ".property("text-color", "#0000FF").property("text-decoration", "underline", "strike-through")
         )
     }
+
+    //
+
+    @Test
+    fun `text having random properties with random values`() {
+        assertEquals(
+            "{ `Hitanshu Dhawan` <text-color:#0000FF;text-decoration:underline|strike-through/> }",
+            "Random Stuff".property("a", "b", "c").property("d", "e", "f").property("g", "h", "i j k l m n o p")
+        )
+    }
 }
