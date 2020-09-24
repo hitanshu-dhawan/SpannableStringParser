@@ -225,6 +225,7 @@ internal class FormatterTest {
 
     @Test
     fun `text having random properties with random values`() {
+        // TODO
         assertEquals(
             "{ `Random Stuff` <a:b|c;d:e|f;g:h|`i j k l m n o p`/> }",
             "Random Stuff".property("a", "b", "c").property("d", "e", "f").property("g", "h", "i j k l m n o p")
