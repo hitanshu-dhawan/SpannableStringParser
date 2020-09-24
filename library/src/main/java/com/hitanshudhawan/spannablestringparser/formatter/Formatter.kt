@@ -1,5 +1,6 @@
 package com.hitanshudhawan.spannablestringparser.formatter
 
+import com.hitanshudhawan.spannablestringparser.Constants
 import com.hitanshudhawan.spannablestringparser.lexer.TokenType
 import com.hitanshudhawan.spannablestringparser.parse
 import com.hitanshudhawan.spannablestringparser.parser.Declaration
@@ -41,12 +42,10 @@ internal class Formatter(private val text: String) {
         if (this.declarations == null || this.declarations.isEmpty())
             return this.text
 
-        val template = "{ `{{TEXT}}` <{{DECLARATIONS}}/> }"
-
-        return template
-            .replace("{{TEXT}}", this.text)
+        return Constants.SPANNABLE_STRING_TEMPLATE
+            .replace(Constants.TEXT, this.text)
             .replace(
-                "{{DECLARATIONS}}",
+                Constants.DECLARATIONS,
                 this.declarations
                     .groupBy { it.property }
                     .map { (property, declarations) ->
