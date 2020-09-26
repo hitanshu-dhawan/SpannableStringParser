@@ -1708,6 +1708,7 @@ internal class ParserTest {
                     listOf(
                         Declaration("a", "b"),
                         Declaration("a", "c"),
+                        Declaration("a", "x y z"),
                         Declaration("d", "https://www.one.com"),
                         Declaration("d", "https://www.two.com"),
                         Declaration("e", "https://www.three.com")

@@ -1,6 +1,7 @@
 package com.hitanshudhawan.spannablestringparser
 
 import android.util.Log
+import com.hitanshudhawan.spannablestringparser.formatter.Formatter
 import com.hitanshudhawan.spannablestringparser.lexer.Lexer
 import com.hitanshudhawan.spannablestringparser.lexer.Token
 import com.hitanshudhawan.spannablestringparser.parser.Node
@@ -21,6 +22,10 @@ internal fun List<Token>.parse(): List<Node> {
 
 internal fun List<Node>.spannify(customSpanner: (String, String) -> Any?): CharSequence {
     return Spanner(this, customSpanner).spannify()
+}
+
+internal fun String.addProperty(property: String, values: List<String>): String {
+    return Formatter(this).addProperty(property, values)
 }
 
 internal fun safe(block: () -> Unit) {
