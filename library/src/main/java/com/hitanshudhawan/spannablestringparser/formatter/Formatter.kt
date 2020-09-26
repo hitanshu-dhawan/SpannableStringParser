@@ -15,19 +15,19 @@ internal class Formatter(private val text: String) {
             return text
 
         if (property.isBlank())
-            throw IllegalArgumentException("...")
+            throw IllegalArgumentException("property cannot be empty or blank")
         if (property.tokenize().size != 1 || property.tokenize()[0].tokenType != TokenType.TEXT)
-            throw IllegalArgumentException("...")
+            throw IllegalArgumentException("property is invalid : $property")
 
         if (values.isEmpty())
-            throw IllegalArgumentException("...")
+            throw IllegalArgumentException("values cannot be empty")
         if (values.any { it.isBlank() })
-            throw IllegalArgumentException("...")
+            throw IllegalArgumentException("values cannot be empty or blank")
 
         val syntaxTree = text.tokenize().parse()
 
         if (syntaxTree.size != 1)
-            throw IllegalArgumentException("...")
+            throw IllegalArgumentException("text syntax is invalid : $text")
 
         val node = syntaxTree[0].copy(
             declarations = (syntaxTree[0].declarations ?: emptyList()).toMutableList().apply {
