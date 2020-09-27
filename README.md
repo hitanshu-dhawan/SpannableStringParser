@@ -88,6 +88,15 @@ spanner { property, value ->
 }
 ```
 
+- If you don't want these properties and values coming from a back-end server, you can use the `property` method.
+```kotlin
+"text"
+    .property("property", "value")
+    .property("property", "value", "value")
+    .spannify()
+```
+<b>Note:</b> Make sure to call the `spannify` method at the end.
+
 ## Supported Properties
 
 ### `text-color`
@@ -293,7 +302,7 @@ allprojects {
 Add the dependency to your app `build.gradle` file
 ```
 dependencies {
-    implementation 'com.github.hitanshu-dhawan:SpannableStringParser:1.1.0'
+    implementation 'com.github.hitanshu-dhawan:SpannableStringParser:1.2.1'
 }
 ```
 
