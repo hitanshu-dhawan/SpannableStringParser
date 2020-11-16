@@ -97,6 +97,10 @@ spanner { property, value ->
 ```
 <b>Note:</b> Make sure to call the `spannify` method at the end.
 
+---
+
+If you are using Node.js for your back-end, you can use [SpannableStringFormatter](https://github.com/hitanshu-dhawan/SpannableStringFormatter) to efficiently and correctly format your strings.
+
 ## Supported Properties
 
 ### `text-color`
